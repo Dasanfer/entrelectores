@@ -1,0 +1,18 @@
+{%extends 'AppBundle:logged:timeline/follow_entry.html.twig'%}
+
+{%block action%}
+    <span class="accion"> Ha empezado a seguir al usuario <a href="{{url('user_profile',{slug:entry.user.slug})}}">{{entry.user.username}}</a></span>
+
+{%endblock action%}
+
+{%block content_image%}
+<div class="img-holder">
+    <img src="{{userImage(entry.user)}}" alt="profile photo of {{entry.user.username}}">
+</div>
+{%endblock content_image%}
+
+{%block copy_content%}
+    <p>
+        {{include('AppBundle:public:follow_buttons.html.twig',{type:'user',itemId:entry.user.id, css: 'boton_min'})}}
+    </p>
+{%endblock copy_content%}

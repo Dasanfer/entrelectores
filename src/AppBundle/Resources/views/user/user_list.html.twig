@@ -1,0 +1,67 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+{%block body%}
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content">
+            <div class="listado_libros clearfix contenido_general lista-usuarios">	
+                <h1>Usuarios</h1>
+                <div class="clearfix">
+                    <form action="{{url('public_users_list')}}" method="GET">
+                        <input type="text" name="search" placeholder="Buscar" value="{{searchTerm}}"/>
+                        <div class="botones clearfix">
+                            <input type="submit" name="_submit" value="Buscar" />
+                        </div>
+                    </form>
+                </div>
+                {% for user in pagination %}
+                <div class="libro_header clearfix js-search-result">
+                    <div class="img-user-holder">
+                        <img src="{{userImage(user,50,50)}}" alt="profile photo of {{user.username}}"/>
+                    </div>
+                    <div>
+                        <p class="datos">
+                        <span class="nombre">
+                            {%if user.slug%}
+                            <a href="{{url('user_profile',{slug:user.slug})}}">{{user.username}}</a>
+                            {%endif%}
+                        </span>
+                        </p>
+                        <div class="data-user-holder clearfix">
+                            <p class="datos">
+                            <a class="seguidores" href="#users">
+                                {% set followers = user.followersCount %}
+                                {% set listNum = publicListsCount(user) %}
+
+                                <span class="ion-arrow-right-c"></span>{{followers}} 
+                                {{followers == 1?'seguidor':'seguidores'}}
+                            </a>
+                            {#<a class="seguidos" href="#folows">
+                                <span class="ion-arrow-left-c"></span> 
+                                sigue a {{follows}} 
+                            </a>#}
+                            <a class="listas" href="#lists">
+                                <span class="ion-navicon"></span> {{listNum}}
+                                {{listNum == 1? 'lista':'listas'}} {{listNum == 1? 'publica':'publicas'}} 
+                            </a>
+                            {{include('AppBundle:public:follow_buttons.html.twig',{type:'user',itemId:user.id})}}     
+                            </p>
+
+                        </div>
+                    </div>
+                </div> 
+                {%endfor%}
+
+                <div class="pagination clearfix">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            {{include('AppBundle:public:public_sidebar.html.twig')}}
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}

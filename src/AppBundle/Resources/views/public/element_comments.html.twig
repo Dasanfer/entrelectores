@@ -1,0 +1,42 @@
+{%for comment in comments%}
+<li class="clearfix conversation-entry js-element-comment" id="action_{{comment.id}}">
+        <div class="meta">
+            <img src="{{userImage(comment.createdBy,50,50)}}" alt="Profile photo of {{comment.createdBy.username}}">
+        </div>
+        <div class="cont"> 
+            <p class="meta-info clearfix">
+            <span class="nombre">{{comment.createdBy.username}}</span>
+            <span class="fecha">{{comment.created | date('d/m/Y \\a \\l\\a\\s g:ia') }}</span>
+            </p>
+            <p class="contenido">
+                {{comment.content}}
+            </p>
+
+            {%if comment.children.count > 0%}
+                <ul class="respuestas">
+                    {%for child in comment.children%}
+                    <li class="clearfix js-element-comment" id="action_{{child.id}}">
+                            <div class="meta clearfix">
+                                <img src="{{userImage(child.createdBy)}}" alt="Profile photo of {{child.createdBy.username}}">
+                            </div>
+                            <div class="cont"> 
+                                <p class="meta-info clearfix">
+                                    <span class="nombre">{{child.createdBy.username}}</span>
+                                    <span class="fecha">{{child.created | date('d/m/Y \\a \\l\\a\\s g:ia') }}</span>
+                                </p>
+                                <p class="contenido">
+                                    {{child.content}}
+                                </p>
+                            </div>      
+                        </li>
+                    {%endfor%}
+                </ul>
+            {%endif%}
+            
+            <span class="responder">
+                <div class="form-holder" style="display: none;">
+                </div>
+                <a href="" class="boton boton_inline  boton_min boton_celeste js-abre-form-respuesta no_activo" onclick="event.preventDefault();" data-parent-comment="{{comment.id}}">Responder</a></span>
+        </div>      
+    </li>
+{%endfor%}

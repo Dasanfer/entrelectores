@@ -1,0 +1,58 @@
+<div class="previo_blog">
+    {%if interview%}
+    <div class="single_previo entrevista clearfix">
+        <div class="clearfix entrevistas_intro">
+            <h3>Entrevista EntreLectores</h3>
+            <p>
+            Descubre con Entrelectores las lecturas favoritas, los recuerdos, deseos y vivencias 
+            relacionados con la lectura de distintas personalidades del panorama literario, cultural y social. 
+            Un cuestionario de 13 preguntas cuyas respuestas te ayudarán a conocer mejor a personajes relevantes y populares
+            </p>
+        </div>
+        <div class="imagen_entrevista"> 
+            <img src="{{web_image(interview.imageDir).resize(105,132).jpeg()}}" alt="imagen de {{interview.name}}"/>
+        </div>
+        <div class="copy">
+            <p class="personaje">{{interview.name}}</p>
+            <p class="extracto">{{interview.quote}}</p> 			
+                <div class="intro">
+                    <p>
+                    {{interview.biography}}
+                    </p>
+            </div>
+
+            <div class="link_box clearfix">
+                <a class="boton boton_verde boton_grande boton_inline" href="{{url('public_interview',{slug:interview.slug})}}">Lee aquí la entrevista completa</a>
+                <a class="boton boton_gris boton_grande boton_inline" href="{{url('public_interview_list')}}">Ver entrevistas anteriores</a>
+            </div>
+
+        </div>
+
+    </div>
+    {%endif%}
+
+    {%for post in posts%}
+    <div class="single_previo blog clearfix">
+        {%if post.imageDir%}
+        <div class="icono">
+            <img src="{{web_image(post.imageDir).cropResize(70,70).jpeg()}}"/>
+        </div>
+        {%endif%}
+
+        <div class="copy">
+            <h3>{{post.title}}</h3>
+            <p class="fecha">{{post.created|date("d/m/Y")}}</p>
+            <p class="resumen">
+                {%if post.intro%}
+                {{post.intro}}
+                {%else%}
+                {{post.content|striptags|truncate(250)}}
+                {%endif%}
+                <a class="read_more" href="{{url('public_blog_post',{slug:post.slug})}}">Leer mas</a>
+
+            </p>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+

@@ -1,0 +1,24 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content contenido_general">
+            <div class="libro_header autor_header clearfix">
+                <div class="portada">
+                    <img src="{{userImage(user,300,300)}}" alt="foto de {{user.username}}">
+                </div>
+                <div class="copy meta"> 
+                    <h1>{{user.username}}</h1> 
+                    <p> 
+                    {{user.cita}}
+                    </p>	
+                </div>
+            </div>
+        </div>
+        <div class="col_sidebar">
+            {{include('AppBundle:user:user_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%}

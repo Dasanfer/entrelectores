@@ -1,0 +1,50 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content">
+            <div class="listado_libros lista-listas-publicas clearfix contenido_general">
+                <h1>Tus listas</h1>
+                
+                <div class="bordered-trans">
+                
+                {% for list in lists %}
+                <div class="clearfix cajas_libro_resumen">
+                    <div class="img-user-holder">
+                        <div class="holder_1 lista-foto"> 
+                            {%for book in list.books | slice(0,3)%} 
+                            <div class="portada_libro_lista p{{loop.index}}">
+                                <img src="{{web_image('/wp-content/'~book.imageDir).resize(85,120).jpeg()}}" alt="portada de {{book.title}}">
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+
+                    <div class="data-user-holder clearfix">
+                        <p class="datos">
+                        <span class="nombre"><a href="{{url('list_page',{slug:list.slug})}}">{{list.name}}</a></span>
+                        <a class="libros" href="{{url('list_page',{slug:list.slug})}}#list-books"><span class="ion-bookmark"></span> {{list.books.count}} libros </a>
+                        <a class="seguidores" href="{{url('list_page',{slug:list.slug})}}#list-followers"><span class="ion-arrow-right-c"></span> {{list.followers.count}} seguidores </a>
+                        {% if list.isPublic %}
+                        <a class="privacy-list"><span class=" ion-unlocked"></span>Lista pública</a>
+                        {% else %}
+                        <a class="privacy-list"><span class="ion-locked"></span>Lista privada</a>
+                        {% endif %}
+                        </p>
+                    </div> 
+                </div>
+                {%else%}
+                <p>Todavía no tienes ninguna lista. Puedes crearlas desde la página de un libro pulsando en "Añadir a mis listas"</p> 
+                {%endfor%}
+                
+                </div>
+                
+            </div>
+        </div>
+        <div class="col_sidebar">
+            {{include('AppBundle:list:list_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%} 

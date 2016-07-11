@@ -1,0 +1,152 @@
+@media screen and (max-width: 1100px) {
+	
+/* -- General ----------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Wrappers */
+
+.row_100 .row { width:100%; }
+	.row_100 .row .col_content { width: 65%; float:left; margin: 20px 0 40px 0; overflow: hidden; padding: 0; }
+	.row_100 .row .col_sidebar { width: 32.5%; float: left; margin: 20px 0 40px 2.5%; }
+
+/* -- Menu superior -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* NO LOGGED */
+
+.menu_sup.no_logged { padding: 0 20px; }
+	.menu_sup.no_logged .menu.menu_login li { margin-left: 5px; }
+
+.menu_sup.no_logged .menu.menu_principal {}
+	.menu_sup.no_logged .menu.menu_principal li { margin: 0 5px; }
+
+.menu_sup.no_logged .menu.menu_buscador { width: 290px; margin: 14px 5px 25px 15px; float: left; }
+	.menu_sup.no_logged .menu.menu_buscador input[type="text"] { width: 190px; }
+
+.menu_sup.no_logged .menu_principal_interior { }
+	.menu_sup.no_logged .menu_principal_interior li a { padding: 0 5px; }	
+	
+.menu_sup.no_logged .menu.menu_social { }
+	.menu_sup.no_logged .menu.menu_social li a:before { font-size: 24px; }
+	
+
+/* LOGGED */
+
+ .menu_sup.logged .menu.menu_buscador { width: 290px; }
+ 	.menu_sup.logged .menu.menu_buscador input[type="text"] { width: 190px; }
+
+
+/* -- Paneles -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.panel_menu_login { right:20px; }
+
+/* -- Pagina inicio -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Menu home */
+
+.home_header .menu_sup .logo { width: 200px; background-size: contain; }
+
+/* Home header */
+
+.home_header .copy { width: 55%; float: left; padding-top: 35px; }
+.home_header .form { width: 45%; float: right; }
+
+/* Encuentra */
+
+.buscador { }
+.buscador .copy { width: 100%; text-align: center; padding: 20px 0 0 0; }
+	.buscador .copy h2 { color: #4D4D4D; font-size: 24px; }
+
+.buscador .form { width: 100%; text-align: center; padding: 20px 0 0 0; }
+	.buscador .form input[type='text'] { width: 60%; margin-top: 5px; display: inline-block; margin-right: 1%; line-height: 36px; height: 40px; font-size: 15px; }
+	.buscador .form input[type='submit'] { width: 20%; margin-top: 5px; display: inline-block; }
+
+/* Previo entrevista */
+
+.single_previo.entrevista { padding-bottom: 0; }
+.entrevista .imagen_entrevista {  position: relative; top: 30px; }
+.entrevista .copy { width: 100%; position: relative;  }
+	.entrevista .copy p.personaje { width: 65%; height: 20px; }
+	.entrevista .copy p.extracto { width: 65%; height: 90px; }
+
+/* Previo Blog */
+
+.single_previo.blog .icono { height: 70px; width: 15%; }
+		
+	.single_previo.blog .copy { width: 80%; }
+	.single_previo.blog.loop_blog .copy { width: 100%; }
+
+/* -- Single libro --------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Main Book info */
+
+.libro_header .portada { overflow: hidden; }
+	.libro_header .portada img { max-width: 150px; margin: 0 auto 20px auto; }
+
+.libro_header .meta { width: 44%; }
+
+/* Stats y media */
+
+.libro_header .stats { width: 35%; }
+.stats .rate { width: 75%; }
+.stats .bars { width: 100%; }
+
+/* Libro leído */
+
+.libro_leido .listas { float: right; width: 30%; }
+.libro_leido .leido { float: left; width: 70%; }
+
+/* Nuevos estilos Otros libros del mismo autor */
+
+    .lista_autor .listado_lib li .portada { float: left; margin: 0 5% 0 0; width: 25%; overflow: hidden; }
+    .lista_autor .listado_lib li .portada img { width: 40px; height: auto; }
+    .lista_autor .listado_lib li .copy { white-space: normal; line-height: 17px; width: 70%; padding: 0 10px 0 0; }
+        .lista_autor .listado_lib li .copy a { color:#4d4d4d; }
+        
+    .lista_autor .stats .rate { padding-top: 0px; }
+
+/* Nuevos estilos Listas en que aparece el libro */
+    
+    .listado_lib li .copy { width: 120px; }
+    
+/* Overlay Registro */
+
+.overlay .overlay_cont.registro { width: 75%; left: 12.5%; }
+
+
+/* -- Autor ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.libro_header.autor_header .meta { width: 70%; }
+.libro_header.autor_header .portada { width: 30%; }
+
+/* -- Listas ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.libro_header.lista_header .meta { width: 68%; }
+.libro_header.lista_header .portada { width: 32%; }
+ 
+.listado_libros { width: 100%; padding: 0; }
+.listado_libros .libro_header .meta { width: 68%; }
+.listado_libros .libro_header .portada { width: 32%; }
+
+.libro_meta ul.interacciones_ee { padding: 0 0 0 20px; }
+
+/* -- Planes ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.columna_campos { width: 25%; }
+.columna_valores { width: 21%; }
+
+.timeline ul li.con-icono.usuario .copy { top: 0; }
+
+/* -- Overlay inner -- */
+
+.overlay .overlay_cont.mensaje { width: 40%; left: 30%; top: 25%; }
+
+/* -- MENSAJES ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.mensajes.listado ul li.pendientes .fecha { padding-right: 15px; }
+.mensajes.listado ul li.pendientes .fecha .pendientes_cuenta { top: -13px; right: -6px; }
+
+
+/** ALBERTO **/
+
+.home_header .menu_sup .logo:before{right: -30px; width: 22px; height: 14px; top: 40px;}
+
+}

@@ -1,0 +1,20 @@
+{%extends 'AppBundle:logged:timeline/follow_entry.html.twig'%}
+{%block action%}
+    <span class="accion"> Ha empezado a seguir al autor <a href="{{url('authorpage',{slug:entry.author.slug})}}">{{entry.author.name}}</a></span>
+{%endblock action%}
+
+{%block content_image%}
+<div class="img-holder">
+    <a href="{{url('authorpage',{slug:entry.author.slug})}}"><img src="{{web_image('/wp-content/'~entry.author.imageDir).resize(85,120).jpeg()}}" alt="imagen de {{entry.author.name}}"></a>
+</div>
+{%endblock content_image%}
+
+{%block copy_content%}
+    <p>
+        {{entry.author.info}}
+    </p>
+    <p>
+        
+        {{include('AppBundle:public:follow_buttons.html.twig',{type:'author',itemId:entry.author.id})}}
+    </p>
+{%endblock copy_content%}

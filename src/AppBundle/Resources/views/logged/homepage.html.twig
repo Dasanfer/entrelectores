@@ -1,0 +1,63 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content contenido_general ">
+            {{include('AppBundle:banner:page_banner.html.twig',{zone:'timeline'})}}
+            <h1>Timeline</h1> 
+            <div class="bordered main-tl"> 
+                <form id="new_user_status" name="new_user_status" method="post" class="comment-form resena-form clearfix" onsubmit="event.preventDefault();">
+                    <p>Tu estado...</p>
+                    {{form_widget(statusForm.text,{'attr':{'placeholder':'Escribe lo que quieras'}})}}
+                    <button class="boton boton_med boton_verde boton_inline" onclick="event.preventDefault(); user.postStatus($(this).closest('form'))">Enviar estado</button>
+                </form>
+
+                <div class="timeline js-user-timeline">
+                    <ul class="action-entries">
+                    </ul>
+                    <div>
+                        <span>
+                            <a href="#" id="load-more-timeline" class="load-user-timeline boton boton_inline boton_med boton_verde load-more">Más</a>
+                        </span>
+                    </div>
+                    
+                </div>
+            </div> 
+            <!-- ABRIR BLOQUE SUGERENCIAS TIMELINE -->
+            
+            <h1>Te sugerimos</h1>
+            
+            <div class="general-content bordered-trans">
+
+                <!-- ABRIR LIBROS SUGERIDOS --> 
+                {{render_esi(url('popular_books_timeline'))}} 
+                <!-- CERRAR LIBROS SUGERIDOS -->
+            
+                <!-- ABRIR LISTAS SUGERIDAS (EL ICONO DEBE SER CUADRADO DE 40*40PX )-->
+                {{render_esi(url('popular_lists_timeline'))}}           
+                <!-- CERRAR LISTAS SUGERIDAS -->
+
+
+                <!-- ABRIR AUTORES SUGERIDOS -->
+                {{render_esi(url('popular_authors_timeline')) }}
+                <!-- CERRAR AUTORES SUGERIDOS -->
+
+                <!-- ABRIR USUARIOS SUGERIDOS (EL ICONO DEBE SER CUADRADO DE 40*40PX )--> 
+                {{render_esi(url('popular_users_timeline')) }}
+                <!-- CERRAR USUARIOS SUGERIDOS -->
+
+                
+            </div>
+            
+            <!-- CERRAR BLOQUE SUGERENCIAS TIMELINE -->
+            
+            
+        </div>
+
+        <div class="col_sidebar">
+            {{include('AppBundle:user:user_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%}

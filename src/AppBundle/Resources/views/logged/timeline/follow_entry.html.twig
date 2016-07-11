@@ -1,0 +1,31 @@
+<li class="entry clearfix usuario con-icono">
+
+    <div class="meta">
+        <img src="{{userImage(entry.createdBy)}}" alt="Profile photo of {{entry.createdBy.username}}">
+    </div>
+    <div class="cont"> 
+        <p class="meta-info clearfix"> 
+            <span class="cont-nombre-accion">
+                <span class="nombre"> <a href="{{url('user_profile',{slug:entry.createdBy.slug})}}">{{entry.createdBy.username}}</a> </span>
+                {%block action%}
+                {%endblock action%}
+            </span>
+            
+            <span class="fecha">{{entry.created|date("j/n/y \\a \\l\\a\\s G:i")}}</span> 
+        </p>
+
+        <div class="contenido clearfix">
+            {%block content_image%} 
+            {%endblock content_image%}
+
+            
+            <div class="copy">
+                {%block copy_content%}
+                {%endblock copy_content%} 
+            </div>
+            
+        </div>
+        
+    </div> 
+         
+</li>

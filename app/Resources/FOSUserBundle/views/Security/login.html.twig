@@ -1,0 +1,33 @@
+{% extends "FOSUserBundle::layout-login.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+<div class="fos-login-box">
+
+
+    <form action="{{ path("fos_user_security_check") }}" method="post" class="standard-form" id="fos_login_form">
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    
+        <label for="username">Nombre de usuario o Email</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+    
+        <label for="password">{{ 'security.login.password'|trans }}</label>
+        <input type="password" id="password" name="_password" required="required" />
+
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+        {% if error %}
+        <div>
+            <p><span class="form-error">{{error|trans}}</span></p>
+        </div>
+        {% endif %}
+        <a href="{{url('fos_user_resetting_request')}}" class="reset_pwd" title="¿Has perdido tu contraseña?">¿Has perdido tu contraseña?</a>
+
+        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    </form>
+
+</div>
+
+{% endblock fos_user_content %}

@@ -1,0 +1,77 @@
+<div class="row_100 home_header clearfix">
+    <div class="row_100 menu_sup  no_logged ">
+        <div class="row clearfix">
+            <a class="logo {{country}}" href="http://www.entrelectores.com"></a>
+                <ul class="menu menu_login clearfix">
+                    <li class="js-menu-phone phone lanzar-menu">
+                        <span class="ion-navicon-round"></span>
+                    </li>
+
+                    <li>
+                        <a href="#" rel="nofollow" class="desplega_login desplega_login_btt boton boton_med boton_trans"> Entra <span class="no_phone">con tu cuenta</span> </a>
+                        <div class="panel panel_menu_login  panel_menu_login_home ">
+                            <form id="loginform" action="{{ path("fos_user_security_check") }}" method="post">
+                                <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+                                <input type="text" id="user_login" placeholder="Nombre de usuario" name="_username" value="" required="required" />
+                                <input type="password" placeholder="contraseña" id="user_pass" name="_password" required="required" />
+
+                                <a href="{{ path('fos_user_resetting_request') }}" class="reset_pwd" title="¿Has perdido tu contraseña?">¿Has perdido tu contraseña?
+                                </a>
+                                <span class="fbLoginButton">
+                                    {{include('AppBundle:public:fb_login.html.twig')}}
+                                </span>
+
+                                <input type="submit" id="wp-submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                            </form>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="{{url('fos_user_registration_register')}}" class="boton boton_med boton_verde" rel="nofollow"> Regístrate </a>
+                    </li>
+                </ul>
+
+
+            <ul class="menu menu_social clearfix">
+                <li><a href="https://es-la.facebook.com/entrelectores" target="_blank" class="ion-social-facebook">&nbsp;</a> </li>
+                <li><a href="https://twitter.com/entrelectores" target="_blank" class="ion-social-twitter">&nbsp;</a> </li>
+            </ul>
+
+            <ul class="menu menu_principal clearfix">
+                <li><a href="{{url('allbooks')}}"> Libros </a></li>
+                <li><a href="{{url('promocionados')}}"> Promoción de Libros </a></li>
+                <li><a href="{{url('prensa')}}"> Prensa </a></li>
+                <li><a href="{{url('public_blog_post_list')}}"> Blog </a></li>
+            </ul>
+
+            <ul class="menu-phone clearfix"> 
+                <li><a href="{{url('allbooks')}}"> Libros </a></li>
+                <li><a href="{{url('promocionados')}}"> Promoción de Libros </a></li>
+                <li><a href="{{url('prensa')}}"> Prensa </a></li>
+                <li><a href="{{url('public_blog_post_list')}}"> Blog </a></li>
+                <div class="social_link">
+                    <li><a href="https://es-la.facebook.com/entrelectores" target="_blank" class="ion-social-facebook">&nbsp;</a> </li>
+                    <li><a href="https://twitter.com/entrelectores" target="_blank" class="ion-social-twitter">&nbsp;</a> </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+
+        <div class="row clearfix">
+            <div class="copy">
+                <h1>Bienvenido a la<br/> red social <br/>de la gente que lee</h1>
+            </div>
+            {{include('AppBundle:public:home_register_form.html.twig')}}           
+        </div>
+
+
+</div>
+
+<script tye="text/javascript">
+    {%if app.user%}
+        var user_id = {{app.user.id}};
+    {%else%}
+        var user_id = 'anon';
+    {%endif%}
+</script>

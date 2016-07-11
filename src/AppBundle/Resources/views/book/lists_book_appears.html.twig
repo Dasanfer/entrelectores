@@ -1,0 +1,23 @@
+{%if lists%}
+<div class="cajas_libro_resumen listas_libro clearfix"> 
+    <h3>Listas en que aparece {{book.title}}</h3>
+    
+    <div class="cajas_libro_cont">
+    
+        <ul class="listado_lib clearfix">
+            {%for list in lists%}
+            <li class="clearfix">
+                <div class="icono"> 
+                    <img class="sombra" src="{{web_image('/wp-content/'~book.imageDir).cropResize('40','40').jpeg()}}"/>
+                </div>
+                <div class="copy">
+                    <a href="{{url('list_page',{slug:list.slug})}}">{{list.name}}</a>
+                    <span class="cuenta">{{list.bookCount}} libros</span>
+                </div>
+            </li>
+            {%endfor%}		
+        </ul> 
+        
+    </div> 
+</div>
+{%endif%}

@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ONIXMessage SYSTEM "http://www.editeur.org/onix/2.1/03/reference/onix-international.dtd">
+<ONIXMessage>
+<Product>
+	<RecordReference>9788494284595</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788494284595</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BC</ProductForm>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>50 Años de la muerte de C.S.Lewis: El legado de las crónicas de Narnia</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Moreno Berrocal, José</PersonNameInverted>
+	</Contributor>
+	<EditionNumber>1</EditionNumber>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<Language>
+		<LanguageRole>02</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>82</NumberOfPages>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>HRC</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>HRC</SubjectCode>
+
+	</Subject>
+	<Imprint>
+		<ImprintName>Publicaciones Andamio</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00023447</NameCodeValue>
+		<PublisherName>Publicaciones Andamio</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20141013</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>195</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>130</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>Publicaciones Andamio</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>20</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>6.99</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>6.7212</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+	<ReprintDetail>1;20141013;950</ReprintDetail>
+</Product>
+<Product>
+	<RecordReference>9788480813303</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788480813303</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BB</ProductForm>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>50 años del colegio mayor Goimendi</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Echeverría, Rosa María</PersonNameInverted>
+	</Contributor>
+	<EditionNumber>1</EditionNumber>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>344</NumberOfPages>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>BGLA</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>BGLA</SubjectCode>
+
+	</Subject>
+	<Imprint>
+		<ImprintName>Servicio de Publicaciones de la Universidad de Navarra</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00037426</NameCodeValue>
+		<PublisherName>Servicio de Publicaciones de la Universidad de Navarra</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20120914</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>320</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>245</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>Servicio de Publicaciones de la Universidad de Navarra</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>20</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>31.20</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>30.00</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+	<ReprintDetail>1;20120914;500</ReprintDetail>
+</Product>
+<Product>
+	<RecordReference>9788483566305</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788483566305</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BB</ProductForm>
+	<NumberOfPieces>1</NumberOfPieces>
+	<Series>
+		<Title>
+			<TitleType>01</TitleType>
+			<TitleText>Accion Empresarial / Biblioteca ICADE</TitleText>
+		</Title>
+	</Series>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>50 años. Muchas vidas en un proyecto</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Arahuetes Garcia, Alfredo</PersonNameInverted>
+	</Contributor>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>López Franco, José</PersonNameInverted>
+	</Contributor>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Navarro Mendizábal, Íñigo</PersonNameInverted>
+	</Contributor>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Sanz de Diego Verdes-Montenegro, Rafael Mª</PersonNameInverted>
+	</Contributor>
+	<EditionNumber>1</EditionNumber>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>528</NumberOfPages>
+	<PagesArabic>528</PagesArabic>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>BG</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>BG</SubjectCode>
+
+	</Subject>
+	<OtherText>
+		<TextTypeCode>01</TextTypeCode>
+		<Text language="spa">Cinco décadas de historia, de formación integral de personas, de generación de talento para la empresa y para la sociedad, de creación de futuro. 50 años dando cobijo a muchas vidas, transmitiendo valores, humanizando la sociedad y la economía. Este libro quiere recordar los hechos y homenajear a las personas que con su esfuerzo y dedicación han construido, año a año, curso a curso, una facultad de referencia nacional e internacional. Una marca reconocida por los mejores profesionales del mundo de la empresa. Su evolución es también la de la sociedad española. En esta obra se enumeran sus etapas, se da voz a quienes han dejado huella desde los pupitres, pasillos y oficinas, se analiza su presente y se vislumbra su futuro. Aquí está parte de lo hecho entre todos y de lo que se quiere seguir haciendo. Estos son los primeros 50 años de un proyecto que hemos creado entre todos y que aspiramos a seguir construyendo juntos.</Text>
+	</OtherText>
+	<MediaFile>
+		<MediaFileTypeCode>04</MediaFileTypeCode>
+		<MediaFileLinkTypeCode>06</MediaFileLinkTypeCode>
+		<MediaFileLink>9788483566305_04_X.jpg</MediaFileLink>
+	</MediaFile>
+	<Imprint>
+		<ImprintName>LID Editorial Empresarial, S.L.</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00000706</NameCodeValue>
+		<PublisherName>LID Editorial Empresarial, S.L.</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20111015</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>280</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>210</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>LID Editorial Empresarial, S.L.</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>20</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>49.90</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>47.9808</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+	<ReprintDetail>1;20111101;</ReprintDetail>
+</Product>
+<Product>
+	<RecordReference>9788489323902</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788489323902</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BC</ProductForm>
+	<ProductFormDetail>B504</ProductFormDetail>
+	<NumberOfPieces>1</NumberOfPieces>
+	<Series>
+		<Title>
+			<TitleType>01</TitleType>
+			<TitleText>Oeste [divulgación &#38; ensayo]</TitleText>
+		</Title>
+	</Series>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>50 CAFÉS HISTÓRICOS DE ESPAÑA Y PORTUGAL</TitleText>
+	</Title>
+	<Title>
+		<TitleType>10</TitleType>
+		<TitleText>50 CAFÉS HISTÓRICOS DE ESPAÑA Y PORTUGAL</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Franjo Franjo, Fernando</PersonNameInverted>
+	</Contributor>
+	<Contributor>
+		<ContributorRole>A13</ContributorRole>
+		<UnnamedPersons>04</UnnamedPersons>
+	</Contributor>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>212</NumberOfPages>
+	<Illustrations>
+		<IllustrationType>02</IllustrationType>
+		<Number>330</Number>
+	</Illustrations>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>WT</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>WT</SubjectCode>
+
+	</Subject>
+	<AudienceCode>01</AudienceCode>
+	<OtherText>
+		<TextTypeCode>01</TextTypeCode>
+		<Text>El aroma de los viejos y grandes Cafés. Por vez primera, un recorrido histórico, literario y humano con parada en cincuenta de los locales más emblemáticos de España y Portugal. Ilustrado con 330 fotografías y documentos de época. 
+El autor nos introduce en una atmósfera singular en la que los relojes parecen haberse detenido, la conversación es rica y pausada, y la lectura se convierte en un verdadero placer.  En ellos llegamos a sentir el eco cercano de Pablo Picasso, Valle-Inclán, Fernando Pessoa, o incluso Mick Jagger o Sara Montiel.</Text>
+	</OtherText>
+	<MediaFile>
+		<MediaFileTypeCode>04</MediaFileTypeCode>
+		<MediaFileLinkTypeCode>06</MediaFileLinkTypeCode>
+		<MediaFileLink>librocafes.jpg</MediaFileLink>
+	</MediaFile>
+	<Imprint>
+		<ImprintName>Alvarellos Editora</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00000724</NameCodeValue>
+		<PublisherName>Alvarellos Editora</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20141128</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>190</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>200</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>Alvarellos Editora</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>20</ProductAvailability>
+		<ExpectedShipDate>20141128</ExpectedShipDate>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>24.00</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>23.0769</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+	<ReprintDetail>1;20141128;1000</ReprintDetail>
+</Product>
+<Product>
+	<RecordReference>9788416229024</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788416229024</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BC</ProductForm>
+	<ProductFormDetail>B504</ProductFormDetail>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>50 momentos clave en la historia de los Rolling Stones</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Muniesa de Caveda, Mariano</PersonNameInverted>
+		<Name>
+			<PersonNameType>01</PersonNameType>
+			<PersonName>Mariano Muniesa</PersonName>
+		</Name>
+	</Contributor>
+	<EditionNumber>1</EditionNumber>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>352</NumberOfPages>
+	<Illustrations>
+		<IllustrationType>01</IllustrationType>
+	</Illustrations>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>AVH</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>AVH</SubjectCode>
+
+	</Subject>
+	<Imprint>
+		<ImprintName>Quarentena Ediciones</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00023065</NameCodeValue>
+		<PublisherName>Quarentena Ediciones</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20141017</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>240</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>170</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>Quarentena Ediciones</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>20</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>23.00</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>22.1154</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+	<ReprintDetail>1;20141017;1000</ReprintDetail>
+</Product>
+<Product>
+	<RecordReference>9788497865944</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>01</ProductIDType>
+		<IDTypeName>Estudio Didáctico</IDTypeName>
+		<IDValue>02284003</IDValue>
+	</ProductIdentifier>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788497865944</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BB</ProductForm>
+	<NumberOfPieces>1</NumberOfPieces>
+	<Series>
+		<Title>
+			<TitleType>01</TitleType>
+			<TitleText>Busca y encuentra</TitleText>
+		</Title>
+		<NumberWithinSeries>003</NumberWithinSeries>
+	</Series>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>501 imágenes juega con tus amigas</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Equipo editorial</PersonNameInverted>
+	</Contributor>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>24</NumberOfPages>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>YB</SubjectCode>
+	</MainSubject>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>51</MainSubjectSchemeIdentifier>
+		<SubjectCode>0</SubjectCode>
+		<SubjectHeadingText>Generalidades</SubjectHeadingText>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>YB</SubjectCode>
+
+	</Subject>
+	<Subject>
+		<SubjectSchemeIdentifier>51</SubjectSchemeIdentifier>
+		<SubjectCode>0</SubjectCode>
+		<SubjectHeadingText>Generalidades</SubjectHeadingText>
+
+	</Subject>
+	<AudienceCode>01</AudienceCode>
+	<Imprint>
+		<ImprintName>Estudio Didáctico</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00040007</NameCodeValue>
+		<PublisherName>Estudio Didáctico</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20140107</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>255</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>215</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>Estudio Didáctico</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>21</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>4.95</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>4.7596</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+</Product>
+<Product>
+	<RecordReference>9788497865951</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>01</ProductIDType>
+		<IDTypeName>Estudio Didáctico</IDTypeName>
+		<IDValue>02284004</IDValue>
+	</ProductIdentifier>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788497865951</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BB</ProductForm>
+	<NumberOfPieces>1</NumberOfPieces>
+	<Series>
+		<Title>
+			<TitleType>01</TitleType>
+			<TitleText>Busca y encuentra</TitleText>
+		</Title>
+		<NumberWithinSeries>004</NumberWithinSeries>
+	</Series>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>501 imágenes juega con tus amigos</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Equipo editorial</PersonNameInverted>
+	</Contributor>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>24</NumberOfPages>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>YB</SubjectCode>
+	</MainSubject>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>51</MainSubjectSchemeIdentifier>
+		<SubjectCode>0</SubjectCode>
+		<SubjectHeadingText>Generalidades</SubjectHeadingText>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>YB</SubjectCode>
+
+	</Subject>
+	<Subject>
+		<SubjectSchemeIdentifier>51</SubjectSchemeIdentifier>
+		<SubjectCode>0</SubjectCode>
+		<SubjectHeadingText>Generalidades</SubjectHeadingText>
+
+	</Subject>
+	<AudienceCode>01</AudienceCode>
+	<Imprint>
+		<ImprintName>Estudio Didáctico</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00040007</NameCodeValue>
+		<PublisherName>Estudio Didáctico</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20140107</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>255</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>215</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>Estudio Didáctico</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>21</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>4.95</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>4.7596</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+</Product>
+<Product>
+	<RecordReference>9788466369183</RecordReference>
+	<NotificationType>01</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788466369183</IDValue>
+	</ProductIdentifier>
+	<ProductIdentifier>
+		<ProductIDType>01</ProductIDType>
+		<IDTypeName>Referencia editorial</IDTypeName>
+		<IDValue>PL6918A</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BC</ProductForm>
+	<ProductFormDetail>B310</ProductFormDetail>
+	<ProductFormDescription>RÚSTICA BOLSILLO</ProductFormDescription>
+	<Series>
+		<Title>
+			<TitleType>01</TitleType>
+			<TitleText>FORMATO GRANDE</TitleText>
+		</Title>
+		<NumberWithinSeries>730014</NumberWithinSeries>
+	</Series>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>62 MODELO PARA ARMAR   FG</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>CORTAZAR,JULIO</PersonNameInverted>
+	</Contributor>
+	<EditionNumber>001</EditionNumber>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<NumberOfPages>320</NumberOfPages>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>FA</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>FA</SubjectCode>
+
+	</Subject>
+	<OtherText>
+		<TextTypeCode>13</TextTypeCode>
+		<TextFormat>07</TextFormat>
+		<Text>Nacido accidentalmente en Bruselas en 1914, Julio Cortázar es uno de los escritores argentinos más importantes de todos los tiempos. Realizó estudios de Letras y de Magisterio y trabajó como docente en varias ciudades del interior de Argentina. En 1951 fijó su residencia definitiva en París, desarrollando desde allí una obra literaria única dentro de la lengua castellana. Algunos de sus cuentos figuran entre los más perfectos del género. Su novela Rayuela conmocionó el panorama cultural de su tiempo y marcó un hito insoslayable dentro de la narrativa contemporánea. Cortázar murió en París en 1984.</Text>
+	</OtherText>
+	<Imprint>
+		<ImprintName>PUNTO DE LECTURA</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00000462</NameCodeValue>
+		<PublisherName>PUNTO DE LECTURA</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20141121</PublicationDate>
+	<YearFirstPublished>2007</YearFirstPublished>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>190</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>125</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>03</MeasureTypeCode>
+		<Measurement>17</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>08</MeasureTypeCode>
+		<Measurement>313</Measurement>
+		<MeasureUnitCode>gr</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>PUNTO DE LECTURA</SupplierName>
+		<ProductAvailability>20</ProductAvailability>
+		<ExpectedShipDate>20141121</ExpectedShipDate>
+		<Price>
+			<PriceTypeCode>01</PriceTypeCode>
+			<PriceAmount>8.61</PriceAmount>
+			<CountryCode>ES</CountryCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>8.61</TaxableAmount1>
+			<PriceEffectiveFrom>20141120</PriceEffectiveFrom>
+		</Price>
+	</SupplyDetail>
+</Product>
+<Product>
+	<RecordReference>9788415936602</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788415936602</IDValue>
+	</ProductIdentifier>
+	<ProductForm>DG</ProductForm>
+	<NumberOfPieces>1</NumberOfPieces>
+	<EpubType>029</EpubType>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>7 de julio</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Pérez Galdós, Benito</PersonNameInverted>
+	</Contributor>
+	<EditionNumber>1</EditionNumber>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>FL</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>FC</SubjectCode>
+
+	</Subject>
+	<Imprint>
+		<ImprintName>Fundación Biblioteca Virtual Miguel de Cervantes</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00037408</NameCodeValue>
+		<PublisherName>Fundación Biblioteca Virtual Miguel de Cervantes</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20141107</PublicationDate>
+	<SupplyDetail>
+		<SupplierName>Fundación Biblioteca Virtual Miguel de Cervantes</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>20</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>2.42</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>S</TaxRateCode1>
+			<TaxRatePercent1>21.0</TaxRatePercent1>
+			<TaxableAmount1>2.00</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+	<ReprintDetail>1;20141107;</ReprintDetail>
+</Product>
+<Product>
+	<RecordReference>9788483565087</RecordReference>
+	<NotificationType>03</NotificationType>
+	<ProductIdentifier>
+		<ProductIDType>03</ProductIDType>
+		<IDValue>9788483565087</IDValue>
+	</ProductIdentifier>
+	<ProductForm>BC</ProductForm>
+	<ProductFormDetail>B504</ProductFormDetail>
+	<NumberOfPieces>1</NumberOfPieces>
+	<Series>
+		<Title>
+			<TitleType>01</TitleType>
+			<TitleText>Acción empresarial</TitleText>
+		</Title>
+	</Series>
+	<Title>
+		<TitleType>01</TitleType>
+		<TitleText>8 maneras de crecer</TitleText>
+	</Title>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Kotler, Philip</PersonNameInverted>
+	</Contributor>
+	<Contributor>
+		<ContributorRole>A01</ContributorRole>
+		<PersonNameInverted>Kotler, Milton</PersonNameInverted>
+	</Contributor>
+	<Contributor>
+		<ContributorRole>B06</ContributorRole>
+		<PersonNameInverted>de Ancos Rivera, María</PersonNameInverted>
+	</Contributor>
+	<EditionNumber>1</EditionNumber>
+	<Language>
+		<LanguageRole>01</LanguageRole>
+		<LanguageCode>spa</LanguageCode>
+	</Language>
+	<Language>
+		<LanguageRole>02</LanguageRole>
+		<LanguageCode>eng</LanguageCode>
+	</Language>
+	<NumberOfPages>260</NumberOfPages>
+	<PagesArabic>260</PagesArabic>
+	<MainSubject>
+		<MainSubjectSchemeIdentifier>12</MainSubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>KJS</SubjectCode>
+	</MainSubject>
+	<Subject>
+		<SubjectSchemeIdentifier>12</SubjectSchemeIdentifier>
+		<SubjectSchemeVersion>2.1</SubjectSchemeVersion>
+		<SubjectCode>KJS</SubjectCode>
+
+	</Subject>
+	<OtherText>
+		<TextTypeCode>01</TextTypeCode>
+		<Text language="spa">Si piensas que una compañía ya no puede crecer y desarrollarse más o crecer si opera en un mercado con economía en recesión o de bajo crecimiento, 8 Maneras de crecer cambiará tu mentalidad. 
+
+La mayoría de las empresas anclan sus planes de crecimiento en una o dos estrategias, a menudo concebidas antes que el mundo se hiciera tan globalizado y tecnológicamente avanzado. Ahora las empresas deben replantearse estas estrategias y examinar estas 8 oportunidades de crecimiento. ¿Es tu empresa innovadora? ¿Es tu marca tan fuerte como podría llegar a ser? ¿Están tus clientes satisfechos y son fieles y comprometidos? ¿Es tu compañía capaz de arrebatar cuota de mercado a los competidores? ¿Se ha planteado crecer en países como  China, Brasil, o algunos mercados con altos índices de crecimiento? ¿Has hecho adquisiciones y construido nuevas alianzas? ¿Está tu empresa ganando nuevos clientes y mostrando sus verdaderos valores? ¿Has colaborado con los gobiernos y las ONGs en nuevos proyectos? Este libro le muestra lo que docenas de otras compañías están haciendo para lograr un mayor crecimiento en una economía mundial de bajo crecimiento o la industria.</Text>
+	</OtherText>
+	<OtherText>
+		<TextTypeCode>25</TextTypeCode>
+		<Text language="spa"> Autor de reconocido prestigio internacional en el mundo del marketing. Philip Kotler es considerado el padre del marketing moderno y es autor de los libros más influyentes sobre la material.
+ La obra aborda la nuevas estrategias de crecimiento para empresas.
+ Dirigido a ayudar a los responsables de marketing, a detectar oportunidades de crecimiento y desarrollar estrategias y negocio en base a ellas.
+ Incorpora casos prácticos de empresas españolas: Leroy Melin, Atrápalo,entre otros.
+ Campaña de comunicación orientada a dar notoriedad a la obra en medios económicos y especializados en empresa y marketing.</Text>
+	</OtherText>
+	<MediaFile>
+		<MediaFileTypeCode>04</MediaFileTypeCode>
+		<MediaFileLinkTypeCode>06</MediaFileLinkTypeCode>
+		<MediaFileLink>9788483565087_04_X.jpg</MediaFileLink>
+	</MediaFile>
+	<Imprint>
+		<ImprintName>LID Editorial Empresarial, S.L.</ImprintName>
+	</Imprint>
+	<Publisher>
+		<NameCodeType>02</NameCodeType>
+		<NameCodeTypeName>DILVE_PUBLID</NameCodeTypeName>
+		<NameCodeValue>DLV00000706</NameCodeValue>
+		<PublisherName>LID Editorial Empresarial, S.L.</PublisherName>
+	</Publisher>
+	<CountryOfPublication>ES</CountryOfPublication>
+	<PublishingStatus>04</PublishingStatus>
+	<PublicationDate>20141101</PublicationDate>
+	<Measure>
+		<MeasureTypeCode>01</MeasureTypeCode>
+		<Measurement>220</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>02</MeasureTypeCode>
+		<Measurement>150</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>03</MeasureTypeCode>
+		<Measurement>15</Measurement>
+		<MeasureUnitCode>mm</MeasureUnitCode>
+	</Measure>
+	<Measure>
+		<MeasureTypeCode>08</MeasureTypeCode>
+		<Measurement>416</Measurement>
+		<MeasureUnitCode>gr</MeasureUnitCode>
+	</Measure>
+	<SupplyDetail>
+		<SupplierName>LID Editorial Empresarial, S.L.</SupplierName>
+		<SupplierRole>01</SupplierRole>
+		<SupplyToCountry>ES</SupplyToCountry>
+		<ProductAvailability>20</ProductAvailability>
+		<Price>
+			<PriceTypeCode>04</PriceTypeCode>
+			<PriceAmount>19.90</PriceAmount>
+			<CurrencyCode>EUR</CurrencyCode>
+			<TaxRateCode1>R</TaxRateCode1>
+			<TaxRatePercent1>4.0</TaxRatePercent1>
+			<TaxableAmount1>19.1346</TaxableAmount1>
+		</Price>
+	</SupplyDetail>
+	<ReprintDetail>1;20131115;1200</ReprintDetail>
+</Product>
+</ONIXMessage>

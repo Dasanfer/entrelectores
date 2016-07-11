@@ -1,0 +1,38 @@
+<li class="entry clearfix usuario con-icono agrupado">
+
+    <div class="meta"> 
+        <img src="{{web_image('/wp-content/'~entry.book.imageDir).cropResize(200,300).jpeg()}}" alt="portada de {{entry.book.title}}">
+    </div>
+    
+    <div class="cont">
+        <p class="meta-info clearfix">
+        <span class="cont-nombre-accion">
+            <span class="nombre"> <a href="{{url('bookpage',{slug:entry.book.slug,authorslug:entry.book.author.slug})}}">{{entry.book.title}}</a> </span>
+            <span class="accion"> ha recibido una nuevas reseñas</span>
+        </span>
+        </p>
+    
+        <div class="contenido clearfix">
+            <div class="img-holder">
+                <img src="{{userImage(entry.createdBy)}}" alt="Profile photo of {{entry.createdBY.username}}">
+            </div>
+    
+            <div class="copy">
+                <p class="clearfix">
+                <span class="cont-nombre-accion">
+                    <span class="accion"> <a href="{{url('user_profile',{slug:entry.createdBy.slug})}}">{{entry.createdBy.username}}</a></span>
+                </span>
+                <span class="fecha">{{entry.created|date("j/n/y \\a \\l\\a\\s G:i")}}</span>
+                </p>
+    
+                <p>    
+                    {{entry.review.text}}
+                </p>
+    
+                <p><a href="{{url('single_review',{bookSlug: entry.review.book.slug,id:entry.review.id})}}" class="boton boton_min boton_verde boton_inline"> Ver reseña completa </a></p>
+    
+            </div>
+        </div>        
+    </div>
+
+</li>

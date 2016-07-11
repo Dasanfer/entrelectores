@@ -1,0 +1,15 @@
+<h3>{{poll.trivia ? 'Trivia' : 'Encuesta'}}</h3>
+<div id="polls-{{poll.id}}" class="wp-polls" style="opacity: 1;">
+    <p class="pregunta">{{poll.title}}</p>
+    {%set sum = poll.totalAnswers()%}
+
+    {%for option in poll.options%}
+    <p>
+    {{option.title}} <small>({{(option.answers.count*100/sum) |number_format(2, '.', ',')}}%)</small>
+    </p>
+
+    <div class="pollbar" style="width: {{(option.answers.count*100/sum) |number_format(2, '.', ',')}}%;"> </div>
+    <p></p>
+    {%endfor%}
+</div>
+

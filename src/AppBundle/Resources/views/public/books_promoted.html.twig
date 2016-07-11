@@ -1,0 +1,21 @@
+<p>Libros <br /> promocionados</p>
+<div class="icono"></div>
+<ul>
+    {%for book in books%}
+        <li>
+
+        <a href="{{url('bookpage',{authorslug: book.author.slug,slug:book.slug})}}"  class="titulo"
+            onClick="_gaq.push(['_trackEvent', 'Libro promocionado', 'Homepage', '{{book.title}}']);">
+            <img src="{{web_image('/wp-content/'~book.imageDir).zoomCrop(108,170).jpeg()}}" alt="{{book.title}}" class="sombra" />
+        </a>
+        
+        <a href="{{url('bookpage',{authorslug: book.author.slug,slug:book.slug})}}"  class="titulo"
+            onClick="_gaq.push(['_trackEvent', 'Libro promocionado', 'Homepage', '{{book.title}}']);">
+            {{book.title}}</a>
+        {%if book.author%}
+        <span class="autor"><a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">{{book.author.name}}</a> </span>
+        {%endif%}
+        </li>
+    {%endfor%}
+</ul>
+

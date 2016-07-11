@@ -1,0 +1,24 @@
+{%if lists%}
+<div class="cajas_libro_resumen listas_libro clearfix"> 
+    <h3>Listas mas populares</h3>
+    <div class="cajas_libro_cont">
+        <ul class="listado_lib clearfix">
+            {%for list in lists%}
+            <li class="clearfix">
+            <div class="icono"> 
+                {%if list.books.count > 0%}
+                    <img src="{{web_image('/wp-content/'~list.books[0].imageDir).resize(40,40).jpeg()}}" alt="portada de {{list.books[0].title}}">
+                {%endif%}
+            </div>
+            <div class="copy">
+                <a href="{{url('list_page',{slug:list.slug})}}">
+                    {{list.name}}
+                </a>
+                <span class="cuenta">{{list.books.count}} libros</span>
+            </div>
+            </li>
+            {%endfor%}
+        </ul> 
+    </div> 
+</div>
+{%endif%}

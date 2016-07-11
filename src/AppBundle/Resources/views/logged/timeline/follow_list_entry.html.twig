@@ -1,0 +1,23 @@
+{%extends 'AppBundle:logged:timeline/follow_entry.html.twig'%}
+{%block action%}
+    <span class="accion"> Ha empezado a seguir la lista <a href="{{url('list_page',{slug:entry.list.slug})}}">{{entry.list.name}}</a></span>
+{%endblock action%}
+
+{%block content_image%}
+	<div class="holder_1">        
+        {%for book in entry.list.books | slice(0,3)%} 
+            <div class="portada_libro_lista p{{loop.index}}">
+                <img src="{{web_image('/wp-content/'~book.imageDir).resize(400,600).jpeg()}}" alt="portada de {{book.title}}">
+            </div>
+        {%endfor%}
+	</div>
+{%endblock content_image%}
+
+{%block copy_content%}
+    <p>
+        {{entry.list.text}}
+    </p>
+    <p>
+        {{include('AppBundle:public:follow_buttons.html.twig',{type:'list',itemId:entry.list.id, css: 'boton_min'})}}
+    </p>
+{%endblock copy_content%}

@@ -1,0 +1,8 @@
+{%if css is not defined%}
+    {%set css = 'boton_med'%}
+{%endif%}
+<span class="js-follow" data-type={{type}} data-id={{itemId}} >
+    <a data-type="{{type}}" data-id="{{itemId}}" style="display:none;"  class="follow-button boton boton_verde {{css}} boton_inline">Seguir</a>
+
+    <a data-type="{{type}}" data-id="{{itemId}}" style="display:none;" class="unfollow-button boton boton_celeste {{css}} boton_inline siguiendo"></a>
+</span>

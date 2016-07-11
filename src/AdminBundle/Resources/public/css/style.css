@@ -1,0 +1,9 @@
+.box-header{text-align: center;}
+.box-header h3{font-weight: 600;}
+
+.box-content{margin-bottom: 10px;}
+.box-content .content-title{display: block; margin-bottom: 15px; font-size: 16px;}
+
+.box-content-item{display: inline-block; width: 33%;}
+.box-content-item .item-date{font-size: 15px; font-weight: 600;}
+.box-content-item .item-number{font-size: 15px;}

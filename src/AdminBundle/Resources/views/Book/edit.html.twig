@@ -1,0 +1,46 @@
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+{% block form %}
+    {{ block('parentForm') }}
+
+<script>
+   $(function() {
+       var data=false;
+       {% if object.author %}
+            data = {id: "{{object.author.id}}", text: "{{object.author.name}}"};
+            $('.author-select').val('{{object.author.id}}');
+       {% endif%}
+           
+        $('.author-select').select2({
+          initSelection : function (element, callback) {
+              if(data)
+                callback(data);
+           },
+          ajax: {
+                url: "{{path('book_getAuthors')}}",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                  return {
+                    q: params
+                  };
+                },
+                results: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            console.log(item);
+                            return {
+                                text: item.name,
+                                slug: item.slug,
+                                id: item.id
+                            }
+                        })
+                    };
+                },
+                cache: true
+              },
+        minimumInputLength: 5,
+       });
+    });
+    </script>
+{% endblock %}
+

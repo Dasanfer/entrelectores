@@ -1,0 +1,30 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Estadísticas de usuarios</h3>
+  </div>
+  <div class="box-body">
+	<div class="box-content">
+	   <span class="content-title">Número usuarios registrados últimos 30 días</span>
+		{% for single in registers %}
+			<div class="box-content-item">
+				<span class="item-date">{{single.date_created}}:</span>
+				<span class="item-number">{{single.1}}</span>
+			</div>
+		{% endfor %}
+	</div>
+	
+	<div class="box-content">
+	   <span class="content-title">Número reseñas realizadas últimos 30 días</span>
+		{% for single in reviews %}
+			<div class="box-content-item">
+				<span class="item-date">{{single.date_created}}:</span>
+				<span class="item-number">{{single.1}}</span>
+			</div>
+		{% endfor %}
+	</div>
+  </div>
+</div>
+{% endblock %}

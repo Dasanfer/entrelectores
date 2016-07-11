@@ -1,0 +1,145 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+
+{% block metas %} 
+    <meta property="og:image" content="https://{{app.request.httpHost}}{{web_image('/wp-content/'~author.imageDir).jpeg()}}" /> 
+    <meta property="og:description" content="Descubre libros y novedades de {{author.name}}. {{author.books.count > 0?('Autor de '~author.books[0].title)}}. {{author.richInfo|striptags|truncate(100)}}"/>
+    <meta name="description" content="Descubre libros y novedades de {{author.name}}. {{author.books.count > 0?('Autor de '~author.books[0].title)}}. {{author.richInfo|striptags|truncate(100)}}"/>
+
+    <meta property="og:url" content="{{url('authorpage',{slug: author.slug})}}" />
+    <meta property="og:title" content="{{author.name}}" />
+
+{% endblock %} 
+{%block title%}
+    Autor {{author.name}} - Entrelectores
+{%endblock%}
+
+{%block seoTags%}
+    <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+{%endblock%}
+
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row row_general">
+        <div class="col_content contenido_general">
+            <div class="libro_header autor_header clearfix">
+                <div class="portada">
+                    <img src="{{web_image('/wp-content/'~author.imageDir).resize(105,132).jpeg()}}" alt="foto de {{author.name}}">
+
+                    {{include('AppBundle:public:follow_buttons.html.twig',{type:'author',itemId:author.id})}}      
+            	</div>
+
+            	<div class="copy meta">
+            	    <h1>{{author.name}}</h1>
+            	    <p class="datos">
+                    <a href="#author-books">
+                            <span class="ion-bookmark"></span>
+                            {{author.bookCount}} libro{% if author.bookCount > 1 %}s{% endif %} 
+                        </a>
+                        <a href="#">
+                            <span class="ion-arrow-right-c"></span>
+                            {{author.followersCount}} seguidor{% if author.followersCount != 1 %}es{% endif %} 
+                        </a>
+                        </p>
+                    {{author.richInfo | raw}}
+            	</div>	
+            </div>
+
+            <div class="libro_meta clearfix">
+                
+                {% set authorurl = url('authorpage',{slug: author.slug}) %}
+
+                <ul class="interacciones_social">
+                    <li>Compartir:</li>
+                    <li><a class="ion-social-facebook" onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]={{authorurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                    <li><a class="ion-social-twitter" onclick="window.open('http://twitter.com/share?text={{author.name}}&amp;url={{authorurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                    <li><a class="ion-social-googleplus" onclick="window.open('https://plus.google.com/share?url={{authorurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                    <li><a class="ion-social-linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url={{authorurl|url_encode}};title={{author.name}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                </ul>
+                
+            </div>
+            
+            <div class="libro_tabs clearfix">
+
+            	<ul class="tabs_list">
+            		<li><a href="#book-info" id="goto-info" class="goto-info activo book-tab">Resumen</a></li>
+            		<li><a href="#author-books" id="goto-author-books" class="goto-author-books book-tab">Libros del autor</a></li>
+                    <li>
+                        <a href="#author-conversation" class="goto-author-conversation book-tab" id="goto-author-conversation" data-type="author" data-id="{{author.id}}">
+                            Conversación
+                        </a>
+                    </li>
+            	</ul>
+	
+            </div>
+            
+            <div class="bordered-trans general-content clearfix" id="author-general-content">
+
+            <div class="js-general-info js-general-content listado_libros clearfix contenido_general listado_libros_resumen"> 
+                
+                <div class="cajas_libro_resumen">
+                
+                {% for book in author.books.slice(0,3) %} 
+                <div class="libro_header clearfix">
+            
+                	<div class="portada">
+                        <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">
+                            <img src="{{web_image('/wp-content/'~book.imageDir).resize(105,154).jpeg()}}" alt="portada de {{book.title}}" />
+                        </a>
+                	</div>
+            
+                	<div class="copy meta">
+                		<h2> 
+                    		<a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a> 
+                        </h2>
+                        
+                        <div class="stats">
+                            <div class="rate {{app.user ? '' : 'disabled'}}">
+                                {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class: null, global:false})}}
+                            </div>
+                        </div>
+                    
+                    </div>
+                    {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:book.id})}}      
+                    <div class="libro_meta clearfix">
+                    	<ul class="interacciones_ee">
+                    		<li><span class="ion-edit"></span>{{book.reviewCount}} reseña{% if book.reviewCount != 1 %}s{% endif %}</li>
+                    		<li><span class="ion-star"></span>{{book.ratingCount}} voto{% if book.ratingCount != 1 %}s{% endif %}</li>
+                            <li><span class="ion-arrow-right-c"></span>{{book.followersCount}} seguidores</li>
+                    	</ul>
+                	</div>
+                </div> 
+                {% endfor %}
+                
+                <a class="ver_todos goto-author-books" href="#author-books" >ver todos los libros de {{author.name}}</a>
+                
+                </div>
+                
+                {{render_esi(url('author_last_comments',{id:author.id}))}}
+                
+            </div>
+            
+            </div>
+
+            <div class="js-general-content all-books listado_libros clearfix contenido_general listado_libros_resumen bordered-trans" id="all-author-books" style="display:none">
+                <div class="js-book-entries">
+                </div> 
+                <div class="load-more-on-bordered">
+                    <a href="#" data-id="{{author.id}}" class="load-comments boton boton_inline boton_med boton_celeste js-load-more-author" style="display:none;">Más
+                    </a>
+                </div>
+            </div>
+
+            <div class="js-general-content conversacion conversation-section bordered" style="display:none;">
+                {{include('AppBundle:public:comment_section.html.twig',{'element':author,'type':'author'})}}
+            </div>
+       
+        </div>
+        
+        <div class="col_sidebar">
+            {{include('AppBundle:author:author_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+
+{%endblock%}

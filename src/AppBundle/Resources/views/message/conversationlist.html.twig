@@ -1,0 +1,17 @@
+{% for message in messages %}
+<!-- ENTRADA CONVERSACIÓN -->
+<li class="clearfix js-message-entry">
+<div class="meta">
+    <img src="{{userImage(message.from,30,30)}}" alt="avatar" width="30" height="30" alt="Profile photo of {{ message.from }}">
+</div>
+<div class="cont"> 
+    <p class="meta-info clearfix">
+    <span class="nombre">{{ message.from }}</span>
+    <span class="fecha"> {{ message.created | date("d/m/y") }} a las {{ message.created | date("H:i") }} </span>
+    </p>
+    <p class="contenido">
+    {{ message.text }}
+    </p>
+</div>      
+</li>
+{% endfor %}

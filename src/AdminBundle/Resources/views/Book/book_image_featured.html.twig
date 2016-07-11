@@ -1,0 +1,10 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+    {%- if value is empty -%}
+        Sin Portada
+    {%- else %}
+       <img src="{{web_image('/'~object.imageDir).cropResize(100,200).jpeg()}}" style="width:100px;height: auto"/>
+  
+    {%- endif -%}
+{% endblock %}

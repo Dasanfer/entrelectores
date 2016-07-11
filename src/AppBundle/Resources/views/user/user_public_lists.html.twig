@@ -1,0 +1,38 @@
+{% for list in lists %}
+<div class="clearfix cajas_libro_resumen">
+    <div class="img-user-holder">
+        <div class="holder_1 lista-foto"> 
+            {%for book in list.books | slice(0,3)%} 
+                <div class="portada_libro_lista p{{loop.index}}">
+                    <img src="{{web_image('/wp-content/'~book.imageDir).resize(85,120).jpeg()}}" alt="portada de {{book.title}}">
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+
+    <div class="data-user-holder clearfix">
+        <p class="datos">
+            <span class="nombre">
+                <a class="nospan" href="{{url('list_page',{slug:list.slug})}}">{{list.name}}</a>
+            </span>
+            
+            <a class="libros" href="{{url('list_page',{slug:list.slug})}}#list-books">
+                <span class="ion-bookmark"></span> 
+                {{list.books.count}} libro{% if list.books.count != 1 %}s{%endif%} 
+            </a>
+            
+            <a class="seguidores" href="{{url('list_page',{slug:list.slug})}}#list-followers">
+                <span class="ion-arrow-right-c"></span> 
+                {{list.followers.count}} seguidor{% if list.followers.count != 1 %}es{%endif%} 
+            </a>
+            
+        </p>
+
+        {%if app.user != user%}
+            {{include('AppBundle:public:follow_buttons.html.twig',{type:'list',itemId:list.id})}}
+        {%endif%}
+    </div> 
+</div>
+{%else%}
+<p><br />No hay listas públicas por el momento</p>
+{%endfor%}

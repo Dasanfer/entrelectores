@@ -1,0 +1,125 @@
+parameters:
+    fos_oauth_provider.class: AppBundle\Services\Security\FOSUBUserProvider
+ 
+services:
+    app.pass_encoder:
+        class:  AppBundle\Services\Security\PassEncoder
+        arguments: [10]
+
+    app.twig_parameters:
+        class:  AppBundle\Services\Twig\GlobalParameters
+        arguments: 
+            - { facebook_app_id: "%facebook_app_id%", app_domain: "%app_domain%"}
+        tags:
+            - { name: twig.extension }
+
+    app.login_entry_point:
+        class: AppBundle\Services\Security\LoginEntryPoint
+        arguments: [ @router ]
+
+    app.rating:
+        class:  AppBundle\Services\Books\RatingService
+        arguments: [@doctrine,@event_dispatcher]
+        tags:
+            - { name: twig.extension }
+
+    app.promoted:
+        class:  AppBundle\Services\Books\PromotedService
+        arguments: [@doctrine]
+
+    app.search:
+        class:  AppBundle\Services\Books\SearchService
+        arguments: [@doctrine]
+
+    app.suggestion:
+        class:  AppBundle\Services\Books\SuggestionService
+        arguments: [@doctrine]
+    
+    app.review:
+        class:  AppBundle\Services\Books\ReviewService
+        arguments: [@doctrine]
+
+    app.list:
+        class:  AppBundle\Services\Lists\ListService
+        arguments: [@doctrine,@form.factory,@logger,@jms_serializer,@event_dispatcher]
+
+    app.poll:
+        class:  AppBundle\Services\Polls\PollService
+        arguments: [@doctrine]
+        tags:
+            - { name: twig.extension }
+
+    app.page_banner:
+        class:  AppBundle\Services\PageBannerService
+        arguments: [@doctrine]
+        tags:
+            - { name: twig.extension }
+
+    app.user.timeline:
+        class:  AppBundle\Services\Users\TimelineService
+        arguments: [@doctrine,@event_dispatcher]
+        tags:
+            - { name: twig.extension }
+            
+    app.user.image:
+        class:  AppBundle\Services\Users\UserImageService
+        arguments: [@doctrine,@image.handling,@service_container]
+        tags:
+            - { name: twig.extension }
+
+    app.user.status:
+        class:  AppBundle\Services\Users\StatusService
+        arguments: [@doctrine,@event_dispatcher]
+
+    app.conversation:
+        class:  AppBundle\Services\Conversation\ConversationService
+        arguments: [@doctrine]
+        tags:
+            - { name: twig.extension }
+
+    app.message:
+        class:  AppBundle\Services\Message\MessageService
+        arguments: [@doctrine]
+        tags:
+            - { name: twig.extension }
+
+    app.book_relation:
+        class:  AppBundle\Services\Users\BookRelationService
+        arguments: [@doctrine, @event_dispatcher] 
+        tags:
+            - { name: twig.extension }
+
+    app.timeline.listener:
+        class: AppBundle\Services\Timeline\EventListener
+        arguments: [@doctrine,@logger]
+        tags:
+            - { name: kernel.event_listener, event: app.timeline_event, method: onTimelineEvent }
+
+    app.popular:
+        class: AppBundle\Services\Timeline\PopularItems
+        arguments: [@doctrine]
+
+    app_user.registration.form.type:
+        class: AppBundle\Forms\RegistrationFormType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+
+    app_user.small_registration.form.type:
+        class: AppBundle\Forms\SmallRegistrationType
+        tags:
+            - { name: form.type, alias: small_user_registration }
+
+    fos_oauth_provider:
+        class: "%fos_oauth_provider.class%"
+        #this is the place where the properties are passed to the UserProvider - see config.yml
+        arguments: [@fos_user.user_manager,{facebook: facebook_id}]
+
+    app_user.registration_complete:
+        class: AppBundle\Services\Security\RegistrationConfirmListener
+        arguments: [@router]
+        tags:
+            - { name: kernel.event_subscriber }
+            
+    app_controller.migration:
+        class: AppBundle\Controller\PublicSite\MigrationController
+        arguments: ["@doctrine","@templating","@router"]

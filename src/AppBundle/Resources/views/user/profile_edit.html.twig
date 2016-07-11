@@ -1,0 +1,77 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+
+{% form_theme form 'AppBundle:forms:el_theme.html.twig' %}
+
+{%block body%}
+<div id="overlay_privacidad_perfil" class="overlay privacidad" style="display:none;">
+    <div class="overlay_cont mensaje contenido_general">
+        <div class="overlay_cont_inner">
+            <h3>Atención</h3>
+            <p>Vas a cambiar tu configuración de privacidad.</p> 
+            <p> Haciendo esto no podrás tener seguidores y no se podrán ver tus datos y actividad.</p>
+            <p> ¿Estás seguro de que no quieres cambiar la configuración de privacidad? </p> 
+            <div class="botones clearfix"> 
+                <span class="boton boton_rojo boton_med boton_inline" onclick="$('#overlay_privacidad_perfil').hide();"> 
+                    No, gracias 
+                </span> 
+                <span class="boton boton_verde boton_med boton_inline" onclick="user.changeToPrivate()"> 
+                    Estoy seguro 
+                </span> 
+            </div> 
+        </div> 
+    </div> 
+</div>
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content contenido_general">
+            <div class="form-editar contenedor_perfil"> 
+                <form action="{{url('user_profile_edit')}}" {{form_enctype(form) }} method="POST" id="profile_form" class="standard-form">
+                    
+                    {{form_widget(form)}}
+
+                    <label for="privacidad">Privacidad</label>
+                    <p class="privacidad" id="public-profile" style="{{app.user.publicProfile ? '' : 'display:none;'}}">
+                    <span class="campo ion-unlocked"></span>
+                    <span class="valor">Perfil público</span>
+                    <a id="convertir_perfil_privado" href="#" class="boton boton_verde boton_med boton_inline convertir_perfil_publico">Cambiar privacidad</a>
+                    </p>
+
+                    <p class="privacidad" id="private-profile" style="{{app.user.publicProfile ? 'display:none;' : ''}}">
+                    <span class="campo ion-locked"></span>
+                    <span class="valor">Perfil privado</span> 
+                    <a id="convertir_perfil_publico" href="#" class="boton boton_verde boton_med boton_inline convertir_perfil_publico">Cambiar privacidad</a>
+                    </p>
+
+                    <div class="botones clearfix">
+                        <a href="{{url('user_profile',{slug:app.user.slug})}}" class="boton boton_rojo boton_grande boton_inline boton_cancelar">Cancelar</a>
+                        <input type="submit" class="boton_guardar" value="Guardar cambios">
+                    </div>
+                </form>
+                
+
+                
+                <form action="{{url('user_profile_edit')}}" {{form_enctype(formPass) }} method="POST" id="profile_form" class="standard-form">
+                                        
+                    <div class="reset_password">
+                        {{form_widget(formPass)}}
+                        <div class="botones clearfix boton_newpass">
+                            <input type="submit" value="Guardar nueva contraseña">
+                        </div>
+                    </div>
+                    
+                    <p class="contrasena">
+                        <a class="boton boton_celeste boton_med boton_inline cambiar_password">Cambiar contraseña</a>
+                    </p>
+
+                </form>
+                
+            </div>
+        </div>
+
+        <div class="col_sidebar"> 
+            {{include('AppBundle:user:user_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%}

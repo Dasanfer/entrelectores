@@ -1,0 +1,230 @@
+@media screen and (max-width: 800px) {
+
+/* Wrappers */
+
+	.home_page .row_100 .row .col_content { width: 100%; float:left; margin: 20px 0 40px 0; overflow: hidden; padding: 0; }
+	.home_page .row_100 .row .col_sidebar { display: none; }
+
+	.row_100 .row .col_content { width: 100%; padding: 0; }
+	.row_100 .row .col_sidebar { width: 100%; margin-left:0; border-top: 1px solid #f2f2f2; padding-top: 30px; }
+
+/* Tipos específicas de contenido */
+
+.contenido_single .caja_datos { width: 60%; }
+.contenido_single .fuente { width: 60%; }
+
+/* -- Sidebar --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+	.row_100 .row .col_sidebar .promocionado_sidebar { width: 100%; float:left; }
+	.row_100 .row .col_sidebar .descubre_libros_nuevos,
+	.row_100 .row .col_sidebar .comprar,
+	.polls { width: 45%; float:left; margin-left: 2.5%; margin-right: 2.5%; }
+	.frase_del_dia { width: 80%; float:left;  margin-left: 10%; margin-right: 10%; }
+
+
+	.mis_listas.listas_populares { float: left; width: 100%; padding: 20px 0; }
+	.mis_listas.listas_populares .mes { border-right: 1px solid #444; width: 50%; float:left; border-bottom: none; padding: 0 20px; }
+	.mis_listas.listas_populares .semana { padding: 0 20px;  width: 50%; float:left; }
+
+
+/* -- Menu superior -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* NO LOGGED */
+
+.menu_sup .logo { width: 25%; }
+
+.menu_sup.no_logged .menu.menu_social { width: 15%; }
+ 
+.menu_sup.no_logged .menu.menu_buscador { width: 100%; margin: 0; border-bottom: none; text-align: center; padding: 5px 0 0 0; }
+	.menu_sup.no_logged .menu.menu_buscador li { width: 100%; display: inline-block; }
+
+.menu_sup.no_logged .menu_principal_interior { width: 100%; margin: 0 0 20px 0; border-top: none; padding: 0 0 5px 0; }
+	.menu_sup.no_logged .menu_principal_interior li { }
+
+
+/* LOGGED */
+
+.menu_sup.logged .logo { width: 100%;  border-bottom: 1px solid #555; background-position: left center; margin: 0; }
+.menu_sup.logged { text-align: center; }
+.menu_sup.logged .menu.menu_buscador { width: auto; margin: 0 15px 0 0; border-bottom: none; }
+.menu_sup.logged .menu.menu_principal { width:auto; margin: 10px 0; }
+.menu_sup.logged .menu.menu_logged { position: absolute; right:0; }
+.panel-plegable { top: 39px; }
+.menu_logged .panel-plegable { top:54px; }
+	
+/* -- Menu inferior -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+	.menu_inf .logo { width: 100%; background-size: contain; height: 50px; margin-top: 20px; }
+	.menu_inf .menu li a { padding: 0 5px; }
+
+	.menu_inf { text-align: center; }
+	.menu_inf .menu.menu_principal { display: inline-block; float: none; }
+		.menu_inf .menu.menu_principal li { margin: 0 5px 0 0; }
+		
+		.menu_inf .menu.menu_social { display: inline-block; float: none; }
+		.menu_inf .menu.menu_social li a:before { font-size: 22px; }
+
+			.menu_inf .menu_iconos ul li { display: inline-block; height: 60px; line-height: 60px; float: none; vertical-align: top;  width: 200px; } 
+			.menu_inf .menu_iconos ul li .icono {  width: 100%; height: 60px; line-height: 60px; }
+	
+/* -- Pagina inicio -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Home header */
+
+.home_header .copy, .home_header .form { padding: 20px; }
+
+.home_header .copy { width: 40%; padding-top: 35px; }
+	.home_header .copy h1 { font-size: 25px; line-height: 27px; }
+
+.home_header .form { width: 60%; float: right; padding-top: 5px; }
+
+/* Encuentra */
+
+.encuentra .row.sugerencias { padding: 10px 30px; }
+.sugerencias { padding: 30px 0; }
+	.sugerencias ul li { width: 45%; text-align: center; } 
+
+
+.iconos { padding: 30px 0; }
+	.iconos .division { width: 50%; float: left; text-align: center; padding: 20px 0 20px 60px; }
+
+/* Descubre */
+
+	.boxes .division.gustos { width: 50%; }
+	.boxes .division.comunidad { width: 50%; border-right: none; }
+ 	
+	.boxes .division.promocionados { width: 100%; height: auto !important; }
+		
+	.boxes .division ul li { display: inline-block; width: 80%; }
+	.boxes .division.promocionados ul li { width: 38%; }
+
+/* Home boxes */
+	.home_boxes .division.listas_populares { margin: 0; width: 100%; }
+	.home_boxes .division.buscador_librerias { width: 80%; border-bottom: 1px solid #808080; border-right: none; padding-bottom: 20px; height: auto !important; }
+	.home_boxes .division.servicios_autores { width: 80%; padding: 20px; height: auto !important; }
+		.servicios_autores .boton { width: 40%; }
+
+
+/* -- Single libro --------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Main Book info */
+
+.libro_header .portada { width: 30%; overflow: hidden; }
+	.libro_header .portada img { max-width: 150px; margin: 0 auto 20px auto; }
+
+.libro_header .meta { width: 70%; }
+
+/* Stats y media */
+
+.libro_header .stats { width: 100%; }
+.libro_header .stats .rate_media { width: 48%; float: left; position: relative; }
+
+.stats .media { position: absolute; top: 0; left: 0; }
+	.stats .rate { width: 100%; padding-top: 40px; }
+	.stats .bars { width: 50%; float: right; }
+
+/* Libro leído */
+
+.libro_leido .listas { float: right; width: 30%; }
+.libro_leido .leido { float: left; width: 70%;  margin-bottom: 0px; }
+
+/* Nuevos estilos Otros libros del mismo autor */
+
+    .lista_autor .listado_lib li { width: 33%; margin: 10px 0; }
+
+/* Nuevos estilos Listas en que aparece el libro */
+
+    .listas_libro .listado_lib li .icono { height: 40px; width: 40px; margin: 0 10px 0 0; float: left; }
+    .listas_libro .listado_lib li .copy { float: left; display: block; width: 120px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-top: 5px; font-size: 13px; text-align: left; padding: 0; }
+
+/* loop Reseñas */
+
+	.resenas .single_resena { padding: 20px; }
+	.resenas .single_resena h3 .avatar { height: 38px; width: 38px;  display: block; position: absolute; top:0; left: 0; }
+	.resenas .single_resena h3 .portada { top:-15px; left: 0; }
+	.resenas .single_resena h3 { padding-left: 50px; }
+	.resenas .single_resena p.fecha { padding-left: 50px; }
+
+	.resenas .single_resena .resena_content { line-height: 17px; max-height: 70px; overflow: hidden; }
+
+
+/* Form resenas */
+
+.add-resena { padding: 0 7%; }
+.add-resena form { width: 100%; }
+
+/* -- Autor ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+        
+/* Listado libros resumen */
+
+.listado_libros_resumen .libro_header .copy { width: 34%; float: left; margin-bottom: 0; padding: 0; }
+.listado_libros_resumen .libro_header .seguir { width: 30%; float: left; margin-bottom: 0; }
+
+/* -- Listas ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.libro_header.lista_header .meta { width: 68%; }
+.libro_header.lista_header .portada { width: 32%; float: left; padding-bottom: 0; }
+          
+/* -- Timeline ------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.timeline ul li.con-icono.usuario .copy { float: left; width:75%; }
+.timeline ul li.libro .cont { float: left; width: 100%; }
+.timeline ul li.libro .copy { float: left; width: 90%; }
+
+.timeline ul li.nuevo-libro .copy { float: left; width:83%; }
+    
+.con-icono.usuario .img-holder { width: 13%;  }
+ 
+.con-icono.usuario.entrevista .img-holder { width: 20%; }
+.con-icono.usuario.entrevista .img-holder img { height: 70px; margin: 0; width: auto; }
+
+.con-icono.nuevo-libro .img-holder { width: 13%; }
+.con-icono.nuevo-libro .img-holder img { height: 100px; margin: 0; width: auto; }
+
+.con-icono .img-holder.usuario img { width: 50px; height: auto; margin: 0 auto; display: block; }
+.con-icono .cont p { float: left; width: 100%; }
+.con-icono .cont p a.boton { padding: 0 20px; margin: 10px 0 0 0; }
+   
+.con-icono .holder_1 { float: none; position: absolute; top:15px; left: 10px; width: 80px; height: 100px; }
+.con-icono .cont .holder_1 { float: left; position: relative; top:0; left:0; width: 13%; }
+
+/* -- Overlay inner -- */
+
+.overlay .overlay_cont.mensaje { width: 65%; left: 15%; top: 15%; }
+
+/* Overlay Registro */
+
+.overlay .overlay_cont.registro { width: 90%; left: 5%; top: 15%; }
+.overlay.modal-registro .overlay_cont .home_header { height: 400px; overflow: auto; }
+.overlay.modal-registro .overlay_cont .copy { width: 100%; }
+.overlay.modal-registro .overlay_cont .form { width: 100%; }
+
+
+/** ALBERTO **/
+
+
+.sidebar_blog_post{float: left; width: 100%;}
+.sidebar_blog_post li{font-size: 15px;}
+.sidebar_blog_post .title-post-side{padding-top: 25px;}
+
+.row_100 .row .col_sidebar .promocionado_sidebar{display: none;}
+.widgets-nets{display: none;}
+
+.boton-ordenator{padding: 0 15px; font-size: 12px; line-height: 25px;}
+.organizator .boton-lista i{margin: 6px 12px;}
+.organizator .boton-grid i{margin: 6px 12px;}
+.sugerencias .genre-sidebar ul li{text-align: left;}
+
+}
+
+@media screen and (max-width: 650px) { 
+
+/* Libro leído */
+
+.libro_leido { border-top: none; }
+.libro_leido .listas { float: left; width: 100%; text-align: center; }
+.libro_leido .leido { float: left; width: 100%; text-align: center; }
+.libro_leido .listas .boton_inline, .libro_leido .leido .boton_inline { margin: 0 10%; width: 80%; display: block;  margin-bottom: 15px; }
+.sugerencias .featus-genre a.nombre-grid{font-size: 10px;}
+	
+}

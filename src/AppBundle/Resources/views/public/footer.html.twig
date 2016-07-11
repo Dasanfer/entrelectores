@@ -1,0 +1,97 @@
+<div class="row_100 menu_inf clearfix">
+
+    <div class="row clearfix">
+
+        <a class="logo" href="http://www.entrelectores.com"> </a>
+
+        <ul class="menu menu_social">
+            <li><a href="https://es-la.facebook.com/entrelectores/" target="_blank" class="ion-social-facebook"> </a></li>
+            <li><a href="https://twitter.com/entrelectores/" target="_blank" class="ion-social-twitter"> </a></li>
+        </ul> 
+
+        <ul class="menu menu_principal">
+            <li><a rel="nofollow" href="{{url('terminos')}}"> Términos y condiciones</a></li>
+            <li><a href="{{url('promocionados')}}"> Promoción de Libros </a></li>
+            <li><a rel="nofollow" href="{{url('contacta')}}"> Contacta </a></li>
+            <li><a href="{{url('prensa')}}"> Prensa </a></li>
+            <li><a href="{{url('public_blog_post_list')}}"> Blog </a></li>
+        </ul>
+
+    </div>
+
+    <div class="row menu_iconos clearfix">
+
+        <ul class="menu clearfix">
+
+            <li><a href="http://www.clouddistrict.com/" class="icono icono_stackscale" title="Servidores cortesía de Cloud District" target="_blank"> <span>Servidores cortesía de:</span> </a></li>
+
+            <li><a href="http://www.elbuscondelocio.com/" target="_blank"><span class="icono icono_buscon"> &nbsp; </span></a></li>
+            <li><a href="http://www.encuentratupeli.com/" class="icono icono_encuntratupeli" title="Encuentra tu peli" target="_blank"> &nbsp; </a></li>
+            <li><a href="http://versusent.es/index.php" class="icono icono_versus" title="versusnet" target="_blank"> &nbsp; </a></li>
+            <li><a href="http://www.mecd.gob.es/portada-mecd/" class="icono icono_gesp" title="Minister de educación, cultura y deporte" target="_blank"> &nbsp; </a></li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="row legal clearfix">
+        <p>
+        <!-- Versus Comunicación Inscrita en el Reg. Mercantíl 123466 tomo 45 sección 45 libro 12-->
+        &copy; 2016 Versus Entertainment. Todos los derechos reservados.
+        </p>
+    </div>
+
+</div>
+
+<div class="cookie_advice" id="cookie-msg" >
+
+    <p> Información importante sobre cookies </p>
+    <p>
+    Esta página web utiliza cookies propias y de terceros para recopilar información que ayuda a optimizar su visita. 
+    Las cookies no se utilizan para recoger información de carácter personal. Usted puede permitir su uso o rechazarlo, 
+    también puede cambiar su configuración siempre que lo desee. Dispone de más información en nuestra 
+    <a href="http://www.entrelectores.com/wp-content/themes/entrelectores3/assets/pdfs/politica-de-cookies.pdf" rel="nofollow" target="_blank">Política de cookies</a>.
+    </p>
+
+    <a class="aceptar_cookies" id="cookieClose" onclick="aceptar_cookies();"><span>Aceptar cookies</span></a>
+
+    </p>
+
+</div>
+
+<div id="register-modal" class="overlay anadir modal-registro" style="display:none;">
+    <div class="overlay_cont registro contenido_general">
+        <div class="overlay_cont_inner">
+            <div onclick="$('#register-modal').hide()" class="cerrar ion-close"></div>
+            <div class="home_header clearfix round_pop_up">
+                <div class="copy">
+                    <div class="logo"></div>
+                    <h2>Regístrate en entrelectores y podrás</h2>
+                    <p>Escribir reseñas</p>
+                    <p>Seguir los gustos y opiniones de tus amigos</p>
+                    <p>Votar tus libros favoritos</p>
+                </div>
+                {{include('AppBundle:public:home_register_form.html.twig',{form:registerModalForm})}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tutorial-modal" class="overlay anadir modal-tutorial" style="display:none;">
+    <div class="overlay_cont tutorial contenido_general">
+        <div class="overlay_cont_inner">
+            <div onclick="$('#tutorial-modal').hide()" class="cerrar ion-close"></div>
+            <div class="clearfix round_pop_up">
+                <img class="js-logged js-not-logged" src="{{asset('bundles/app/img/tutorial/1.jpg')}}"/>
+                <img style="display:none;" class="js-logged js-not-logged" src="{{asset('bundles/app/img/tutorial/2.jpg')}}"/>
+                <img style="display:none;" class="js-logged js-not-logged" src="{{asset('bundles/app/img/tutorial/3.jpg')}}"/>
+                <img style="display:none;" class="js-logged js-not-logged" src="{{asset('bundles/app/img/tutorial/4.jpg')}}"/>
+                <img style="display:none;" class="js-not-logged" src="{{asset('bundles/app/img/tutorial/5.jpg')}}"/>
+                <img style="display:none;" class="js-logged" src="{{asset('bundles/app/img/tutorial/5b.jpg')}}"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+

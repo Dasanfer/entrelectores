@@ -1,0 +1,70 @@
+<div class="breadcrumbs-holder" xmlns:v="http://rdf.data-vocabulary.org/#">
+    <ul class="breadcrumbs">
+
+        <li typeof="v:Breadcrumb"><a href="{{url('allbooks')}}" rel="v:url" property="v:title">Libros</a> / </li>
+
+        <li typeof="v:Breadcrumb"><a href="{{url('bookgenre',{slug:book.genre.slug})}}" property="v:title" rel="v:url">{{book.genre.name}}</a></li>
+
+    </ul>
+</div>
+
+<div class="libro_header clearfix" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
+    
+    <div class="title-holder">
+        <h1><span itemprop="itemreviewed">{{book.title}}</span></h1>
+    </div>
+    
+
+    <div class="portada">
+        <img src="{{web_image('/wp-content/'~book.imageDir).resize(105,132).jpeg()}}" alt="portada de {{book.title}}">
+        {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:book.id})}}
+    </div>
+
+    <div class="copy meta">
+        
+        <p class="autores">
+            <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">{{book.author.name}}</a>
+        </p>
+
+        <div class="rate">
+            {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class: null, global:false})}}
+        </div>
+
+        <p class="generos">
+            <a href="{{url('bookgenre',{slug:book.genre.slug})}}" rel="tag">{{book.genre.name}}</a>
+        </p>
+
+        <ul>
+            {% if book.isbn %} <li>ISBN: {{book.isbn}}</li> {% endif %}
+            {% if book.originalTitle %} <li>Título original: {{book.originalTitle}}</li> {% endif %}
+            {% if book.year %} <li>Año de publicación: {{book.year}}</li> {% endif %}
+        </ul>
+    </div>
+
+    <div class="copy stats clearfix">
+         {{render_esi(url('book_page_book_stats',{id:book.id}))}}
+    </div>
+</div>
+
+<div class="libro_meta clearfix">
+
+    <ul class="interacciones_ee">
+        <li><span class="ion-edit"></span>{{book.reviewCount}} reseña{% if book.reviewCount != 1 %}s{%endif%}</li>
+        <li><span class="ion-star"></span>{{book.ratingCount}} voto{% if book.ratingCount != 1 %}s{%endif%}</li>
+        {%set reading = numReading(book)%}
+        {%if reading > 0%}<li><span class="ion-android-bookmark"></span>{{reading}} lo está{%if reading != 1 %}n{%endif%} leyendo</li>{%endif%}
+    </ul>
+
+    <ul class="interacciones_social">
+        <li>Compartir:</li>
+        {%set bookurl = url('bookpage', {slug:book.slug,authorslug:book.author.slug})%}
+
+        <li><a class="ion-social-facebook" onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]={{bookurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+
+        <li><a class="ion-social-twitter" onclick="window.open('http://twitter.com/share?text={{book.title}}&amp;url={{bookurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+
+        <li><a class="ion-social-googleplus" onclick="window.open('https://plus.google.com/share?url={{bookurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+
+        <li><a class="ion-social-linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url={{bookurl|url_encode}};title={{book.title}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+    </ul>
+</div>

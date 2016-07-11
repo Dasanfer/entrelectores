@@ -1,0 +1,75 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+{%block title%}
+Listas de libros públicas - Entrelectores
+{%endblock%}
+{%block body%}
+
+{% block metas %}
+    <meta name="description" content="Listado de listas públicas de usuarios de Entrelectores. Cotillea las listas de libros más interesantes."/>
+{% endblock %}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content">
+            <div class="listado_libros lista-listas-publicas clearfix contenido_general">
+                <h1>Listas Públicas</h1>
+                <div class="clearfix">
+                    <form action="{{url('public_lists')}}" method="GET">
+                        <input type="text" name="search" placeholder="Buscar" value="{{searchTerm}}"/>
+                        <label for="list order">Ordenar por </label>
+                        <select id="list-order" class="select_box" name="order">
+                            <option value="follows" {{order == 'follows'?'selected="selected"':''}}>Seguidores</option>
+                            <option value="books" {{order == 'books'?'selected="selected"':''}}>Libros</option>
+                        </select>
+                        <div class="botones clearfix">
+                            
+
+                            <input type="submit" name="_submit" value="Buscar" />
+                            {%if searchTerm%}
+                                <a class="boton boton_rojo boton_grande boton_inline" href="{{url('public_lists')}}">Borrar</a>
+                            {%endif%}
+                        </div>
+                    </form>
+                </div>
+                {% for list in pagination %}			
+                    <div class="clearfix cajas_libro_resumen">
+                        <div class="img-user-holder">
+                            <div class="holder_1 lista-foto"> 
+                                {%for book in list.books | slice(0,3)%}
+                                {%if book.imageDir%}
+                                <div class="portada_libro_lista p{{loop.index}}">
+                                    <img src="{{web_image('/wp-content/'~book.imageDir).resize(85,120).jpeg()}}" alt="portada de {{book.title}}">
+                                </div>
+                                {%endif%}
+                                {%endfor%}
+                            </div>
+                        </div>
+
+                        <div class="data-user-holder clearfix">
+                            <p class="datos">
+                            <span class="nombre"><a href="{{url('list_page',{slug:list.slug})}}">{{list.name}} - {{list.user.username}}</a></span>
+
+                            <a class="libros" href="{{url('list_page',{slug:list.slug})}}#list-books"><span class="ion-bookmark"></span> {{list.bookCount}} libros </a>
+                            <a class="seguidores" href="{{url('list_page',{slug:list.slug})}}#list-followers"><span class="ion-arrow-right-c"></span> {{list.followersCount}} seguidores </a>
+                            </p>
+                
+                        </div> 
+                            <div class="public-list-follow clearfix">
+                            {{include('AppBundle:public:follow_buttons.html.twig',{type:'list',itemId:list.id})}}     
+                            </div>
+                    </div>
+                {%endfor%}
+            
+                <div class="pagination clearfix">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            {{include('AppBundle:public:public_sidebar.html.twig')}}
+        </div>
+    </div>
+
+</div>
+{%endblock%}

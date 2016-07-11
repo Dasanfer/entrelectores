@@ -1,0 +1,31 @@
+<div class="libro_header js-grider clearfix">
+    <div class="portada">
+        <div class="cont-img">
+           <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}"> <img src="{{web_image('/wp-content/'~book.imageDir).scaleResize(400,600).jpeg()}}" alt="portada de {{book.title}}" ></a>
+        </div>
+        <a class="nombre-grid" href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title|truncate(20)}}</a>
+    </div>
+
+    <div class="copy meta">
+        <h2>
+            <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a>
+        </h2>
+
+        <p class="autores">Por: <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">{{book.author.name}}</a></p>
+        <div class="rate {{app.user ? '' : 'disabled'}}">
+            {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class: (hasRated(book,app.user) ? 'voted' : ''), global:false})}}
+        </div>
+        {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:book.id})}}
+    </div>
+</div>
+
+<div class="libro_meta js-no-grider clearfix">
+    <ul class="interacciones_ee">
+        <li><span class="ion-edit"></span>{{book.reviewCount}} reseña{% if book.reviewCount != 1 %}s{%endif%}</li>
+        <li><span class="ion-star"></span>{{book.ratingCount}} voto{% if book.ratingCount != 1 %}s{%endif%}</li>
+        <li><span class="ion-arrow-right"></span>{{book.followersCount}} seguidor{% if book.followersCount != 1 %}es{%endif%}</li>
+        {%set reading = numReading(book)%}
+        {%if reading > 0%}<li><span class="ion-android-bookmark"></span>{{reading}} lo está{%if reading != 1 %}n{%endif%} leyendo</li>{%endif%}
+    </ul>
+</div>		
+

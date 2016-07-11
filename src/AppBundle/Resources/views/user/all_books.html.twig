@@ -1,0 +1,58 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content contenido_general">
+            <div class="portada">
+                <h2>Mis libros</h2>
+            </div>
+            <div class="libros-leidos tab-content bordered-trans">
+                <div class="cajas_libro_resumen">
+                    <h3 onclick="$(this).siblings('div').slideToggle(100);">{{user.username}} ha leido los libros</h3>
+                    <div style="display:block;">
+                        <ul class="js-book-container js-readed-container clearfix">
+                            {{render(url('my_readed_books',{userId:app.user.id,offset:0,count:9}))}}
+                        </ul>
+                        <div class="load-more-on-bordered">
+                            <a href="#"  data-user-id="{{app.user.id}}" id="load-readed-books" class="load-comments boton boton_inline boton_med boton_celeste js-load-more" style="display:none;">Más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cajas_libro_resumen">
+                    <h3 onclick="$(this).siblings('div').slideToggle(100);">{{user.username}} está leyendo los libros</h3>
+                    <div style="display:none;">
+                        <ul class="js-book-container js-reading-container clearfix">
+                            {{render(url('my_reading_books',{userId:app.user.id,offset:0,count:9}))}}
+                        </ul>
+                        <div class="load-more-on-bordered">
+                            <a href="#" data-user-id="{{app.user.id}}" id="load-reading-books" class="load-comments boton boton_inline boton_med boton_celeste js-load-more" style="display:none;">Más
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="cajas_libro_resumen">
+                    <h3 onclick="$(this).siblings('div').slideToggle(100);">{{user.username}} quiere leer los libros</h3>
+                    <div style="display:none;">
+                        <ul class="js-book-container js-wanted-container clearfix">
+                            {{render(url('my_wanted_books',{userId:app.user.id,offset:0,count:9}))}}
+                        </ul>
+                        <div class="load-more-on-bordered">
+                            <a href="#"  data-user-id="{{app.user.id}}" id="load-wanted-books" class="load-comments boton boton_inline boton_med boton_celeste js-load-more" style="display:none;">Más
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col_sidebar">
+            {{include('AppBundle:user:user_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%}

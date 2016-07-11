@@ -1,0 +1,24 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} {%block body%}
+<div class="row_100 clearfix">
+    <div class="row row_general">
+
+        <div class="col_content contenido_general contenido_single">
+
+            <h1>Contacta</h1>						
+
+            <p>Entrelectores es una empresa de Versus Entertainment S.L.</p>
+            <ul>
+                <li><strong>Domicilio:</strong> Calle Cronos 24-26, Portal 2, E22 Bajo, 28037 Madrid – España</li>
+                <li><strong>CIF:</strong> B84335520</li>
+                <li>Contacta con nosotros en <a href="mailto:info@entrelectores.com" onclick="_gaq.push(['_trackEvent','mailto','info@entrelectores.com']);">info@entrelectores.com</a></li>
+            </ul>
+
+        </div>
+        <div class="col_sidebar">
+            <div class="promocionado_sidebar">
+                {{render_esi(url('books_sidebar_promoted'))}} 
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

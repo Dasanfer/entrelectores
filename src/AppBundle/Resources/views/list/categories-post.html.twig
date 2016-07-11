@@ -1,0 +1,17 @@
+<div class="categories-blog">
+    <h3>Categorías</h3>
+    
+    <ul>
+        {% for single in categories %}
+        
+            <li>
+                <a class="link-category-sidebar" href="{{url('category_blog_post',{slug:single.slug})}}">{{single.name}}</a>
+            </li>
+        
+        {% endfor %}
+            <li>
+                <a class="link-category-sidebar" href="{{url('category_blog_post',{slug:'SinCategoria'})}}">Sin Categoría</a>
+            </li>
+    </ul>
+
+</div>

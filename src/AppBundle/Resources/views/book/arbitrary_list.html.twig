@@ -1,0 +1,31 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+{%block body%}
+<div class="row_100">
+{{include('AppBundle:banner:page_banner.html.twig',{zone:'list-'~listName, css_class:'row'})}}
+</div>
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content">
+            <div class="listado_libros clearfix contenido_general">
+                <div class="breadcrumbs-holder genero" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <ul class="breadcrumbs">
+                        <li typeof="v:Breadcrumb"> <a href="#" rel="v:url" property="v:title">{{listName}}</a> / </li>
+                    </ul>
+                </div>			
+                <h1>{{listName}}</h1>
+                {% for book in pagination %}          			
+                    {{include('AppBundle:book:list_entry.html.twig',{book:book})}}
+                {%endfor%}
+            
+                <div class="pagination clearfix">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            {{include('AppBundle:book:list_sidebar.html.twig')}} 
+        </div>
+    </div>
+</div>
+{%endblock%}

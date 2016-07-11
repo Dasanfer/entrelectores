@@ -1,0 +1,152 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} {%block body%}
+<div class="row_100 clearfix">
+    <div class="row row_general">
+
+        <div class="col_content contenido_general contenido_single">
+
+            <h1>Libros promocionados</h1>
+            <p>En Entrelectores pretendemos ofrecer siempre información interesante y ayudar a que los usuarios descubran nuevas lecturas, por eso ofrecemos espacios y oportunidades a los autores o editoriales que quieren promocionar sus libros con nosotros.</p>
+            <p>Si un libro está promocionado, siempre estará indicado. Los rankings, votaciones, reseñas, etc. son generados por los usuarios y en ningún caso desde Entrelectores favoreceremos ningún tipo de información engañosa.</p>
+            <h2>Promociona tu libro en Entrelectores</h2>
+            <p>Tu libro será visto por miles de personas que están decidiendo qué libro leerse.</p>
+            <p><img class="size-full wp-image-255205 aligncenter" src="{{web_image('wp-content/uploads/2014/12/distribucion.jpg').resize(484,355).jpeg()}}" alt="distribucion" width="484" height="355"></p>
+            <p style="text-align: left;"></p><div class="caja_datos"> <p></p>
+                <p style="text-align: left;">350.000 visitas/mes</p>
+                <p style="text-align: left;">90.000 usuarios</p>
+                <p style="text-align: left;">313.000 seguidores en Twitter</p>
+                <p style="text-align: left;">116.000 fans en Facebook</p>
+                <p style="text-align: left;"></p></div><span class="fuente">* Fuente Google Analytics</span><p></p>
+            <h2 style="text-align: left;">Solicita información sobre nuestros planes</h2>
+            <p style="text-align: left;">&nbsp;Planes&nbsp;de promoción de Entrelectores:</p>
+
+                <input type="hidden" name="add_planes" value="1">
+
+                <div class="planes_form clearfix">
+
+                    <div class="columna_campos">
+                        <span class="nombre_plan">&nbsp;</span>
+                        <span class="precio_plan">&nbsp;</span>
+                        <span class="precio_mes">&nbsp;</span>
+                        <span class="caracteristicas">Libro destacado</span>
+                        <span class="caracteristicas">Estadísticas</span>
+                        <span class="caracteristicas">Facebook y Twitter</span>
+                        <span class="caracteristicas">Boletín</span>
+                        <span class="caracteristicas">Blog</span>
+                        <span class="caracteristicas">Landing page</span>
+                        <span class="select">&nbsp;</span>
+                    </div>
+
+                    <div class="columna_valores columna_valores_1">
+                        <span class="nombre_plan">Inicio</span>
+                        <span class="precio_plan">99€</span>
+                        <span class="precio_mes">al mes</span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas">Básico</span>
+                        <span class="caracteristicas no_check ion-close-round"> </span>
+                        <span class="caracteristicas no_check ion-close-round"> </span>
+                        <span class="caracteristicas no_check ion-close-round"> </span>
+                        <span class="select">
+                            <input type="radio" name="plan" value="1" id="plan_1">
+                            <label for="plan_1" onclick="$('#form_program').val('plan_1')"> Seleccionar </label>
+                        </span>
+                    </div>
+
+                    <div class="columna_campos phone">
+                        <span class="nombre_plan">&nbsp;</span>
+                        <span class="precio_plan">&nbsp;</span>
+                        <span class="precio_mes">&nbsp;</span>
+                        <span class="caracteristicas">Libro destacado</span>
+                        <span class="caracteristicas">Estadísticas</span>
+                        <span class="caracteristicas">Facebook y Twitter</span>
+                        <span class="caracteristicas">Boletín</span>
+                        <span class="caracteristicas">Blog</span>
+                        <span class="caracteristicas">Landing page</span>
+                        <span class="select">&nbsp;</span>
+                    </div>
+
+                    <div class="columna_valores columna_valores_2">
+                        <span class="nombre_plan">Pro</span>
+                        <span class="precio_plan">250€</span>
+                        <span class="precio_mes">al mes</span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas">Avanzado</span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas no_check ion-close-round"> </span>
+                        <span class="caracteristicas no_check ion-close-round"> </span>
+                        <span class="select">
+                            <input type="radio" name="plan" value="2" id="plan_2">
+                            <label for="plan_2" onclick="$('#form_program').val('plan_2')"> Seleccionar </label>
+                        </span>
+                    </div>
+
+                    <div class="columna_campos phone">
+                        <span class="nombre_plan">&nbsp;</span>
+                        <span class="precio_plan">&nbsp;</span>
+                        <span class="precio_mes">&nbsp;</span>
+                        <span class="caracteristicas">Libro destacado</span>
+                        <span class="caracteristicas">Estadísticas</span>
+                        <span class="caracteristicas">Facebook y Twitter</span>
+                        <span class="caracteristicas">Boletín</span>
+                        <span class="caracteristicas">Blog</span>
+                        <span class="caracteristicas">Landing page</span>
+                        <span class="select">&nbsp;</span>
+                    </div>
+
+                    <div class="columna_valores columna_valores_3">
+                        <span class="nombre_plan">Estrella</span>
+                        <span class="precio_plan">500€</span>
+                        <span class="precio_mes">al mes</span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas">Con sorteo</span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="caracteristicas ion-checkmark check"> </span>
+                        <span class="select">
+                            <input type="radio" name="plan" value="3" id="plan_3">
+                            <label for="plan_3" onclick="$('#form_program').val('plan_3')"> Seleccionar </label>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="regular_form">
+
+                    <h2>Te ofrecemos un <strong>25% de descuento</strong> si lo solicitas ya</h2>
+                    {{form(contactForm,{'attr':{'id':'promo-form','novalidate':'novalidate'}}) }}
+
+                    {#<label>Nombre completo</label>
+                    <input type="text" name="nombre_completo" placeholder="Nombre completo">
+
+                    <label>titulo del libro a promocionar</label>
+                    <input type="text" name="titulo_libro" placeholder="titulo del libro a promocionar">
+
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="submit" value="Quiero información del plan de promoción" /> #}
+                    
+                    {%if thanks%}
+                        <p>Gracias, nos pondremos en contacto con usted</p>
+                        <script type="text/javascript">
+                            document.getElementById("promo-form").scrollIntoView();
+                        </script>
+                    {%endif%}
+                    {% if not contactForm.vars.valid %}
+                        <script type="text/javascript">
+                            window.addEventListener('load',function(){document.getElementById("promo-form").scrollIntoView();});
+                        </script>
+                    {% endif %}
+                </div>
+
+
+        </div>
+        <div class="col_sidebar">
+            <div class="promocionado_sidebar">
+                {{render_esi(url('books_sidebar_promoted'))}} 
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

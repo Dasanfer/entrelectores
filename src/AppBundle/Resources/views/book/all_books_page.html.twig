@@ -1,0 +1,99 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+
+{%block title%}
+Listado completo de libros - Entrelectores
+{%endblock%}
+
+
+{%block body%}
+
+    <div class="row_100">
+        {{include('AppBundle:banner:page_banner.html.twig',{zone:'list-todos-libros', css_class:'row'})}}
+    </div>
+    
+    <div class="row_100 clearfix">
+        <div class="row">
+            <div class="col_content">
+                <div class="listado_libros clearfix contenido_general">
+                    <div class="breadcrumbs-holder genero" xmlns:v="http://rdf.data-vocabulary.org/#">
+                        <ul class="breadcrumbs">
+                            <li typeof="v:Breadcrumb"><a href="{{url('allbooks')}}" rel="v:url" property="v:title">Libros </a>/</li>
+                        </ul>
+                    </div>
+
+
+
+                    <h1>Libros</h1>
+                    <div class="botonera-libros clearfix">
+                        <div class="ordenator">
+                            <span> Ordenar por: </span>
+
+                            {% if app.request.get('order') == "" %}
+
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'mark'})}}">Puntuación</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'followers'})}}">Seguidores</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'reviews'})}}">Reseñas</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'rating'})}}">Votos</a>
+
+                            {% endif %}
+
+                            {% if app.request.get('order') == "mark" %}
+
+                                      <a class="boton boton_med boton_verde boton_inline boton-ordenator" href="{{url('allbooks',{order:'mark'})}}">Puntuación</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'followers'})}}">Seguidores</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'reviews'})}}">Reseñas</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'rating'})}}">Votos</a>
+
+                            {% endif %}
+
+                            {% if app.request.get('order') == "followers" %}
+
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'mark'})}}">Puntuación</a>
+                                      <a class="boton boton_med boton_verde boton_inline boton-ordenator" href="{{url('allbooks',{order:'followers'})}}">Seguidores</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'reviews'})}}">Reseñas</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'rating'})}}">Votos</a>
+
+                            {% endif %}
+
+                            {% if app.request.get('order') == "reviews" %}
+
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'mark'})}}">Puntuación</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'followers'})}}">Seguidores</a>
+                                      <a class="boton boton_med boton_verde boton_inline boton-ordenator" href="{{url('allbooks',{order:'reviews'})}}">Reseñas</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'rating'})}}">Votos</a>
+
+                            {% endif %}
+
+                            {% if app.request.get('order') == "rating" %}
+
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'mark'})}}">Puntuación</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'followers'})}}">Seguidores</a>
+                                      <a class="boton boton_med boton_rojo boton_inline boton-ordenator" href="{{url('allbooks',{order:'reviews'})}}">Reseñas</a>
+                                      <a class="boton boton_med boton_verde boton_inline boton-ordenator" href="{{url('allbooks',{order:'rating'})}}">Votos</a>
+
+                            {% endif %}
+
+                        </div>
+                        <div class="organizator clearfix">
+                            <a class="boton-lista" href="javascript:void(0);"><i></i></a>
+                            <a class="boton-grid active" href="javascript:void(0);"><i></i></a>
+                        </div>
+                    </div>
+                    <div class="container-books clearfix">
+                        {% for book in pagination %}
+                            {{include('AppBundle:book:list_entry.html.twig',{book:book})}}
+                        {%endfor%}
+                    </div>
+                    <div class="pagination clearfix">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col_sidebar">
+                {{include('AppBundle:book:list_sidebar.html.twig')}} 
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

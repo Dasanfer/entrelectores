@@ -1,0 +1,12 @@
+{% extends 'AppBundle:public:base.html.twig' %}
+
+{%block body%}
+
+{% if not app.user %}
+    {{include('AppBundle:public:logged_header.html.twig')}}
+{% else %}
+    {{include('AppBundle:logged:logged_header.html.twig')}}
+{% endif %}
+
+{{render_esi(url('index_body'))}}
+{%endblock%}

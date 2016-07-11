@@ -1,0 +1,90 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+{%block title%}
+    Blog de Entrelectores
+{%endblock%}
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content loop_blog">
+            <span class="bread">
+                <a href="{{url('homepage')}}">Entrelectores</a> / 
+                <a href="{{url('public_blog_post_list')}}">Blog</a> / 
+                <a href="" style="text-transform: capitalize;">Categoria - {{category}}</a>
+            </span>
+            <div class="clearfix blog-intro">
+                <h3>Blog de Entrelectores</h3>
+                <h4>Las mayúsculas de EntreLectores</h4>
+            </div>
+            {% for post in pagination %}
+            
+            <div class="loop blog-posts clearfix">
+            
+                <div class="blog-post-cabecera">
+            
+                    <a class="link-titulo"href="{{url('public_blog_post',{slug:post.slug})}}"><span class="titulo">{{post.title}}</span></a>
+                    <span>
+                        <p class="fecha">{{post.created|date('d/m/Y') }}</p>
+                        <p class="intro">
+                            {% if post.category == NULL %}
+                                Sin Categoría
+                            {% else %}    
+                                {{post.category}}
+                            {% endif %}
+                        </p>
+                    </span>
+                    {%if post.imageDir%}
+                    <div class="imagen-blog">
+                        <img src="{{web_image(post.imageDir).resize('100%').jpeg()}}"/>
+                    </div>
+                    {%endif%}
+                </div>
+                
+                <div class="blog-posts-content">
+                
+                    <div class="compartir">
+    					<a href="javascript:window.open('http://www.facebook.com/sharer.php?u={{ url(('public_blog_post_list'), { 'slug': post.slug }) }}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');">
+    					   <img src="{{asset('/img/iconos/mini-face.png')}}" />
+    					</a>
+    					
+    					<a href="javascript:window.open('http://twitter.com/share?text={{post.title}}: &url={{ url(('public_blog_post_list'), { 'slug': post.slug }) }}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');">
+    					   <img src="{{asset('/img/iconos/mini-twitter.png')}}" />
+    					</a>
+    						
+    					<a href="javascript:window.open('https://www.linkedin.com/shareArticle?mini=true&url={{ url(('public_blog_post_list'), { 'slug': post.slug }) }}&title={{post.title}}')">
+    					   <img  src="{{asset('/img/iconos/mini-linkedin.png')}}" />
+    					</a>
+    					
+    					<a href="javascript:window.open('http://pinterest.com/pin/create/button/?url={{ url(('public_blog_post_list'), { 'slug': post.slug }) }}&media={{ app.request.getSchemeAndHttpHost() }}{{web_image(post.imageDir).resize('100%').jpeg()}}&description={{post.title}}' , 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" />
+    					   <img src="{{asset('/img/iconos/mini-pinterest.png')}}" />
+    					</a>
+    					
+    					<a href="javascript:window.open('https://plus.google.com/share?url={{ url(('public_blog_post_list'), { 'slug': post.slug }) }}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');">
+    					   <img src="{{asset('/img/iconos/mini-gplus.png')}}" />
+    					</a>
+    					
+                    </div> 
+                       
+                    <p class="resumen"> 
+                        {{post.content|striptags|truncate(500)}}
+                    </p>
+                    <div class="link_box clearfix">
+                        <a class="boton boton_verde boton_med boton_inline" href="{{url('public_blog_post',{slug:post.slug})}}">Leer entrada</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            {%endfor%}
+            <div class="pagination clearfix">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            {{include('AppBundle:public:sidebar_blog.html.twig')}}
+        </div>
+    </div>
+
+</div>
+{%endblock%}

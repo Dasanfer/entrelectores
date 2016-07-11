@@ -1,0 +1,58 @@
+{%if poll%}
+<div class="single_poll trivia">
+    {%if hasVoted(poll,app.request.clientIp)%}
+        {{render_esi(url('poll_data',{slug:poll.slug}))}}
+    {%else%}
+        <h3>Encuesta</h3>
+        <div id="polls-{{poll.id}}" class="wp-polls">
+            <form id="polls_form_{{poll.id}}" class="wp-polls-form" action="#" onsubmit="event.preventDefault();">
+                <p class="pregunta">
+                    {{poll.question}}
+                </p>
+                {%for option in poll.options%}
+                <input type="radio" id="poll-answer-{{option.id}}" name="poll-answer-{{poll.id}}" value="{{option.id}}"/>
+                <label for="poll-answer-{{option.id}}">
+                    {{option.title}}
+                </label>
+                {%endfor%}
+                <input type="button" class="boton boton_block boton_verde boton_grande" value="Enviar" onclick="event.preventDefault(); appbundle.poll_vote($(this));">
+            </form>
+        </div>
+    {%endif%}
+</div>
+{%endif%}
+
+{%if previousTrivia%}
+<div class="single_poll trivia">			
+    <div class="textwidget">
+        <h4>Trivia de la semana pasada</h4>
+        <span class="pregunta">{{previusTrivia.question}}</span>
+        <span class="respuesta">7</span>
+    </div>
+</div>
+{%endif%}
+
+{%if trivia%}
+<div class="single_poll trivia">
+    {%if hasVoted(trivia,app.request.get('ip'))%}
+        {{render_esi(url('poll_data',{slug:trivia.slug}))}}
+    {%else%}
+        <h3>Trivia</h3>
+        <div id="polls-{{trivia.id}}" class="wp-polls">
+            <form id="polls_form_{{trivia.id}}" class="wp-polls-form" action="#" onsubmit="event.preventDefault();">
+                <p class="pregunta">
+                    {{trivia.question}}
+                </p>
+                {%for option in trivia.options%}
+                <input type="radio" id="poll-answer-{{option.id}}" name="poll-answer-{{option.id}}" value="{{option.id}}"/>
+                <label for="poll-answer-{{option.id}}">
+                    {{option.title}}
+                </label>
+                {%endfor%}
+                <input type="button" class="boton boton_block boton_verde boton_grande" value="Enviar" onclick="event.preventDefault(); appbundle.poll_vote($(this));">
+            </form>
+        </div>
+    {%endif%}
+</div>
+{%endif%}
+

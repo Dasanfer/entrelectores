@@ -1,0 +1,120 @@
+
+<div class="row_100">
+    {{include('AppBundle:banner:page_banner.html.twig',{zone:'home', css_class:'row'})}}
+</div>
+
+<div class="row_100 encuentra clearfix">
+    <div class="buscador clearfix">
+        <div class="row copy clearfix">
+            <h2>Encuentra tus libros de toda la vida</h2>
+        </div>
+
+        <div class="row form clearfix">
+            <form method="get" id="searchform" action="{{url('search_books')}}">
+                <input type="text" name="term" id="term" placeholder="titulo / autor / etiqueta">
+                <input type="submit" value="Buscar" id="searchsubmit" class="boton boton_inline boton_verde boton_grande">
+            </form>
+        </div>
+    </div>
+
+    {# <div id="flip"  onclick="javascript:cambia_contenido();"> Mostrar la lista de géneros &#9660 </div>  #}
+    <div {#id="panel"#} class="row sugerencias home-sugerencias clearfix">
+        <ul>
+            {%for genre in genres%}
+            <li>
+                <a href="{{url('bookgenre',{slug: genre.slug})}}" title="Ver todos los libros de {{genre.name}}">{{genre.name}}</a>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+ 
+</div>
+
+<div class="row_100 clearfix descubre">
+    <div class="row titulo">
+        <h2>y descubre recomendaciones de libros nuevos</h2>
+    </div>
+
+    <div class="row boxes">
+        {%if books|length > 0%}
+        <div class="division column gustos">
+            <p> Según <br /> tus gustos </p>
+            <div class="icono"></div>
+            <ul>
+                {%set book = books[0]%} 
+                <li>
+                    <a href="{{url('bookpage',{authorslug: book.author.slug,slug:book.slug})}}"  class="titulo" onClick="_gaq.push(['_trackEvent', 'Libro tus gustos', 'Homepage', '{{book.title}}']);">
+                        <img src="{{web_image('/wp-content/'~book.imageDir).zoomCrop(108,170).jpeg()}}" alt="{{book.title}}" class="sombra" />
+                    </a>
+                    <a href="{{url('bookpage',{authorslug: book.author.slug,slug:book.slug})}}"  class="titulo" onClick="_gaq.push(['_trackEvent', 'Libro tus gustos', 'Homepage', '{{book.title}}']);">
+                        {{book.title}}
+                    </a>
+                    <span class="autor">
+                        <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">
+                            {{book.author.name}}
+                        </a> 
+                    </span>
+                </li>
+            </ul>
+        </div>
+        {%endif%}
+        {%if books|length > 1%}
+        <div class="division column comunidad">
+            <p>Gracias a la comunidad <br /> de Entrelectores</p>
+            <div class="icono"></div>
+            <ul>
+                {%set book = books[1]%} 
+                <li>
+                    <a href="{{url('bookpage',{authorslug: book.author.slug,slug:book.slug})}}"  class="titulo" onClick="_gaq.push(['_trackEvent', 'Libro comunidad', 'Homepage', '{{book.title}}']);">
+                        <img src="{{web_image('/wp-content/'~book.imageDir).zoomCrop(108,170).jpeg()}}" alt="{{book.title}}" class="sombra" />
+                    </a>
+                    <a href="{{url('bookpage',{authorslug: book.author.slug,slug:book.slug})}}"  class="titulo" onClick="_gaq.push(['_trackEvent', 'Libro comunidad', 'Homepage', '{{book.title}}']);">
+                        {{book.title}}
+                    </a>
+                    <span class="autor">
+                        <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">
+                            {{book.author.name}}
+                        </a> 
+                    </span>
+                </li>
+            </ul>
+        </div>
+        {%endif%}
+
+        <div class="division column promocionados">
+            {{include('AppBundle:public:books_promoted.html.twig',{books:promoted})}}
+        </div>
+    </div>
+</div>
+
+<div class="row_100 clearfix home_boxes">
+    <div class="row clearfix ">
+        <div class="division clearfix column_2 servicios_autores">
+            <h3>Zona de Autores</h3>
+            <p>
+            Si eres autor y quieres formar parte de Entrelectores, 
+            puedes inscribirte en nuestro registro particular de autores.
+            </p>
+            <p>
+            También puedes acceder desde aquí al
+            <a href="https://www.entrelectores.com/libros-promocionados">Plan de Promoción de libros</a>
+            </p>
+
+            <a class="boton boton_block boton_verde boton_grande" href="mailto:autores@entrelectores.com">Ponte en contacto</a>
+
+        </div>
+    </div>
+</div>
+<div class="row_100 clearfix blog_polls">
+    <div class="row clearfix">
+        <div class="col_content">
+            {{render_esi(url('home_blog_posts'))}}
+        </div>
+
+        <div class="col_sidebar">
+            <div class="polls">
+                {{render_esi(url('poll_sidebar'))}}
+            </div>	
+        </div>		
+    </div>
+</div>

@@ -1,0 +1,767 @@
+
+/* NUEVOS estilos MENU LOGGED */
+
+.menu_sup.logged .menu li.tiene_submenu { position: relative; }
+.menu_sup.logged .menu li.tiene_submenu a.trigger { background-image: url('../img/iconos/slide-down.png'); background-repeat: no-repeat; }
+.menu_sup.logged .menu li.tiene_submenu a.trigger.derecha { padding-right: 15px; background-position: right center; margin-right: 10px; }
+.menu_sup.logged .menu li.tiene_submenu a.trigger.izquierda { padding-left: 15px; background-position: left center; margin-left: 10px; }
+
+.panel-plegable { position: absolute; top: 53px; left: 50%; width: 150px; margin-left: -75px; display: none; }
+.menu_logged .panel-plegable { top:59px; }
+
+.menu_sup.logged .menu.menu_buscador { margin: 14px 30px; }
+.menu_sup.logged .menu.menu_logged { margin: 18px 0; }
+
+.user_name .nombre-usuario { height: 40px; display: block; line-height: 40px;  white-space: nowrap; overflow: hidden; float:left; max-width: 110px; 
+text-overflow: ellipsis; white-space: nowrap; text-align: right; }
+.user_name img { float: left; display: block; margin: 5px 0 0 10px; }
+
+.mensajes { position: relative; }
+.mensajes .icon { height: 40px; display: block; line-height: 40px; font-size: 25px; }
+.mensajes .count_pending { position: absolute; top:3px; right: 0; background: #FAAA5C; height: 15px; width:15px; text-align: center; line-height: 15px; color: #fff;
+font-size:10px; display: block; -webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px; }
+
+.mensajes .count_pending.pend_0 { display: none; }
+/* NUEVOS ESTILOS Libro HEADER y META */
+
+.libro_header { padding: 10px 0; }
+.libro_header .title-holder { width: 100%; margin-bottom: 20px; border-bottom: 1px solid #f2f2f2; }
+.libro_header .portada { margin-bottom: 0; width: 140px; }
+.libro_header .portada img { margin: 0 auto 20px auto; max-width: 80%; }
+.libro_header .portada .js-follow { width: 100%; display: inline-block; text-align: center; }
+.libro_header .portada .js-follow a { margin: 0 auto 10px auto; max-width: 130px; }
+.libro_header .portada .js-follow a.boton_verde{  margin: 0 auto 10px auto; max-width: 180px; background: #84b94f; border-color: #84b94f; font-size: 14px; font-weight: bold; width: 120px; height: 40px; line-height: 36px; }
+
+.libro_header .meta {   }
+.libro_header .meta .datos { width: 100%; }
+.libro_header .meta .datos a { margin-right: 15px; display: inline-block; padding: 5px 10px 5px 22px; position: relative; }
+.libro_header .meta .datos a span { margin-right: 10px; font-size: 22px; position: absolute; left:0; top:1px; }
+.libro_header .meta .datos a.libros { padding: 5px 10px 5px 15px; }
+.libro_header .meta .datos a.libros span { top:2px; }
+
+
+.libro_meta { padding: 10px 0; }
+
+.libro_leido { padding: 15px 0; }
+.libro_leido .leido { text-align: left; }
+.libro_leido .listas { text-align: right; }
+
+.libro_leido .boton_inline { margin: 0 10px 0 0; }
+.libro_leido .listas .boton_inline { margin: 0; }
+
+
+/* Nuevos estilos sidebar*/
+.promocionado_sidebar h3 { margin-bottom: 10px; text-align: center; font-size: 16px; }
+.promocionado_sidebar ul li { display: inline-block; width: 90%; text-align: center; margin: 0 5% 10% 5%; vertical-align: top; padding: 0 5px; overflow: hidden; }
+
+.promocionado_sidebar ul li img { height: 150px; width: auto; margin: 0 auto 0px auto; }
+/* Nuevos estilos TABS */
+
+.libro_tabs { }
+.tabs_list { display: block; border-bottom: 1px solid #BBB; }
+.tabs_list li { display: inline-block; margin: 0 0 0 0; }
+.tabs_list li a { display: block; height: 45px; line-height: 45px; padding: 0 20px; font-size: 13px; color: #4d4d4d; background: #f2f2f2; }
+.tabs_list li a.activo,
+.tabs_list li a:hover { background: #A0CFED; color: #fff; }
+
+/* Nuevos estilos botones seguir */
+
+.siguiendo { background: #A0CFED; border: 2px solid #A0CFED; }
+.siguiendo:before { content: "siguiendo"; }
+.siguiendo:hover { background: #c96444; border: 2px solid #c96444; }  
+.siguiendo:hover:before { content: "dejar de seguir"; } 
+
+/* Nuevos estilos Sinopsis */
+
+.sinopsis { padding: 20px; }
+.sinopsis p { margin-bottom: 0; }
+
+/* Cajas resumen libro */
+
+.bordered, .bordered-trans { border: 1px solid #f2f2f2; }
+
+.bordered.conversacion { padding: 20px; border: 1px solid #f2f2f2; }
+
+.bordered-trans:hover .cajas_libro_resumen { opacity: 0.4;
+        -webkit-transition: opacity 300ms ease;
+        -moz-transition: opacity 300ms ease;
+        -ms-transition: opacity 300ms ease;
+        -o-transition: opacity 300ms ease;
+        transition: opacity 300ms ease; 
+        }
+
+
+.cajas_libro_resumen { padding: 0 0 20px 0; }
+    .cajas_libro_resumen.ver-todos-box { padding: 0; width: 100%; float: left; }
+
+.cajas_libro_resumen ul { margin: 0; padding: 0 20px; }
+    
+    .cajas_libro_resumen, .cajas_libro_resumen h3, .cajas_libro_resumen a {
+        -webkit-transition: background 300ms ease;
+        -moz-transition: background 300ms ease;
+        -ms-transition: background 300ms ease;
+        -o-transition: background 300ms ease;
+        transition: background 300ms ease; 
+        -webkit-transition: color 300ms ease;
+        -moz-transition: color 300ms ease;
+        -ms-transition: color 300ms ease;
+        -o-transition: color 300ms ease;
+        transition: color 300ms ease;
+    }
+
+    .cajas_libro_resumen h3 { background: #f2f2f2; padding: 20px; cursor:pointer; }
+    .cajas_libro_resumen .js-follow { display: inline-block; position: relative; top: -7px; }
+    .cajas_libro_resumen .book-delete { display: inline-block; position: relative; top: -7px; }
+    .cajas_libro_resumen .boton_inline { margin: 0; }
+    .cajas_libro_cont, .cajas_libro_cont.resenas  { padding: 0 20px }
+
+.bordered-trans .cajas_libro_resumen:hover { background: #f2f2f2; opacity: 1 !important;
+        -webkit-transition: opacity 300ms ease;
+        -moz-transition: opacity 300ms ease;
+        -ms-transition: opacity 300ms ease;
+        -o-transition: opacity 300ms ease;
+        transition: opacity 300ms ease; }
+        
+    .bordered-trans .cajas_libro_resumen:hover h3 { background: #A0CFED; color: #fff; }
+    .bordered-trans .cajas_libro_resumen:hover h3 a { color: #4aa4dd; }
+    .bordered-trans .cajas_libro_resumen:hover .rating { background: #f2f2f2; }
+    .bordered-trans .cajas_libro_resumen:hover a.ver_todos { color: #4aa4dd; }
+
+.cajas_libro_resumen.conversacion { padding: 0 0 20px 0; float: left; }
+    .cajas_libro_resumen.conversacion .cajas_libro_cont { padding: 5px 20px; }
+    .cajas_libro_resumen.conversacion .cajas_libro_cont ul { padding: 0; }
+    .cajas_libro_resumen.conversacion .cajas_libro_cont ul li { padding: 15px 0; }
+    
+.cajas_libro_resumen.sinopsis { padding: 10px 20px 20px 20px; }
+    .cajas_libro_resumen.sinopsis:hover { }
+
+/* Nuevos estilos Listas en que aparece el libro */
+
+/*
+.listas_libro { background: #4d4d4d; color: #fff; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+*/
+.listas_libro h3 { /* color: #fff; */ font-weight: 700; margin-bottom: 20px; }
+
+.listado_lib li { width: 33%; float: left; display: block; padding: 0; margin: 0; }
+.listado_lib li .icono { height: 40px; width: 40px; margin: 0 10px 0 0; float: left; background-size: cover; background-position: center center; background-repeat: no-repeat; }
+.listado_lib li .icono img { height: 40px; width: 40px; }
+.listado_lib li .copy { float: left; display: block; width: 145px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-top: 5px; font-size: 13px; color: #4d4d4d; }
+.listado_lib li .copy a { color: #4d4d4d; }
+.listado_lib li .copy span.cuenta { display: block; font-size: 11px; margin-top: 4px; color: #A0CFED; }
+
+/* Nuevos estilos Otros libros del mismo autor */
+/*
+.lista_autor { color: #4d4d4d; } 
+*/
+
+.lista_autor h3 { color: #4d4d4d; font-weight: 700; margin-bottom: 20px; }
+.lista_autor h3 a { color: #84B94F; }    
+
+.lista_autor .listado_lib li .portada { float: left; margin: 0 10px 0 0; }
+.lista_autor .listado_lib li .portada img { width: 40px; height: auto; }
+.lista_autor .listado_lib li .copy { white-space: normal; line-height: 17px; }
+.lista_autor .listado_lib li .copy a { color:#4d4d4d; }
+
+.lista_autor .stats .rate { float: left; width: 100%; }
+
+/* Cabecera de secciÃ³n con link */
+
+h3.section_header { color: #4d4d4d; font-weight: 700; margin-bottom: 20px; text-align: left; font-size: 15px; }
+h3.section_header .total { font-weight: 400; font-size: 14px; }
+h3.section_header a { color: #84B94F; font-weight: 400; font-size: 13px; position: relative; top: -2px; }
+
+/* Nuevos estilos RESEÃ‘A DESTACADA */
+
+.resena_destacada { /*background: #f2f2f2; color: #fff; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; */ text-align: center;}
+/* .resena_destacada .resenas { padding: 0; } */
+.resena_destacada .resenas .single_resena { padding:0; border-bottom: 0; }
+
+/* Nuevos estilos resenas */
+
+.resenas { text-align: left; padding: 0; }
+.resenas h3.section_header { padding: 20px; margin: 0; }
+.resenas .add-resena { border-bottom: none; padding: 20px 20px 20px 20px; }
+
+.resenas .single_resena { padding:20px; }
+.resenas .single_resena:nth-chil(odd) { background: #fff; }
+.resenas .single_resena:nth-chil(even) { background: #f8f8f8; }
+
+.single_resena .meta { float: left; width: 8%}
+.single_resena .meta img { height: 38px; width: 38px; }
+
+.single_resena.mis-resenas .meta img { height: auto; width: 45px; }
+.single_resena.mis-resenas .cont { padding-left: 20px; }
+
+.single_resena .cont { float: left; width: 92%; }
+.single_resena .cont p.meta-info { }
+.single_resena .cont p.meta-info .nombre { font-weight: 700; font-size: 13px; line-height: 13px; color:#4d4d4d; }
+.single_resena .cont p.meta-info .fecha { font-weight: 400; color: #A0CFED; font-size: 11px; float: right; }
+.single_resena .cont .stats { position: relative; top:-33px; width: auto; float: right; }
+.single_resena .cont .stats .rate { width: 100%; background: #fff; margin: 0 auto; padding: 5px 5px; background: #fff; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-bottom: 20px; }
+.single_resena .cont .stats .rate .rating { margin: 0 !important; }
+.single_resena .cont h4 { font-size: 14px; }
+.single_resena .cont p.contenido { color: #999; }
+.single_resena .cont p.contenido .contenido_cortado { display: none; } 
+.single_resena .cont .spoiler { background: #A94E31; padding: 15px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom: 20px; }
+.single_resena .cont .spoiler p { color: #fff; margin: 0; }
+.single_resena .cont .leer_resena { margin: 0 0 10px 0; width: auto; padding: 0 20px; }
+
+.puntua_resena { width: 100%; margin-top: 10px; }    
+.puntua_resena a { color: #ccc; }
+.puntua_resena a:hover { color: #888; }
+.puntua_resena a .icono { font-size: 18px; }
+.puntua_resena a .cantidad { font-size: 12px; position: relative; top:-2px; left:4px; }
+.puntua_resena .th_up { margin-right: 10px; }
+.puntua_resena .th_down { }
+
+/* Formulario de reseÃ±as */
+
+.add-resena { padding: 20px; border-bottom: 1px solid #f2f2f2; }
+.add-resena form { width: 100%; }
+.add-resena form .rate { margin-bottom: 10px; margin-top: 10px; }
+.add-resena form .rate span { float: left; height: 24px; line-height: 24px; }
+.add-resena form .rate .rating { float: left; margin: 0 0 0 20px !important; background: #fff; padding: 3px 5px 2px 5px; position: relative; top:-3px; -webkit-border-radius: 10px; 
+    -moz-border-radius: 10px; border-radius: 10px; }
+.add-resena form .spoiler_alert { width: 65%; float: left; }
+.add-resena form .spoiler_alert { width: 65%; float: left; }
+.add-resena form .spoiler_alert label { color: #888; }
+.add-resena form button { float: right; }
+
+/* Nuevos estilos conversaciÃ³n */
+
+.conversacion { text-align: center; padding: 30px 0; }
+.conversacion ul { padding: 0 10px; }
+.conversacion ul li { padding: 15px 10px; border-bottom: 1px solid #f2f2f2; text-align: left; }
+.conversacion ul li:last-child { border-bottom: none; }
+.conversacion ul li.link_form { text-align: right; padding: 15px 0; }
+.conversacion ul li .meta { float: left; width: 8%}
+.conversacion ul li .meta img { height: 30px; width: 30px; }
+.conversacion ul li .cont { float: left; width: 92%; }
+.conversacion ul li .cont p.meta-info .nombre { font-weight: 700; font-size: 13px; line-height: 13px; }
+.conversacion ul li .cont p.meta-info .fecha { font-weight: 400; color: #A0CFED; font-size: 11px; float: right; }
+.conversacion ul li .cont p.contenido { color: #999; margin-bottom: 0; }  
+.conversacion ul li .cont .responder { text-align: right; display: block; }    
+
+.conversacion ul li ul.respuestas { margin: 10px 0; padding: 0; background: #fafafa; }        
+.conversacion ul li ul.respuestas li { padding: 15px 10px;}
+
+.conversacion .form-holder { display: none; }
+.conversacion .form-holder .add-resena { border-bottom: none; }
+.conversacion .add-resena { background: #fafafa; text-align: left; padding: 10px 20px; margin-top: 10px; }
+.conversacion .link_form .add-resena { background: #fff; }
+.conversacion .respuestas + span .add-resena { position: relative; top:-10px; margin-top: 0; padding: 10px 20px 10px 8%; }
+
+
+/* Nuevos estilos autor */
+
+.autor_header {}
+
+.libro_header.autor_header .meta {  }
+.libro_header.autor_header .portada { }
+.libro_header.autor_header .portada .boton { max-width: 130px; }
+
+.libro_header.autor_header .meta .datos { font-size: 12px; line-height: 14px; color: #999; margin-bottom: 15px;} 
+.libro_header.autor_header .meta .datos a { color: #999; }
+.libro_header.autor_header .meta p.autor_de { margin-bottom: 20px; }
+.libro_header.autor_header .meta p.autor_de a { color: #aaa; }
+.libro_header.autor_header .meta p.autor_de a:hover { color: #999; }
+.libro_header.autor_header .meta .boton_min { margin: 0 !important; }
+
+
+/* Listado libros resumen */
+
+.listado_libros_resumen  { width: 100%; padding: 0; margin: 0; }
+.listado_libros_resumen .libro_header { width: 100%; float: left; display: block; padding: 15px; }
+.listado_libros_resumen .libro_header:last-child {  }
+.listado_libros_resumen .libro_header .portada { height: 60px; overflow: hidden; width: 9%; margin-bottom: 0; margin-right: 2%; overflow: hidden; }
+.listado_libros_resumen .libro_header .portada img { height: 60px; width: auto; margin: 0; }
+.listado_libros_resumen .libro_header .stats { padding: 0; width: auto; height: 30px; }
+.listado_libros_resumen .libro_header .copy { width: 34%; float: left; margin-bottom: 0; padding: 0; }
+.listado_libros_resumen .libro_header .copy h2 { margin-bottom: 5px; }
+.listado_libros_resumen .libro_header .seguir { width: 26%; float: left; margin-bottom: 0; }
+.listado_libros_resumen .libro_header .seguir a { margin: 10px auto 0 auto; max-width: 130px;}
+.listado_libros_resumen .libro_header .libro_meta { width: 24%; border-bottom: none; float:right; margin-bottom: 0; }
+.listado_libros_resumen .libro_header .libro_meta ul { float:right; margin-bottom: 0; }
+.listado_libros_resumen .libro_header .libro_meta ul li { display: block; text-align:right; width: 100%; line-height: 20px; }
+
+.listado_libros_resumen a.ver_todos { padding: 15px; color: #84B94F; font-weight: 400; font-size: 13px; text-align: center; display: block; }
+
+
+/* Nuevos estilos Lista */
+
+.lista_header {}
+
+.libro_header.lista_header .meta { width: 500px; }
+.libro_header.lista_header .portada { width: 200px; }
+.libro_header.lista_header .portada .holder_1 { position: relative; height: 210px; width: 100%; }
+
+.libro_header.lista_header .portada .portada_libro_lista { width: 85px; height: 120px; position: absolute; overflow: hidden; }
+.libro_header.lista_header .portada .portada_libro_lista img { width: 85px; height: 120px; max-width: 100%; }
+.portada_libro_lista.p1 { top: 60px; left:95px; }
+.portada_libro_lista.p2 { top: 40px; left:65px; }
+.portada_libro_lista.p3 { top: 20px; left:35px; }
+.portada_libro_lista.p4 { top: 5px; left:5px; }
+
+.libro_header.lista_header .portada .boton { max-width: 130px; }
+
+.libro_header.lista_header .meta .datos { font-size: 12px; line-height: 14px; color: #999; margin-bottom: 15px;} 
+.libro_header.lista_header .meta .datos a { color: #999; }
+
+
+
+
+/* Nuevos estilos TIMELINE */
+
+.load-user-timeline {  }
+
+.timeline { text-align: center; padding: 30px 0; }
+.load-more-on-bordered { border-top: 1px solid #f2f2f2; padding: 10px 0; }
+.timeline .load-more-on-bordered { border:none; background: #f2f2f2; padding: 10px; }
+
+.timeline ul { padding: 0 10px; }
+.timeline ul li.entry { padding: 15px 10px; border-bottom: 1px solid #f2f2f2; text-align: left; margin-bottom: 10px; }
+.timeline ul li.agrupado { padding: 15px 10px 0 10px; text-align: left; margin-bottom: 10px; }
+.timeline ul li.entry:last-child { border-bottom: none; }
+.timeline ul li.link_form { text-align: right; padding: 15px 0; }
+
+.bordered .timeline { padding: 0; }
+    .bordered .timeline ul { padding: 0; }
+    .bordered .timeline ul li { padding: 20px; }
+    .bordered.main-tl { margin-bottom: 50px; }
+    
+    .bordered.main-tl .resena-form { padding: 20px 20px 10px 20px; background: #f2f2f2; }
+
+.bordered.timeline { padding: 0; }
+    .bordered.timeline ul { padding: 0; }
+    .bordered.timeline ul li { padding: 20px; }
+
+.timeline ul li.usuario .meta { float: left; width: 6%; margin-right: 2%; }
+.timeline ul li.usuario .meta img { height: 35px; width: 35px; }
+.timeline ul li.usuario .cont { float: left; width: 92%; }
+.timeline ul li.usuario .copy { float: left; width:100%; }
+.timeline ul li.con-icono.usuario .copy { float: left; width:85%; }    
+.timeline ul li.usuario .cont p.meta-info { width: 100%; margin-bottom: 15px; }
+
+.timeline ul li.agrupado .contenido { margin-bottom: 20px; }
+
+.timeline ul li.libro .meta { float: left; width: 15%; margin-right: 2%; } 
+.timeline ul li.libro .meta img { height: 100px; width: auto; margin-top: 5px; }
+.timeline ul li.libro .cont { float: left; width: 83%; }
+.timeline ul li.libro .copy { float: left; width:85%; }
+.timeline ul li.libro .cont p.meta-info { width: 100%; margin-bottom: 15px; }
+
+.timeline ul li.nuevo-libro .meta { float: left; width: 15%; margin-right: 2%; }
+.timeline ul li.nuevo-libro .meta img { height: 100px; width: auto; margin-top: 5px; }
+.timeline ul li.nuevo-libro .cont { float: left; width: 83%; }
+.timeline ul li.nuevo-libro .copy { float: left; width:85%; }
+.timeline ul li.nuevo-libro .cont p.meta-info { width: 100%; margin-bottom: 15px; }
+
+.timeline ul li p.meta-info .cont-nombre-accion { width: 70%; float: left; }
+.timeline ul li p.meta-info .nombre { font-weight: 700; font-size: 13px; line-height: 13px; }
+    .timeline ul li p.meta-info .nombre a { color: #4d4d4d; }
+.timeline ul li p.meta-info .accion { font-weight: 400; font-size: 13px; line-height: 13px; color: #999; }
+    .timeline ul li p.meta-info .accion a { text-transform: lowercase; }
+.timeline ul li p.meta-info .fecha { font-weight: 400; color: #A0CFED; font-size: 11px; float: right; }
+.timeline ul li .contenido p { color: #6d6d6d; margin-bottom: 5px; }
+
+.timeline ul li.usuario.entrevista .cont .contenido p.cita { display: block; font-size: 18px; display: block; margin: 5px 0 10px 0; color: #989899; max-height: none; }
+.timeline ul li.usuario.entrevista .copy { float:left; width:76%; }
+
+.timeline ul li.usuario.nuevo-post .cont .contenido p.titulo-post { display: block; font-weight: 700; color: #4d4d4d; font-size: 16px; line-height: 20px; max-height: none; }
+
+.timeline ul li .cont .contenido .rate { float: left; width: 70%; }
+.timeline ul li .cont .contenido .rate ul { padding: 0; margin: 0 0 10px 0 !important; }
+.timeline ul li .cont .contenido .rate ul li { padding: 0; }
+.timeline ul li .cont .responder { text-align: right; display: block; }
+
+textarea#user_status_text { height: 30px; }
+
+.timeline .fecha { font-weight: 400; color: #A0CFED; font-size: 11px; float: right; }
+
+/* Timeline con icono ( reseÃ±as, entrevistas y seguimiento ) */
+
+.con-icono.usuario .img-holder { width: 13%; float: left; overflow: hidden; margin-right: 2%; }
+.con-icono.usuario .img-holder img { height: 100px; margin: 0; width: auto; }
+
+.con-icono.usuario.entrevista .img-holder { width: 20%; float: left; overflow: hidden; margin-right: 4%; }
+.con-icono.usuario.entrevista .img-holder img { height: 100px; margin: 0; width: auto; }
+
+.con-icono.libro .img-holder { width: 7%; float: left;  overflow: hidden; margin-right: 2%; }
+.con-icono.libro .img-holder img { width: 30px; height: 30px; }
+
+.con-icono.nuevo-libro .img-holder { width: 13%; float: left; overflow: hidden; margin-right: 2%; }
+.con-icono.nuevo-libro .img-holder img { height: 100px; margin: 0; width: auto; }
+
+.con-icono .img-holder.usuario img { width: 50px; height: auto; margin: 0 auto; display: block; }
+.con-icono .cont p { float: left; width: 100%; }
+.con-icono .cont p a.boton { padding: 0 20px; margin: 10px 0 0 0; }
+
+.con-icono .holder_1 { position: relative; height: 100px; width: 13%; margin-right: 2%; float: left; overflow: hidden; top:5px; }
+.con-icono .holder_1.lista-foto { top:15px; }
+.con-icono .portada_libro_lista { width: 40px; height: 60px; position: absolute; overflow: hidden; }
+.con-icono .portada_libro_lista img { width: auto; height: 55px; }
+.con-icono .portada_libro_lista.p1 { top: 30px; left:35px; }
+.con-icono .portada_libro_lista.p2 { top: 20px; left:25px; }
+.con-icono .portada_libro_lista.p3 { top: 10px; left:15px; }
+.con-icono .portada_libro_lista.p4 { top: 0px; left:0px; }
+
+
+
+/* -- Perfil de usuario ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Seguidores y seguidos */
+
+.lista-usuarios ul li { display: block; height: 70px; padding: 10px 0; margin: 10px 0; border-bottom: 1px solid #f2f2f2; position:relative;}
+.lista-usuarios ul li:last-child { border: none; }
+
+.lista-usuarios .img-user-holder { width: 10%; float: left; height: 50px; margin-right: 2%; overflow: hidden; }
+.lista-usuarios .img-user-holder img { height: 50px; width: 50px; }
+
+.lista-usuarios .data-user-holder { width: 88%; float: left; }
+.data-user-holder .js-follow { display: inline-block; }
+.data-user-holder .js-follow a { margin: 10px 0 0 0; }
+.data-user-holder .datos { float: left; margin: 0; }
+.data-user-holder .datos .nombre a { font-weight: 700; font-size: 13px; color: #4d4d4d; display: block; min-height: 25px; line-height: 15px; margin: 0; padding: 0; }
+.data-user-holder .datos a { margin-right: 15px; display: inline-block; padding: 0 0 0 20px; position: relative; color: #999; }
+.data-user-holder .datos a.boton { margin-right: 0px; padding: 0 15px;}
+.data-user-holder .datos a.nospan { padding: 0; }
+.data-user-holder .datos a span { margin-right: 10px; font-size: 18px; position: absolute; left:0; top:0px; }
+.data-user-holder .datos a.libros { padding: 5px 10px 5px 15px; }
+.data-user-holder .datos a.libros span { top:4px; }
+
+.data-user-holder .seguir { float: right; }
+
+/* Listas Publicas */
+
+.lista-listas-publicas { }
+    .lista-listas-publicas .cajas_libro_resumen { padding: 10px 20px; border-bottom: 1px solid #f2f2f2; }
+        .lista-listas-publicas .cajas_libro_resumen:first-child { padding: 20px 20px 10px 20px; }
+        .lista-listas-publicas .cajas_libro_resumen:last-child { padding: 10px 20px 20px 20px; border: none; }
+
+.public-list-follow {text-align:right;}
+/*.lista-listas-publicas ul li { display: block; height: 70px; padding: 20px 0; }
+.lista-listas-publicas ul li:last-child {  }
+.lista-listas-publicas .datos { padding-left: 10px; }
+*/
+
+.lista-listas-publicas .img-user-holder { width: 10%; float: left; height: 70px; margin-right: 2%; overflow: hidden; position: relative; }
+.img-user-holder .holder_1.lista-foto { top:15px; }
+.img-user-holder .portada_libro_lista { width: 35px; height: 40px; position: absolute; overflow: hidden; }
+.img-user-holder .portada_libro_lista img { width: auto; height: 40px; }
+.img-user-holder .portada_libro_lista.p1 { top: 20px; left:30px; }
+.img-user-holder .portada_libro_lista.p2 { top: 15px; left:20px; }
+.img-user-holder .portada_libro_lista.p3 { top: 5px; left:10px; }
+.img-user-holder .portada_libro_lista.p4 { top: 0px; left:0px; }
+
+.lista-listas-publicas .data-user-holder { width: 88%; float: left; }
+
+/* Editar perfil */
+
+.standard-form label { margin: 10px 0 0 0; }
+.standard-form p.description { font-size: 13px; color: #999; }
+
+.standard-form p.facebook .campo { margin-right: 40px; }
+.standard-form p.facebook .valor { color: #999; }
+
+.standard-form p.privacidad { }
+.standard-form p.privacidad .campo { margin-right: 10px; font-size: 32px; display: inline-block; }
+.standard-form p.privacidad .valor { display: inline-block; position: relative; top: -6px; margin-right: 30px; color: #999; }
+.standard-form p.privacidad a { position: relative; top: -6px; }
+
+.standard-form .botones { padding-top: 20px; margin-bottom: 30px; width: 100%}
+.standard-form .botones a { float: left; }
+.standard-form .botones input { float:right; cursor: pointer;}
+
+
+/* Daniel */ 
+
+@media(max-width:400px){ 
+.standard-form .boton_newpass {width: 105%;}
+.standard-form .boton_cancelar{width: 32%; font-size: 10.5px;}
+.standard-form .botones .boton_guardar  {width: 50%; font-size: 10.5px;}
+
+}
+
+
+.standard-form .reset_password { width: 100%; background: #e9e9e9; padding: 20px 20px 0 20px; display: none; }
+.standard-form .reset_password .botones { padding-top: 0; margin-bottom: 0; }
+.standard-form .reset_password input { max-width: 50%; }
+.standard-form .reset_password input[type=submit] { float:left; line-height: 25px; font-size: 12px; display: inline-block; margin: 10px; }
+.standard-form p.contrasena { background: #e9e9e9; padding: 10px; }
+
+/* -- Overlay inner -- */
+
+.overlay .overlay_cont.mensaje { width: 40%; left: 30%; max-width: 500px; }
+
+.overlay.listas .overlay_cont .overlay_cont_inner { padding: 0 15px 0 0; }
+.privacidad_info { padding: 10px; background: #f2f2f2; margin-bottom: 15px; display: none; }
+
+/* Overlay Registro */
+
+.overlay .overlay_cont.registro { width: 65%; left: 18.5%; }
+.overlay.modal-registro .overlay_cont { padding: 0; background: transparent; }
+.overlay.modal-registro .overlay_cont .home_header { height: auto; padding: 20px; }
+.overlay.modal-registro .overlay_cont .round_pop_up { overflow: hidden; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;}
+.overlay.modal-registro .overlay_cont a { color: #fff; }
+.overlay.modal-registro .overlay_cont .boton_registro {width: 125px;}
+.overlay.modal-registro .overlay_cont .fbLoginButton {width: 115px;}
+.overlay.modal-registro .overlay_cont .copy { padding-top: 0; }
+.overlay.modal-registro .overlay_cont .copy h2 { color: #fff; }
+.overlay.modal-registro .overlay_cont .copy p { color: #fff; }
+.overlay.modal-registro .overlay_cont .logo { width: 250px; background: url('../img/logo_home_claim.png') center center no-repeat; height: 80px; margin-bottom: 20px; }
+
+.overlay .overlay_cont.tutorial {width: auto; left: 50%; margin-left: -410px; margin-top:-310px; top:50%;}
+
+@media(max-width:850px){ 
+    .overlay .overlay_cont.tutorial {width: 400px; left: 50%; margin-left: -210px; margin-top: 0px; top:50px;}
+    .overlay .overlay_cont.tutorial img {display:block; width:100%; height:auto;}
+}
+
+@media(max-height:700px){ 
+    .overlay .overlay_cont.tutorial {width: 400px; left: 50%; margin-left: -210px; margin-top: 0px; top:50px;}
+    .overlay .overlay_cont.tutorial img {display:block; width:100%; height:auto;}
+}
+
+
+
+
+/* -- MENSAJES ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.mensajes { }
+.mensajes.listado.conversacion { text-align: left; }
+.mensajes.listado.conversacion p.subtitulo { margin-bottom: 30px; }
+
+.mensajes.listado ul { padding: 0; }
+.mensajes.listado ul li { }
+.mensajes.listado ul li p.contenido { width: 80%; float: left; display: block; }
+.mensajes.listado ul li span.ver-holder {  width: 20%; float: right; text-align: right; display: block; }
+
+.mensajes.listado ul li.pendientes { background: #f2f2f2; border-bottom: 1px solid #ddd; }
+.mensajes.listado ul li.pendientes .fecha { position: relative; }
+.mensajes.listado ul li.pendientes .fecha .pendientes_cuenta { position: absolute; background: #d89079; color: #fff; top:-17px; right: -17px; height: 20px; width: 20px; text-align: center; line-height: 20px; 
+-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+
+.mensajes.single.conversacion { text-align: left; }
+.mensajes.single.conversacion ul { padding: 0; }
+.mensajes.single.conversacion h1 { margin-bottom: 30px; width: 70%; float: left; display: block; height: 24px; line-height: 24px; }
+.mensajes.single.conversacion .volver { margin-bottom: 30px; width: 30%; float: left; display: block; text-align: right; }
+.mensajes.single.conversacion .volver .boton_inline { margin: 0; } 
+
+.mensajes.single.conversacion ul li p.usuario_privado { background: #A94E31; padding: 15px; color: #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; width: 80%; margin: 0 auto; }
+
+.listado-seguidores-mutuos li {display: inline-block; float: left; width: 25%; padding: 5px 8px; text-align: center; margin-bottom: 10px;}
+.listado-seguidores-mutuos li .img-user-holder {width: 50px; height: 50px; display: inline-block; overflow: hidden; margin-bottom: 5px;}
+.listado-seguidores-mutuos li .img-user-holder img {display: block;}
+.listado-seguidores-mutuos li .boton {width: auto; display: inline-block; margin: 0;}
+
+/* AdSense */
+
+.banner_adsense {margin-bottom: 30px;}
+
+/* Ajustes 22/04 */
+
+.listado-leidos-item {display: inline-block; width: 32%; border: 1px solid #ccc; padding: 10px 0; text-align: center; margin-bottom: 10px; height: 200px; float: left; margin-right: 1%;}
+.listado-leidos-item .img-user-holder {text-align: center;}
+.listado-leidos-item .img-user-holder > a {display: block; text-align: center; margin-bottom: 15px;}
+.listado-leidos-item  .nombre {padding: 0 10px; display: block;}
+
+.privacy-list {padding-left: 25px; color: #999; display: inline-block;} 
+
+.buscador .copy-404 { padding: 40px 0;}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* -- Banner ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+    .banner-holder { }
+    .banner-holder a { width: 100%;  padding: 20px 0; }
+    .banner-holder a img { display: block; margin: 0 auto; border: 1px solid #eee; }
+        .banner-holder a.banner-big { display: block; }
+        .banner-holder a.banner-small { display: none; }
+    
+    
+    @media ( max-width: 1100px ) {
+        
+        .banner-holder a.banner-big { display: none; }
+        .banner-holder a.banner-small { display: block; }
+        
+        /* 
+        .banner-holder.XXXXXXXXXXXXXXXXXX a.banner-small, 
+        .banner-holder.XXXXXXXXXXXXXXXXXX a.banner-big,
+        */
+    
+        .banner-holder.list-autor-page-banner a.banner-big,
+        .banner-holder.home-page-banner a.banner-big,
+        .banner-holder.generos-todos-page-banner a.banner-big,
+        .banner-holder.list-todos-libros-page-banner a.banner-big { display: block; }
+        
+        .banner-holder.list-autor-page-banner a.banner-small,
+        .banner-holder.home-page-banner a.banner-small,
+        .banner-holder.generos-todos-page-banner a.banner-small,
+        .banner-holder.list-todos-libros-page-banner a.banner-small { display: none; }
+    }
+    
+    @media ( max-width: 800px ) {
+        .banner-holder a.banner-big { display: block; }
+        .banner-holder a.banner-small { display: none; }
+    }
+    
+    @media ( max-width: 750px ) {
+        .banner-holder a.banner-big { display: none !important; }
+        .banner-holder a.banner-small { display: block !important; }
+    }
+
+
+
+
+
+
+
+
+
+/*******     ALBERTO      *********/
+
+
+
+
+
+
+
+
+
+
+/** BLOG **/
+
+
+
+.row_100 .row .col_content.loop_blog{border-right: 1px solid #eee; padding-right: 2.5%;}
+
+.imagen-blog img{width: 100%; margin-bottom: 20px; max-height: 500px;}
+
+.loop_blog .blog-intro{text-align: center;}
+.loop_blog .blog-intro h3{margin-bottom: 5px; font-size: 28px; text-transform: uppercase;}
+.loop_blog .blog-intro h4{margin-bottom: 10px; font-size: 20px; color: #84B94F;}
+
+.blog-posts{padding: 20px 0;}
+
+.bread{display: inline-block; margin-bottom: 20px; font-size: 14px; line-height: 16px;}
+.bread a{color: #FAAA5C;}
+.bread a:hover{color: #4d4d4d;}
+
+.blog-post-cabecera .intro{margin-bottom: 10px; font-size: 16px; color: #FAAA5C;}
+.blog-post-cabecera .link-titulo{color: #000; display: block;}
+.blog-post-cabecera .link-titulo:hover{color: #666;}
+.blog-post-cabecera .titulo{margin-bottom: 10px; font-size: 28px; display: inline-block;}
+.blog-post-cabecera .fecha{margin-bottom: 10px; font-size: 14px; margin-right: 10px; display: inline-block;}
+.blog-post-cabecera .intro{display: inline-block;}
+
+.blog-posts-content{border-bottom: 1px solid #eee;}
+.blog-posts-content .compartir{margin-bottom: 15px;}
+.blog-posts-content .compartir a{display: inline-block; margin-right: 10px;}
+.blog-posts-content .compartir-abajo{margin-top: 20px;}
+.blog-posts-content p{font-size: 15px; line-height: 25px; color: #4d4d4d;}
+.blog-posts-content .link_box a{float: right;}
+.blog-posts-content .link_box a:hover{background-color: #fff; color: #FAAA5C !important;}
+
+.post-ony{border-bottom: none;}
+
+
+/**** LIBROS ****/
+
+
+.js-grider{opacity: 0;}
+.js-no-grider{opacity: 0; display: none;}
+.listado_libros .libro_header.griding .portada{width: 100%;}
+.listado_libros .libro_header a.nombre-grid{display: none;}
+.listado_libros .libro_header.griding a.nombre-grid{font-size: 12px; text-align: center; height: 30px; max-height: 30px; display: block; text-transform: uppercase; color: #c96444;}
+
+.libro_header.griding .copy{display: none;}
+.libro_header.griding{float: left; width: 20%;}
+.libro_header.griding .nombre-grid{display: block;}
+
+
+.libro_header .portada .cont-img{position: relative; margin: 10px; margin-top: 0;}
+.libro_header .portada .cont-img img{margin: 0; width: 100%; max-width: 100%;}
+
+
+/* SIDEBAR blog */
+
+
+
+
+.last-posts{color: #4d4d4d; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-bottom: 40px; }
+.last-posts h3{text-align: center;  font-size: 20px; margin-bottom: 25px; color: #84B94F;}
+
+.sidebar_blog_post li{padding: 20px 0; font-size: 13px; border-bottom: 1px solid #84B94F;}
+.sidebar_blog_post .copy-sidebar-blog{display: block;}
+.sidebar_blog_post .imagen-blog-side{width: 30%; float: left;}
+.sidebar_blog_post .imagen-blog-side img{width: 100%;}
+.sidebar_blog_post .title-post-side{float: left; width: 70%; color: #4d4d4d; padding-top: 15px; padding-left: 4px; display: inline-block;}
+.sidebar_blog_post .title-post-side:hover{color: #FAAA5C;}
+
+.categories-blog h3{text-align: center;  font-size: 20px; margin-bottom: 25px; color: #c96444;}
+.categories-blog ul{background-color: rgba( 201, 100, 68, 0.1); padding: 20px; border-radius: 5px; padding-top: 10px; padding-bottom: 25px;}
+.categories-blog li{padding: 20px 10px; font-size: 15px; border-bottom: 1px solid #c96444; }
+.link-category-sidebar{text-transform: capitalize; color: #4d4d4d;}
+.link-category-sidebar:hover{color: #84B94F;}
+.sidebar-blog-categories{margin-bottom: 30px;}
+
+
+
+/* Timeline Twitter */
+
+.time-twitter{text-align: center; margin-bottom: 20px;}
+.cont-follow{margin-bottom: 20px;}
+.time-face{text-align: center;}
+
+/* DANIEL */
+
+/* Generos */
+
+.featus-genre{width: 72%; float: left; margin-right: 2%;}
+.sugerencias .featus-genre li{width: 100%;}
+.sugerencias .featus-genre a{font-size: 12px; text-align: center; height: 30px; max-height: 30px; display: block; text-transform: uppercase; color: #84B94F;}
+.sugerencias .featus-genre a.nombre-grid{color: #c96444;}
+.sugerencias .featus-genre .libro_header{margin-bottom: 30px; padding-bottom: 20px;}
+.sugerencias .featus-genre .libro_header .portada{width: 100%;}
+
+.genre-sidebar{width: 26%; float: left;}
+.sugerencias .genre-sidebar li{width: 100%;}
+
+.listado_libros .titulo-genero-single{text-align: center; color: #84B94F;}
+
+/* Slider Generos */
+
+#panel, #flip{padding: 10px; text-align: center;}
+
+#flip{width: 100%;background-color: #84B94F; color: white; font-size: 15px;font-family: 'Montserrat', sans-serif; margin-top:5px; margin-bottom: 5px; cursor:pointer}
+
+#panel { display: none; text-align: left; width: 72%;}
+
+
+/* Tienda */
+
+@media screen and ( min-width: 320px ) {
+
+.tiendas ul li {position: relative; display:inline-block; float:left; width:82%; }
+
+}
+
+@media screen and ( min-width: 600px ) {
+
+.tiendas ul li {position: relative; display:inline-block; float:left; width:50%; }
+
+}
+
+
+@media screen and ( min-width: 1100px ) {
+
+.tiendas ul li {position: relative; display:inline-block; float:left; width:33%; }
+
+}
+
+@media screen and (max-width: 349px) {
+    
+    .botonera-libros .boton-ordenator {width: 42%;}
+
+}

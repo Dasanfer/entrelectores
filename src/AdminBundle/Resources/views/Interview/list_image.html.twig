@@ -1,0 +1,10 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+    {%- if value is empty -%}
+        Sin Imágen
+    {%- else %}
+    <img src="{{web_image(object.imageDir).resize(150,150).jpeg()}}" />
+  
+    {%- endif -%}
+{% endblock %}

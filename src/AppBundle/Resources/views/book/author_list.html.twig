@@ -1,0 +1,29 @@
+{%if books%}
+<div class="cajas_libro_resumen lista_autor">
+    
+    <h3>Otros libros de <a href="{{url('authorpage',{slug:author.slug})}}" rel="tag">{{author.name}}</a></h3>
+    
+    <div class="cajas_libro_cont">
+    
+        <ul class="listado_lib clearfix">
+            {%for book in books%}
+            <li class="clearfix">
+                <div class="portada">
+                    <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}"><img src="{{web_image('/wp-content/'~book.imageDir).resize(40,60).jpeg()}}" class="sombra" alt="portada de {{book.title}}"></a>
+                </div>
+                <div class="copy">
+                    <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a>
+                    <span class="stats">
+                        <span class="rate">
+                            {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: book.cachedRate, class: null})}}
+                        </span>
+                    </span>
+                </div>
+            </li>
+            {%endfor%}
+        </ul>
+        
+    </div>
+    
+</div>
+{%endif%}

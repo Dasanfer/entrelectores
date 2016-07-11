@@ -1,0 +1,39 @@
+<div class="cajas_libro_resumen resena_destacada">
+
+    <h3 class="section_header">Reseña destacada de <span class="total">({{book.reviews.count}} reseñas)</span> - <a href="#book-reviews" data-type="book" data-id="{{book.id}}" class="goto-reviews">ver todas las reseñas</a></h3>
+
+    <div class="resenas cajas_libro_cont">
+
+        {%for review in reviews%}
+
+
+        <div class="single_resena clearfix" id="resena_{{review.id}}">
+
+            <div class="meta">
+                <img src="{{userImage(review.user,100,100)}}" alt="Profile photo of {{review.user.username}}">
+            </div>
+
+            <div class="cont"> 
+                <p class="meta-info clearfix">
+                <a href="{{url('user_profile',{slug:review.user.slug})}}" ><span class="nombre">{{review.user.username}}</span></a>
+                <span class="fecha">{{review.created|date("d/m/y \\a \\l\\a\\s g:ia") }}</span>
+                </p>
+
+                <p></p>
+
+                <h4>{{review.title}}</h4>
+                <p class="contenido">
+                {{review.text|nl2br}} 
+                </p> 
+            </div>
+        </div>
+        {%else%}
+        <div class="single_resena clearfix">
+            <p>Nadie ha publicado aún una reseña sobre este libro. Si lo has leído, anímate, y sé el primero en hacerlo.</p>
+        </div>
+        {%endfor%}
+    </div>
+
+    <a class="boton boton_verde boton_inline boton_med boton_tu_resena goto-reviews" data-id="{{book.id}}"  href="#publicar-resena">Escribe tu reseña</a>
+
+</div>

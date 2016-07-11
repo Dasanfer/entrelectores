@@ -1,0 +1,29 @@
+<h3>{{user.username}} Sigue los autores</h3>
+<ul>
+    {%for author in user.authorsFollowed%}
+    <li class="clearfix usuario">
+        <div class="img-user-holder">
+            <img src="{{web_image('/wp-content/'~author.imageDir).zoomCrop(50,50).jpeg()}}" alt="foto de {{author.name}}">
+        </div>
+        <div class="data-user-holder clearfix">
+            <p class="datos">
+                <span class="nombre"><a href="{{url('authorpage',{slug:author.slug})}}">{{author.name}}</a>
+                </span>
+                <a class="seguidores" href="{{url('authorpage',{slug:author.slug})}}#followers">
+                    <span class="ion-arrow-right-c"></span> 
+                    {{author.followers.count}} seguidor{% if author.followers.count != 1 %}es{%endif%} 
+                </a>
+            </p>
+            
+            {%if app.user != user%}
+            <span class="seguir">
+                <a data-type="author" data-id="{{author.id}}" style="{{doesUserFollow(author,'author',app.user) ? 'display:none;' : ''}}"  class="follow-button boton boton_verde boton_med boton_inline">Seguir</a>
+                <a data-type="author" data-id="{{author.id}}" style="{{doesUserFollow(author,'author',app.user) ? '' : 'display:none;'}}" class="unfollow-button boton boton_celeste boton_med boton_inline siguiendo">
+                </a>
+            </span>
+            {%endif%}
+        </div>
+    </li>
+    {%endfor%}
+</ul>
+

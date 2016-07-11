@@ -1,0 +1,61 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+
+{% block metas %} 
+    <meta name="description" content="Libros de {{genre.name}}. {{genre.info}}"/>
+{% endblock %}
+
+{%block title%}
+    Libros de {{genre.name}} - Entrelectores
+{%endblock%}
+
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content">
+            {{include('AppBundle:banner:page_banner.html.twig',{zone:'list-genero'})}}
+            <div class="listado_libros clearfix contenido_general">
+            
+                <div class="breadcrumbs-holder genero" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <ul class="breadcrumbs">
+                        <li typeof="v:Breadcrumb"> <a href="{{url('allbooks')}}" rel="v:url" property="v:title">Libros</a> / </li>
+                        <li typeof="v:Breadcrumb"> <span property="v:title">{{genre.name}}</span> </li>
+                    </ul>
+                </div>
+                
+                <div class="cabecera-genero">
+                    <div class="botonera-libros clearfix">
+                        <div class="organizator clearfix">
+                            <a class="boton-lista" href="javascript:void(0);"><i></i></a>
+                            <a class="boton-grid active" href="javascript:void(0);"><i></i></a>
+                        </div>
+                    </div>
+                    <h1 class="titulo-genero-single">Libros de {{genre.name}}</h1>
+                </div>
+                
+                <div class="info-previa-genero clearfix">
+                    <div class="cont-img">
+                        <img src="{{web_image(genre.imageDir).resize('100%').jpeg()}}"/>
+                    </div>
+                    <span>{{genre.description}}</span>
+                </div>
+                
+                <div class="container-libros clearfix">
+                    {% for book in pagination %}
+                        {{include('AppBundle:book:list_entry.html.twig',{book:book})}}
+                    {%endfor%}
+                </div>
+            
+                <div class="pagination clearfix">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            {{include('AppBundle:book:list_sidebar.html.twig')}} 
+        </div>
+    </div>
+
+</div>
+{%endblock%}

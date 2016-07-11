@@ -1,0 +1,20 @@
+<h3>Libro promocionado</h3>
+<ul>
+    {%for book in books%}
+    <li class="sidebar-promoted" style="display:none;">
+        <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}" class="titulo" onclick="_gaq.push(['_trackEvent', 'Libro promocionado', 'Sidebar', '{{book.title}}']);">
+            <img src="{{web_image('/wp-content'~book.imageDir).cropResize(134,170).jpeg()}}" alt="Portada de {{book.title}}" class="sombra">
+        </a>
+
+        <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}" class="titulo" onclick="_gaq.push(['_trackEvent', 'Libro promocionado', 'Sidebar', '{{book.title}}']);">{{book.title}}</a>
+
+        <span class="autor">
+            <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">{{book.author.name}}</a>
+        </span>
+    </li>
+    {%endfor%}
+</ul>
+<script type="text/javascript">
+    var promoted_sidebar = document.getElementsByClassName("sidebar-promoted");
+    promoted_sidebar[Math.floor(Math.random()*promoted_sidebar.length)].style.display = "block";
+</script>

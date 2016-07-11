@@ -1,0 +1,42 @@
+<li class="entry clearfix usuario con-icono">
+    
+    <div class="meta">
+        <img src="{{userImage(entry.createdBy)}}" alt="Profile photo of {{entry.createdBy.username}}">
+    </div>
+    
+    <div class="cont">
+    
+        <p class="meta-info clearfix">
+            
+            <span class="cont-nombre-accion">
+                <span class="nombre"> <a href="{{url('user_profile',{slug:entry.createdBy.slug})}}"> {{entry.createdBy.username}}</a> </span>
+                <span class="accion"> Ha votado <a href="{{url('bookpage',{slug: entry.book.slug, authorslug: entry.book.author.slug})}}">{{entry.book.title}}</a> con un {{showRate(entry.book,entry.createdBy)}}</span>
+            </span>
+            
+            <span class="fecha">{{entry.created|date("j/n/y \\a \\l\\a\\s G:i")}}</span> 
+        </p>
+        
+        <div class="contenido clearfix">
+            
+            <div class="img-holder">
+                <img src="{{web_image('/wp-content/'~entry.book.imageDir).cropResize(200,300).png()}}" alt="portada de {{entry.book.title}}">
+            </div>
+            
+            <div class="copy">
+                <div class="rate clearfix">
+                    {{include('AppBundle:public:rating_stars.html.twig',{id: entry.book.id, type: 'book',rating: entry.book.cachedRate, class: null, global:false})}}
+                </div>
+                                
+                <p>
+                    {{entry.book.sinopsis | truncate(160)}}
+                </p>
+                <p>
+                    {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:entry.book.id})}}      
+                </p>
+            </div>
+            
+        </div>
+        
+    </div> 
+         
+</li>

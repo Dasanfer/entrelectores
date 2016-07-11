@@ -1,0 +1,25 @@
+<div style="display:none;" class="banner_adsense js-banner-adsense js-sidebar-banner">
+    <ins class="adsbygoogle"
+        style="display:inline-block;width:300px;height:250px"
+        data-ad-client="ca-pub-1502640214461702"
+        data-ad-slot="6663246876">
+    </ins>
+</div>
+
+{% for banner in banners%}
+<div style="display:none;" class="js-sidebar-banner">
+{{banner.htmlCode|raw}}
+</div>
+{%endfor%}
+
+<script type="text/javascript">
+    var banners = document.getElementsByClassName("js-sidebar-banner");
+    var show_banner_index = Math.floor(Math.random()*banners.length);
+    var banner = banners[show_banner_index];
+    for(var bnIdx = 0; bnIdx < banners.length; bnIdx++){
+      if(bnIdx != show_banner_index)
+          banners[bnIdx].parentNode.removeChild(banners[bnIdx]);
+    }
+    
+    banner.style.display = "block";
+</script>

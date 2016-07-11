@@ -1,0 +1,20 @@
+{%if authors%}
+<div class="cajas_libro_resumen listas_libro clearfix"> 
+    <h3>Autores mas populares</h3>
+    <div class="cajas_libro_cont">
+        <ul class="listado_lib clearfix">
+            {%for author in authors%}
+            <li class="clearfix">
+            <div class="icono"> 
+                <img class="sombra" src="{{web_image('/wp-content/'~author.imageDir).resize(40,40).jpeg()}}"/>
+            </div>
+            <div class="copy">
+                <a href="{{url('authorpage',{slug:author.slug})}}">{{author.name}}</a>
+                <span class="cuenta">{{author.books.count}} libros</span>
+            </div>
+            </li>
+            {%endfor%}
+        </ul> 
+    </div> 
+</div>
+{%endif%}

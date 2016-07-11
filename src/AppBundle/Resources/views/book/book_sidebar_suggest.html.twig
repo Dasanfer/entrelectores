@@ -1,0 +1,26 @@
+{%if books%}
+<div class="descubre_libros_nuevos">
+    <h3>A quien le gustó {{book.title}} también le gusta...</h3>
+<ul>
+    {%for book in books%}
+    <li class="clearfix">
+    <a href="{{url('bookpage',{slug:book.slug,authorslug:book.author.slug})}}">
+
+        <div class="portada">
+            <img src="{{web_image('/wp-content/'~book.imageDir).scaleResize(120,180,'transparent').png()}}" alt="portada de {{book.title}}" class="sombra">
+        </div>
+
+        <p class="copy">
+        <span class="titulo">{{book.title}}</span>
+        </p>
+            <div class="rate {{app.user ? '' : 'disabled'}} clearfix">
+                {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class:(hasRated(book,app.user) ? 'voted' : ''), global:false})}}
+            </div>
+        <p></p>
+    </a>
+    <a class="mas_info" href="{{url('bookpage',{slug:book.slug,authorslug:book.author.slug})}}">mas info</a>
+    </li> 
+    {%endfor%}
+</ul>
+</div>
+{%endif%}

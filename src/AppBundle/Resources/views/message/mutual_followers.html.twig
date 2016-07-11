@@ -1,0 +1,24 @@
+
+<p class="clearfix">Para enviar y recibir mensajes directos tienes que estar siguiendo y ser seguido por el usuario al que quieras escribir. Estos son los usuarios a los que puedes escribir ahora:</p>
+<ul class="listado-seguidores-mutuos clearfix">
+    {%for follower in users%}
+    <li class="clearfix usuario" id="usuario_{{follower.id}}">
+    <div class="img-user-holder">
+        <img src="{{userImage(follower)}}" alt="profile photo of {{follower.username}}"/>
+    </div>
+    <div>
+        <p class="datos">
+            <span class="nombre">
+                <a href="{{url('user_profile',{slug:follower.slug})}}">{{follower.username}}</a>
+            </span>
+        </p>
+        <div class="data-user-holder clearfix">
+            <a class="boton boton_verde boton_med boton_block" href="{{url('conversation_with_user',{user_id: follower.id})}}">Mensaje</a>
+        </div>
+    </div>
+    </li>
+    {%else%}
+    <li>Todavía no eres seguidor mutuo con nadie </li>
+    {%endfor%}
+</ul>
+

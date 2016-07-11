@@ -1,0 +1,154 @@
+{{render_esi(url('book_main_data',{id:book.id}))}}
+
+
+<!-- book_main_content-->
+<div class="libro_leido clearfix no_leido">
+    <div class="leido js-reading-buttons" data-book-id="{{book.id}}">        
+        <a href="#" id="js-set-read" onclick="event.preventDefault(); appbundle.addBookRelation('read',{{book.id}},$(this));" class="boton boton_inline boton_verde boton_med">Lo he leído</a>
+        <a href="#" id="js-set-reading" onclick="event.preventDefault(); appbundle.addBookRelation('reading',{{book.id}},$(this));" class="boton boton_inline boton_verde boton_med">Lo estoy leyendo</a>
+        <a href="#" id="js-set-want" onclick="event.preventDefault(); appbundle.addBookRelation('want',{{book.id}},$(this));" class="boton boton_inline boton_verde boton_med">Lo quiero leer</a>
+    </div>
+
+    <div class="listas">
+        <a href="#" onclick="event.preventDefault(); lists.addToList({{book.id}});" class="boton boton_inline boton_verde boton_med" id="btn_listas_pop_up">Añadir a mis listas</a>
+    </div>
+</div>
+{{include('AppBundle:banner:page_banner.html.twig',{zone:'single-book'})}}
+<div class="comprar">
+    <h2>Comprar {{book.title}}</h2>
+
+    <div class="tiendas">
+        <ul class="clearfix">
+            {%if book.elcId%}
+            <li class="clearfix corteingles">
+                <div class="icono"> </div>
+                <div class="copy clearfix">
+                    <p><a href="http://www.elcorteingles.es/libros/libro/{{book.elCid}}" onclick="_gaq.push(['_trackEvent', 'Corte-Ingles', 'Comprar-Papel', '{{book.slug}}']);" target="_blank" rel="nofollow" class="boton boton_verde boton_inline boton_med" title="Amazon"><span class="ion-chevron-right"></span>
+                    </a>
+                    </p>
+                </div>
+            </li>
+            {%endif%}
+            <li class="clearfix iberlibro">
+            <div class="icono"></div>
+
+            <div class="copy clearfix">
+                <!-- <span class="nombre">Iberlibro</span> -->
+
+                <a href="http://affiliates.abebooks.com/c/78079/77798/2029?u=http%3A%2F%2Fwww.iberlibro.com%2Fservlet%2FSearchResults%3Fan%3D{{book.author.name|url_encode}}%26sts%3Dt%26tn%3D{{book.title}}" onclick="_gaq.push(['_trackEvent', 'Iberlibro', 'Comprar-Papel', '{{book.title}}']);" target="_blank" rel="nofollow" class="boton boton_verde boton_inline boton_med" title="compar {{book.title}} en Iberlibro">
+                    <span class="ion-chevron-right"></span>
+                </a>
+            </div>
+            </li>
+
+            {%if book.isValidIsbn()%}
+                <li class="clearfix amazon">
+                <div class="icono"></div>
+
+                <div class="copy clearfix">
+                    <!-- <span class="nombre">Amazon</span> -->
+                    <a href="http://www.amazon.es/gp/product/{{book.isbn10}}/ref=as_li_tf_tl?ie=UTF8&amp;tag=entrel-21&amp;linkCode=as2" onclick="_gaq.push(['_trackEvent', 'Amazon', 'Comprar-Papel', '{{book.title}}']);" target="_blank" rel="nofollow" class="boton boton_verde boton_inline boton_med" title="compar {{book.title}} en Amazon"><span class="ion-chevron-right"></span></a>
+                </div>
+                </li>
+            {%endif%}
+
+        </ul>
+    </div>
+</div>
+
+
+<div class="libro_tabs clearfix">
+    <ul class="tabs_list">
+        <li>
+        <a href="#book-info" class="goto-info book-tab activo" id="goto-info" data-type="book" data-id="{{book.id}}">
+            Resumen
+        </a>
+        </li>
+        <li>
+        <a href="#book-reviews" class="goto-reviews book-tab" id="goto-reviews" data-type="book" data-id="{{book.id}}" >
+            Reseñas
+        </a>
+        </li>
+        <li>
+        <a href="#book-conversation" class="goto-book-conversation book-tab" id="goto-book-conversation" data-type="book" data-id="{{book.id}}">
+            Conversación
+        </a>
+        </li>
+    </ul>	
+</div>
+
+
+
+<div class="js-general-content js-general-info  general-content bordered-trans">
+    <div id="book-sinopsis-{{book.id}}" class="js-general-info contenido_general clearfix sinopsis contenido_single cajas_libro_resumen"> 
+        <h2>Sinopsis y resumen de {{book.title}}</h2>
+        <p>
+        {{book.sinopsis | striptags |nl2br}}
+        </p>
+    </div>
+
+    {%if book.author %}
+    {{render_esi(url('from_same_author',{id:book.id}))}}
+    {%endif%}
+
+    {{render_esi(url('book_in_lists',{id:book.id}))}}
+    {{render_esi(url('book_best_reviews',{id:book.id}))}}
+    {{render_esi(url('book_last_comments',{id:book.id}))}}
+</div>
+
+<div class="js-general-content resenas resenas-container bordered" style="display:none;" >
+    <h3 class="section_header">Reseñas de {{book.title}} ({{book.reviews.count}} reseñas)</h3>	
+
+    <div class="add-resena" id="publicar-resena">
+
+        <h3>Escribe tu reseña</h3>
+
+        {%if not app.user%}
+        <p>Debes iniciar sesión para poder valorar, escribir reseñas, etc.</p>
+        {%elseif reviewForm%}
+
+        <form id="new_post" name="new_post" method="post" class="comment-form resena-form clearfix" onsubmit="event.preventDefault();">
+
+            <fieldset class="clearfix">
+
+                <div class="rate clearfix">
+                    <span>Puntúalo</span>
+                    {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class: null, global:false})}}
+                </div>	        
+
+                {{form_widget(reviewForm.title,{'attr':{'placeholder':'Ponle un título'}})}}
+                {{form_widget(reviewForm.text,{'attr':{placeholder:'Danos tu opinión'}})}}
+
+                <div class="spoiler_alert">
+                    <p>¿Tu reseña desvela el argumento / contiene spoilers?</p>
+                    {{form_widget(reviewForm.spoiler,{'label':'Esta opinión desvela el argumento','id':'spoiler','attr':{'class':'checkbox'}})}}
+                    <label for="spoiler">Esta opinión desvela el argumento (spoiler)</label>		
+                </div>
+
+                <button class="boton boton_med boton_verde boton_inline" onclick="event.preventDefault(); appbundle.sendReview($(this).closest('form'))">Enviar reseña</button>
+
+                <input type="hidden" name="book" value="{{book.id}}">
+                {#{{form_row(reviewForm.book,{value:book,'attr':{'type':'hidden'}})}}#}
+
+            </fieldset>
+
+            <div class="error-form" style="display: none;">Por favor, rellena todos los campos.</div><div class="error-form errorlabels" style="display: none;"> </div>
+
+        </form>	
+
+        {% else %}
+        <p>Ya has escrito una reseña sobre {{book.title}} </p>
+        {%endif%}	
+
+    </div>
+
+    <div id="review-container">
+        {{render_esi(url('book_reviews',{id:book.id,offset:0,count:3}))}}
+    </div>
+
+    <a href="#" id="more-reviews" onclick="event.preventDefault(); book.loadReviews();" class="boton boton_inline boton_verde boton_med">Más reseñas</a>
+</div>
+
+<div class="js-general-content conversacion conversation-section bordered" style="display:none;">
+    {{include('AppBundle:public:comment_section.html.twig',{'element':book,'type':'book'})}}
+</div>

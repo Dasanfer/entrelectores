@@ -1,0 +1,65 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+
+{% block metas %} 
+
+{% set bookurl = url('bookpage', {slug:book.slug,authorslug:book.author.slug}) %}
+    
+    <meta property="og:type" content="book"/>
+    
+    {% if book.author.name %}
+        <meta property="book:author" content="{{book.author.name}}" />
+    {% endif %}
+    {% if book.isbn %}
+        <meta property="book:isbn" content="{{book.isbn}}" />
+    {% endif %}
+    
+    {% if book.year %}
+        <meta property="book:datePublished" content="{{book.year}}" />
+    {% endif %}
+
+    {% if book.genre%}
+        <meta property="book:genre" content="{{book.genre.name}}" />
+    {% endif %} 
+       
+    <meta property="og:image" content="https://{{app.request.httpHost}}{{web_image('/wp-content/'~book.imageDir).jpeg()}}" />
+    
+    <meta property="og:description" content="Ficha de {{book.title}} de {{book.author.name}}. Descubre reseñas y comenta el libro {{book.title}}. Sinopsis: {{book.sinopsis | truncate(40)}}" />
+
+    {%set descNum = book.id%3  %}
+    
+    {%if descNum == 0%}
+        <meta name="description" content="Ficha y resumen de {{book.title}} de {{book.author.name}}. Descubre reseñas y comenta el libro {{book.title}}. Sinopsis: {{book.sinopsis | truncate(40)}}"/>
+    {%elseif descNum == 1%}
+        <meta name="description" content="Resumen, reseñas y comentarios de {{book.title}} del autor {{book.author.name}}. Sinopsis: {{book.sinopsis | truncate(60)}}"/>
+    {%else%}
+        <meta name="description" content="Vota, comenta y reseña {{book.title}} de {{book.author.name}}. Sinopsis/Resumen: {{book.sinopsis | truncate(80)}}"/>
+    {%endif%}
+
+    <meta property="og:url" content="{{bookurl}}" />
+    <meta property="og:title" content="{{book.title}}" />
+
+{% endblock %} 
+
+{%block title%}
+ Libro {{book.title}} - Resumen y reseñas
+{%endblock%}
+
+{%block seoTags%}
+    <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+{%endblock%}
+
+{%block body%} 
+    <div class="row_100 clearfix">
+        <div class="row row_general">
+            <div class="col_content contenido_general">
+                {{include('AppBundle:book:book_main_content.html.twig')}}
+            </div>
+            <div class="col_sidebar">
+                {{include('AppBundle:book:book_sidebar.html.twig')}}
+            </div>
+        </div>
+    </div>
+
+{%endblock%}
+
+

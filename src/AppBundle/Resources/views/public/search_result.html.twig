@@ -1,0 +1,100 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+
+{%block seoTags%}
+    <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+    <meta name="robots" content="noindex">
+{%endblock%}
+
+{%block body%}
+
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content">
+            {{include('AppBundle:banner:page_banner.html.twig',{zone:'list-busqueda'})}}
+            <div class="listado_libros clearfix contenido_general">
+                <div class="breadcrumbs-holder genero" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <ul class="breadcrumbs">
+                        <li typeof="v:Breadcrumb"> <a href="{{url('allbooks')}}" rel="v:url" property="v:title">Libros</a> / </li>
+
+                    </ul>
+                    <div class="organizator clearfix">
+                            <a class="boton-lista" href="javascript:void(0);"><i></i></a>
+                            <a class="boton-grid active" href="javascript:void(0);"><i></i></a>
+                        </div>
+                </div>
+                
+                <h1>Resultados "{{app.request.get('term')}}":</h1>
+
+                {% for entry in pagination %}
+                    {%if entry.searchType == 'book' %}
+                    {%set book = entry%}
+                        {{include('AppBundle:book:list_entry.html.twig',{book:book})}}
+                    {% endif %}
+                    {% if entry.searchType == 'author'%}
+                    {%set author = entry%}
+                    <div class="libro_header js-grider clearfix">
+                        <div class="portada">
+                            <div class="cont-img">
+                                <a href="{{url('authorpage', {slug:author.slug})}}"><img data-url="-{{author.imageDir}}-" src="{{web_image('/wp-content/'~author.imageDir).resize(84,126).jpeg()}}"  alt="imagen de {{author.name}}"></a>
+                            </div>
+                            <a class="nombre-grid" href="{{url('authorpage',{slug:author.slug})}}" rel="tag">{{author.name|truncate(20)}}</a>
+                        </div>
+
+                        <div class="copy meta js-no-grider">
+                                 
+                                <h2> <a href="{{url('authorpage', {slug:author.slug})}}">{{author.name}}</a> </h2>
+                                <p class="datos">
+                                    <a href="#">
+                                        <span class="ion-bookmark"></span>
+                                        {{author.bookCount}} libro{% if author.bookCount != 1 %}s{% endif %} 
+                                    </a>
+                                    <a href="#">
+                                        <span class="ion-arrow-right-c"></span>
+                                        {{author.followersCount}} seguidor{% if author.followersCount != 1 %}es{% endif %} 
+                                    </a>
+                                </p>
+                                
+                                {% if author.bookCount > 0 %}
+                                    <p class="autor_de">
+                                        Autor de: 
+                                        {% for book in author.books | slice(0,3) %}
+                                            <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a> 
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                                
+                                {{include('AppBundle:public:follow_buttons.html.twig',{type:'author',itemId:author.id})}} 
+
+                            </div>
+                              
+                    </div>
+
+                    {% endif %}
+
+                    {%else%}
+                    <div class="libro_header clearfix">
+                        <p>
+                            Lo sentimos, pero parece que no encontramos lo que estás buscando. 
+                        </p>
+                        <p>
+                        Puedes intentarlo de nuevo usando otro modo de búsqueda o, si lo prefieres, envíanos tu consulta <a href="mailto:soporte@entrelectores.com">soporte@entrelectores.com<a>.
+                        </p>
+                    </div>
+                    {{render_esi(url('popular_books_timeline'))}} 
+                    {{render_esi(url('popular_authors_timeline')) }}
+                    {%endfor%}
+
+                <div class="pagination clearfix">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            {{include('AppBundle:public:public_sidebar.html.twig')}}
+        </div>
+    </div>
+
+</div>
+{%endblock%}

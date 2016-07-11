@@ -1,0 +1,42 @@
+{%for review in reviews%}
+<div class="single_resena resena_entry clearfix" id="review-{{review.id}}">
+    <div class="meta">
+        <img src="{{userImage(review.user)}}" alt="Profile photo of {{review.user.username}}">
+    </div>
+    <div class="cont"> 
+        <p class="meta-info clearfix">
+        <a href="{{url('user_profile',{slug:review.user.slug})}}" ><span class="nombre">{{review.user.username}}</span></a>
+        <span class="fecha">{{review.created|date("j/n/y \\a \\l\\a\\s G:i") }}</span>
+        </p>
+        <div class="rate disabled">
+            {{include('AppBundle:public:rating_stars.html.twig',{rating: showRate(review.book,review.user), class:'voted', id: review.book.id,type:'book'})}}
+        </div>
+
+        <h4><a href="{{url('single_review',{bookSlug:review.book.slug,id:review.id})}}">{{review.title}}</a></h4>
+
+        {%if review.spoiler%}
+
+        <div class="spoiler" id="spoiler-{{review.id}}">
+            <p>Atención! Esta reseña contiene spoilers y puede desvelar todo o parte del argumento</p>
+        </div>
+        <a rel="nofollow" title="leer reseña completa" class="boton boton_verde boton_inline boton_med leer_resena no_activo" onclick="event.preventDefault(); $(this).hide(); $('#spoiler-{{review.id}}').hide(); $('#review-content-{{review.id}}').show(300);">Leer reseña completa</a>
+        {%endif%}
+        <p class="contenido" id="review-content-{{review.id}}" style="{{review.spoiler ? 'display:none;':''}}">
+        {{review.text|nl2br}} 
+        </p>
+
+        {%set ratings = getReviewRatings(review)%}
+
+        <div class="puntua_resena clearfix">    
+            <a href="#" class="th_up"> 
+                <span class="icono ion-thumbsup" data-review="{{review.id}}"> </span> 
+                <span class="cantidad">{{ratings.positive}}</span> 
+            </a>
+            <a href="#" class="th_down"> 
+                <span class="icono ion-thumbsdown" data-review="{{review.id}}"> </span> 
+                <span class="cantidad">{{ratings.negative}}</span> 
+            </a>
+        </div>
+    </div>
+</div>
+{%endfor%}

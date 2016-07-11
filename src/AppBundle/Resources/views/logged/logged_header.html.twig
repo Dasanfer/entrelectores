@@ -1,0 +1,74 @@
+{{include('AppBundle:public:overlay_lista.html.twig')}}
+
+<div class="row_100 menu_sup  logged ">
+    <div class="row clearfix">
+        <a class="logo {{country}}" href="{{url('homepage')}}"></a>
+        <ul class="menu menu_buscador">
+            <li>
+            <form method="get" id="searchform" action="{{url('search_books')}}">
+                <input type="text" name="term" id="term" placeholder="titulo / autor / etiqueta">
+                <input type="submit" value="Buscar" id="searchsubmit" class="boton boton_inline boton_verde boton_med">
+            </form>
+            </li>
+        </ul>
+
+        <ul class="menu menu_principal">
+
+            <li><a href="{{url('user_homepage')}}"> Timeline </a></li> 	
+
+            <li class="tiene_submenu"><a href="#" class="derecha trigger js-trigger-panel" id="explora">Explorar</a>
+            <div class="panel-plegable panel js-panel" id="panel-explora">
+                <ul>
+                    <li><a href="{{url('allbooks')}}">Todos los libros</a></li>
+                    <li><a href="{{url('authors')}}">Todos los autores</a></li>	
+                    <li><a href="{{url('public_users_list')}}">Todos los usuarios</a></li>	
+                    <li><a href="{{url('all_genre_page')}}">Todos los géneros</a></li>
+                    <li><a href="{{url('public_lists')}}">Todas las listas</a></li>
+                </ul>
+            </div>
+            </li>
+
+            <li class="tiene_submenu"><a href="#" class="js-trigger-panel trigger derecha" id="mi-el">Mi EntreLectores</a>
+            <div class="panel-plegable panel js-panel" id="panel-mi-el">
+                <ul>
+                    <li><a href="{{url('my_books')}}">Mis libros</a></li>	
+                    <li><a href="{{url('my_lists')}}">Mis listas</a></li>
+                    <li><a href="{{url('user_reviews')}}">Mis reseñas</a></li>
+                </ul>
+            </div>
+            </li>
+
+        </ul>
+
+        <ul class="menu menu_logged">
+
+            <li><a href="{{url('conversation_index') }}" class="mensajes"><span class="ion-email icon"></span><span class="count_pending pend_{{ app.user | unreadedMessages }}">{{ app.user | unreadedMessages }}</span></a></li>
+
+            <li class="tiene_submenu">
+            <a href="#" class="izquierda trigger js-trigger-panel user_name clearfix" id="user">
+                <span class="nombre-usuario">{{app.user.username}}</span>
+                <img src="{{userImage(app.user,30,30)}}" alt="avatar" width="30" height="30">
+            </a>
+
+            <div class="panel-plegable panel js-panel" id="panel-user">
+                <ul>
+                    <li><a href="{{url('user_profile',{slug:app.user.slug})}}">Mi perfil</a></li>	
+                    <li><a href="{{url('user_profile_edit')}}">Editar perfil</a></li>
+                    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                    <li><a href="{{ path('user_list', {'_switch_user': '_exit'}) }}">Exit impersonation</a></li>
+                        {%else%}
+                    <li><a href="{{url('fos_user_security_logout')}}">Salir</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script tye="text/javascript">
+    {%if app.user%}
+        var user_id = {{app.user.id}};
+    {%else%}
+        var user_id = 'anon';
+    {%endif%}
+</script>

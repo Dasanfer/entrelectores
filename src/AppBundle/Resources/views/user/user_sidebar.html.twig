@@ -1,0 +1,12 @@
+<div class="promocionado_sidebar">
+    {{render_esi(url('books_sidebar_promoted'))}} 
+</div>
+{%if app.user%}
+<div class="descubre_libros_nuevos">
+    {{render_esi(url('user_sidebar_suggestions'))}}
+</div>
+{%else%}
+<div class="promocionado_sidebar">
+    {{render_esi(url('books_sidebar_novelty'))}} 
+</div>
+{%endif%}

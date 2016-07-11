@@ -1,0 +1,54 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+
+{%block seoTags%}
+    <meta name="robots" content="noindex">
+{%endblock%}
+
+{%block body%}
+
+<div class="row_100">
+    {{include('AppBundle:banner:page_banner.html.twig',{zone:'generos-todos', css_class:'row'})}}
+</div>
+
+<div class="row_100 encuentra clearfix">
+    <div class="buscador clearfix">
+        <div class="row copy clearfix">
+            <h2>Encuentra tus libros de toda la vida</h2>
+        </div>
+        <div class="row form clearfix">
+            <form method="get" id="searchform" action="{{url('search_books')}}">
+                <input type="text" name="term" id="term" placeholder="titulo / autor / etiqueta">
+                <input type="submit" value="Buscar" id="searchsubmit" class="boton boton_inline boton_verde boton_grande">
+            </form>
+        </div>
+    </div>
+    <div class="row sugerencias clearfix">
+    
+        <div class="featus-genre clearfix">
+            <ul>    
+                {%for feat in data%}
+                <li>
+                    <a href="{{url('bookgenre',{slug: feat.genre.slug})}}" title="Ver todos los libros de {{feat.genre.name}}">{{feat.genre.name}}</a>
+                </li>
+                    <div class="container-libros clearfix">
+                        {% for book in feat.books %}
+                            {{include('AppBundle:book:list_entry.html.twig',{book:book})}}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="genre-sidebar clearfix">
+            <ul>
+            {% for genre in genres %}
+                <li>
+                    <a href="{{url('bookgenre',{slug: genre.slug})}}" title="Ver todos los libros de {{genre.name}}">{{genre.name}}</a>
+                </li>
+            {% endfor %}
+            <ul>
+        </div>
+        
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,85 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+
+{%block title%}
+    Listado de autores de Entrelectores
+{%endblock%}
+
+{%block body%}
+<div class="row_100">
+{{include('AppBundle:banner:page_banner.html.twig',{zone:'list-autor', css_class:'row'})}}
+</div>
+<div class="row_100 clearfix">
+    <div class="row">
+
+        <div class="col_content">
+            <div class="listado_libros clearfix contenido_general">
+
+                <div class="breadcrumbs-holder" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <ul class="breadcrumbs">
+
+                         <li typeof="v:Breadcrumb"><a href="{{url('authors')}}" rel="v:url" property="v:title">Autores</a> / </li>
+
+                    </ul>
+                </div>
+       
+                <br></br>
+
+                <div class="organizator organizator-autores clearfix">
+                    <a class="boton-lista" href="javascript:void(0);"><i></i></a>
+                    <a class="boton-grid active" href="javascript:void(0);"><i></i></a>
+                </div>
+
+                <h1>Autores</h1>
+
+                <div class="container-autores clearfix">
+                    {%for author in pagination%} 
+                        <div class="libro_header autor_header js-grider griding clearfix"> 
+                            <div class="portada">
+                                <a href="{{url('authorpage', {slug:author.slug})}}"><img src="{{web_image('/wp-content/'~author.imageDir).resize(105,132).jpeg()}}" alt="foto de {{author.name}}" /></a>
+                                <a class="nombre-grid" href="{{url('authorpage', {slug:author.slug})}}">{{author.name}}</a>
+                            </div> 
+                             <div class="copy meta js-no-grider">
+                                 
+                                <h2> <a href="{{url('authorpage', {slug:author.slug})}}">{{author.name}}</a> </h2>
+                        	    <p class="datos">
+                                    <a href="#">
+                                        <span class="ion-bookmark"></span>
+                                        {{author.bookCount}} libro{% if author.bookCount != 1 %}s{% endif %} 
+                                    </a>
+                                    <a href="#">
+                                        <span class="ion-arrow-right-c"></span>
+                                        {{author.followersCount}} seguidor{% if author.followersCount != 1 %}es{% endif %} 
+                                    </a>
+                                </p>
+                                
+                                {% if author.bookCount > 0 %}
+                                    <p class="autor_de">
+                                        Autor de: 
+                                        {% for book in author.books | slice(0,3) %}
+                                            <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a> 
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                                
+                                {{include('AppBundle:public:follow_buttons.html.twig',{type:'author',itemId:author.id})}}     
+                            </div>
+                            <div class="libro_meta clearfix"> </div>	
+                        </div>
+                    {%endfor%}
+                </div>
+
+                <div class="pagination clearfix">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            <div class="promocionado_sidebar">
+                {{render_esi(url('books_sidebar_promoted'))}} 
+            </div>
+        </div>
+
+    </div>
+</div>
+{%endblock%}

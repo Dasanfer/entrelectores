@@ -1,0 +1,42 @@
+<li class="js-interview-entry clearfix usuario con-icono agrupado">
+
+    <div class="meta"> 
+        <img src="{{web_image('wp-content/themes/entrelectores3/assets/img/logo_no_border.png').resize(35,35)}}" alt="imagen de entrevista {{interview.name}}">
+    </div>
+    
+    <div class="cont">
+        <p class="meta-info clearfix">
+        <span class="cont-nombre-accion">
+            <span class="nombre"> 
+                <a href="{{url('public_interview',{slug:interview.slug})}}">Nueva entrevista con {{interview.name}}</a> 
+            </span>
+        </span>
+        </p>
+    
+        <div class="contenido clearfix">
+            <div class="img-holder">
+                <img src="{{web_image(interview.imageDir).resize(105,132).jpeg()}}" alt="imagen de entrevista {{interview.name}}">
+            </div>
+    
+            <div class="copy">
+                <p class="clearfix">
+                <span class="cont-nombre-accion">
+                    <span class="accion">{{interview.name}}</a></span>
+                </span>
+                <span class="fecha">{{interview.created|date("j/n/y \\a \\l\\a\\s G:i")}}</span>
+                </p>
+    
+                <p>    
+                    {{interview.biography|truncate(200)}}
+                </p>
+    
+                <p>
+                    <a href="{{url('public_interview',{slug:interview.slug})}}" class="boton boton_min boton_verde boton_inline"> Ver entrevista completa 
+                    </a>
+                </p>
+    
+            </div>
+        </div>        
+    </div>
+
+</li>

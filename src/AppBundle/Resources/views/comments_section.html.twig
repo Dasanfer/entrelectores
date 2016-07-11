@@ -1,0 +1,16 @@
+<h3 class="section_header">Comentarios en la convesación de 
+    {%if type == 'book'%}
+        {{element.title}}
+    {%elseif type == 'author'%}
+        {{element.name}}
+    {%elseif type == 'list'%}
+        {{element.name}}
+    {%endif%}
+
+    <ul>
+        <li class="link_form">
+            <div class="form-holder"></div>
+            <a href="#" onclick="event.preventDefault();" class="boton boton_inline boton_med boton_celeste js-abre-form-comentario no_activo">Nuevo comentario</a>
+        </li>
+    </ul>
+</h3>

@@ -1,0 +1,33 @@
+@media screen and (max-width: 321px) {
+    
+/* LOGGED */
+
+.menu_sup.logged .logo { padding-bottom: 125px; background-size: 70px; background-position: center top; background-repeat: no-repeat; }
+
+.menu_sup.logged .menu.menu_buscador { width: 100%; margin: 0; text-align: left; }
+.menu_sup.logged .menu.menu_buscador li,
+.menu_sup.logged .menu.menu_buscador li form { width: 100%; }
+.menu_sup.logged .menu.menu_buscador input[type="text"] { width: 80%; display: inline-block; }
+.menu_sup.logged .menu.menu_buscador input[type="submit"] { width: 13%; margin: 0 0 0 3%; text-indent: -999999px; display: inline-block; }
+.menu_sup.logged .menu.menu_principal { width: 100%; }
+
+.menu_sup.logged .menu.menu_principal li { border-bottom: 1px solid rgba(0,0,0,0.15); }
+.menu_sup.logged .menu.menu_principal li:nth-child(1),
+.menu_sup.logged .menu.menu_principal li:nth-child(2),
+.menu_sup.logged .menu.menu_principal li:nth-child(3) { width: 100%; margin: 0; position: relative; }
+.menu_sup.logged .menu.menu_principal li:nth-child(3) { border-bottom: none; }
+.menu_sup.logged .menu li.tiene_submenu a.trigger.derecha { background-position: 85%; }
+
+.menu_sup.logged .menu.menu_principal li .panel-plegable { width: 100%; left:0;  }
+.menu_sup.logged .menu.menu_principal li:nth-child(2) .panel-plegable { top: 39px; }
+.menu_sup.logged .menu.menu_principal li:nth-child(3) .panel-plegable { top: 29px; }
+
+.menu_sup.logged .menu li.tiene_submenu a.trigger.derecha { right: 15%; }
+
+.menu_sup.logged .menu.menu_logged { width: 100%; top: 70px; margin: 0; }
+.menu_sup.logged .menu.menu_logged li:nth-child(1) { float: left; }
+.menu_sup.logged .menu.menu_logged li:nth-child(2) { float: right; }
+
+
+.menu_logged .panel-plegable { top:54px; width: 100%; left: -2px; border: 1px solid #aaa;}
+}

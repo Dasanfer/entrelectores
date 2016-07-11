@@ -1,0 +1,53 @@
+{%set banners = getPageBanners()%}
+
+{%for banner in banners%}
+<div class="{{css_class|default('')}} {{zone}}-page-banner banner-holder clearfix" style="display:none;">
+    <a class="banner-link banner-big" href="{{banner.targetUrl}}" data-zone="{{zone}}-banner-{{banner.name}}-big" target="_blank">
+        <img src="{{web_image(banner.imgBigDir).jpeg()}}" class="img-banner" data-zone="{{zone}}-banner-{{banner.name}}-big">
+    </a>
+    
+    <a class="banner-link banner-small" href="{{banner.targetUrl}}" data-zone="{{zone}}-banner-{{banner.name}}-small" target="_blank">
+        <img src="{{web_image(banner.imgSmallDir).jpeg()}}" class="img-banner" data-zone="{{zone}}-banner-{{banner.name}}-small">
+    </a>
+</div> 
+{%endfor%}
+
+<script type="text/javascript">
+    var banners = document.getElementsByClassName("{{zone}}-page-banner");
+    var stay = Math.floor(Math.random()*banners.length);
+    for(var i = 0 ; i < banners.length; i++){
+        if(i != stay){
+            banners[i].parentNAde.removeChild(banners[i]);
+        } else {
+            banners[i].style.display = "block"; 
+        }
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+</script>
+
+<script>
+
+    var abierto = false;
+
+function cambia_contenido(){
+
+    if (!abierto){
+       $("#flip").html('Ocultar la lista de géneros &#9650');
+       abierto = true;
+        }
+
+    else{
+       $("#flip").html('Mostrar la lista de géneros &#9660');
+       abierto = false;
+        }
+}
+
+</script>

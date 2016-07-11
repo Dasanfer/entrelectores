@@ -1,0 +1,71 @@
+<div class="row_100 menu_sup  no_logged ">
+    <div class="row clearfix">
+        <a class="logo {{country}}" href="{{url('homepage')}}"></a>
+        <ul class="menu menu_login clearfix"> 
+	        <li class="js-menu-phone phone lanzar-menu"><span class="ion-navicon-round"></span></li>
+	        	
+            <li>
+            <a href="#" rel="nofollow" class="desplega_login desplega_login_btt boton boton_med boton_trans"> Entra <span class="no_phone">con tu cuenta</span> </a>
+            <div class="panel panel_menu_login ">
+                <form id="loginform" action="{{ path("fos_user_security_check") }}" method="post"> 
+                    <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+                    <input type="text" id="user_login" placeholder="Nombre de usuario/email" name="_username" value="" required="required" />
+                    <input type="password" id="user_pass" placeholder="contraseña" name="_password" required="required" />
+                    <a href="{{url('fos_user_resetting_request')}}" class="reset_pwd" title="¿Has perdido tu contraseña?">¿Has perdido tu contraseña?</a>
+                    <span class="fbLoginButton">
+                        {{include('AppBundle:public:fb_login.html.twig')}}
+                    </span>
+                    <input type="submit" id="wp-submit" name="_submit" value="Entrar">
+                </form> 
+            </div>
+            </li>
+
+            <li><a href="{{url('fos_user_registration_register')}}" class="boton boton_med boton_verde" rel="nofollow"> Regístrate </a></li>
+
+        </ul> 
+
+        <ul class="menu menu_social clearfix">
+            <li><a href="https://es-la.facebook.com/entrelectores" target="_blank" class="ion-social-facebook">&nbsp;</a> </li>
+            <li><a href="https://twitter.com/entrelectores" target="_blank" class="ion-social-twitter">&nbsp;</a> </li>
+        </ul>
+
+        <ul class="menu menu_buscador">
+
+            <li>
+
+            <form method="get" id="searchform" action="{{url('search_books')}}">
+                <input type="text" name="term" id="term" placeholder="titulo / autor / etiqueta">
+                <input type="submit" value="Buscar" id="searchsubmit" class="boton boton_inline boton_verde boton_med">
+            </form>
+
+            </li>
+
+        </ul>
+
+        <ul class="menu menu_principal_interior clearfix">
+            <li><a href="{{url('allbooks')}}"> Libros </a></li>
+            <li><a href="{{url('authors')}}"> Autores </a></li>
+            <li><a href="{{url('all_genre_page')}}"> Géneros </a></li>
+            <li><a href="{{url('public_blog_post_list')}}"> Blog </a></li>
+        </ul>
+        
+        <ul class="menu-phone clearfix"> 
+            <li><a href="{{url('allbooks')}}"> Libros </a></li>
+            <li><a href="{{url('authors')}}"> Autores </a></li>
+            <li><a href="{{url('all_genre_page')}}"> Géneros </a></li>
+            <li><a href="{{url('public_blog_post_list')}}"> Blog </a></li>
+            <div class="social_link">
+	            <li><a href="https://es-la.facebook.com/entrelectores" target="_blank" class="ion-social-facebook">&nbsp;</a> </li>
+	            <li><a href="https://twitter.com/entrelectores" target="_blank" class="ion-social-twitter">&nbsp;</a> </li>
+            </div>
+        </ul>
+        
+    </div>
+</div>
+<script tye="text/javascript">
+    {%if app.user%}
+        var user_id = {{app.user.id}};
+    {%else%}
+        var user_id = 'anon';
+    {%endif%}
+</script>

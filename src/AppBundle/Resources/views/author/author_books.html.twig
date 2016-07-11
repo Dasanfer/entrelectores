@@ -1,0 +1,37 @@
+{% for book in books %}
+<div class="libro_header clearfix cajas_libro_resumen js-author-book-entry"> 
+    <div class="portada">
+        <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">
+            <img src="{{web_image('/wp-content/'~book.imageDir).resize(105,154).jpeg()}}" alt="portada de {{book.title}}" />
+        </a>
+    </div>
+
+    <div class="copy meta">
+        <h2> 
+            <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a> 
+        </h2>
+
+        <div class="stats">
+            <div class="rate {{app.user ? '' : 'disabled'}}">
+                {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class: null, global:false})}}
+            </div>
+        </div>
+
+    </div>
+    <div class="seguir meta">
+        <a data-type="book" data-id="{{book.id}}" style="display:none;"  class="follow-button boton boton_verde boton_med boton_block">Seguir</a>
+
+        <a data-type="book" data-id="{{book.id}}" style="display:none;" class="unfollow-button boton boton_med boton_block siguiendo"></a> 
+
+    </div>   
+
+    <div class="libro_meta clearfix">
+        <ul class="interacciones_ee">
+            <li><span class="ion-edit"></span>{{book.reviewCount}} reseña{% if book.reviewCount != 1 %}s{% endif %}</li>
+            <li><span class="ion-star"></span>{{book.ratingCount}} voto{% if book.ratingCount != 1 %}s{% endif %}</li>
+            <li><span class="ion-arrow-right-c"></span>{{book.followersCount}} seguidores</li>
+        </ul>
+    </div>
+</div>
+{% endfor %}
+

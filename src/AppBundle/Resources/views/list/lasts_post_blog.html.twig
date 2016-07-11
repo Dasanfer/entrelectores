@@ -1,0 +1,23 @@
+<div class="last-posts">
+    <h3>Últimos post's</h3>
+    
+    <ul>
+        {% for single in posts %}
+        
+        <li>
+
+            <div class="copy-sidebar-blog clearfix">
+                {%if single.Post.imageDir%}
+                    <div class="imagen-blog-side">
+                        <img src="{{web_image(single.Post.imageDir).resize('100%').jpeg()}}"/>
+                    </div>
+                {%endif%}
+                <a class="title-post-side" href="{{url('public_blog_post',{slug:single.Post.slug})}}"><span class="titulo">{{single.Post.title}}</span></a>
+            </div>
+
+        </li>
+        
+        {% endfor %}
+    </ul>
+
+</div>

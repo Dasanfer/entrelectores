@@ -1,0 +1,32 @@
+{% if pageCount > 1 %}
+<div class="pagination clearfix">
+
+    {% if previous is defined %}
+        <a rel="prev" rel="nofollow" class="prev page-numbers" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&larr;</a>
+    {% endif %}
+    
+    {% if first is defined and current > first+2 %}
+        <a class="page-numbers first" rel="nofollow" href="{{ path(route, query|merge({(pageParameterName): first})) }}">{{first}}</a>
+        <span class="page-numbers dots">...</span>
+    {% endif %}
+
+    {% for page in pagesInRange %}
+        {% if page != current %}
+        <a class="page-numbers" {{(page > 3)?'rel="nofollow"'}} href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+        {% else %}
+            <span class="page-numbers current">{{ page }}</span>
+        {% endif %}
+
+    {% endfor %}
+
+
+    {% if last is defined and current+1 < last %}
+        <span class="page-numbers dots">...</span>
+        <a class="page-numbers last" rel="nofollow" href="{{ path(route, query|merge({(pageParameterName): last})) }}">{{last}}</a>
+    {% endif %}
+    
+    {% if next is defined and next != last %}
+            <a rel="next" class="next page-numbers" href="{{ path(route, query|merge({(pageParameterName): next})) }}">&rarr;</a>
+    {% endif %}
+</div>
+{% endif %}

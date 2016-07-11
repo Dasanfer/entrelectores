@@ -1,0 +1,167 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+
+{%block title%}
+Lista {{list.name}} de {{list.user.username}} - Entrelectores
+{%endblock%}
+
+{%block seoTags%}
+    <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+    {%if not list.globalfollow%}
+    <meta name="robots" content="noindex">
+    {%endif%}
+{%endblock%}
+
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row row_general">
+        <div class="col_content contenido_general">
+            <div class="libro_header lista_header clearfix">
+                <div class="portada">
+                    <div class="holder_1">
+                        {%for book in list.books | slice(0,4)%} 
+                        <div class="sombra portada_libro_lista p{{loop.index}}">
+                            <img src="{{web_image('/wp-content/'~book.imageDir).cropResize(85,120).jpeg()}}" alt="portada de {{book.title}}">
+                        </div>
+                        {%endfor%} 
+                    </div>
+                    {%if app.user != list.user%}        
+                        {{include('AppBundle:public:follow_buttons.html.twig',{type:'list',itemId:list.id})}}
+                    {%else%}
+                        <a href="{{url('edit_list',{id:list.id})}}" class=" boton boton_celeste boton_med boton_block">Editar</a>
+                        <a href="{{url('delete_list',{id:list.id})}}" onclick="if(!confirm('¿Está seguro de borrar esta lista?')){event.preventDefault();}" class="boton boton_rojo boton_med boton_block">Borrar</a>
+
+                    {%endif%}
+
+                </div>
+            
+            	<div class="copy meta">
+                    <h1>{{list.name}} - {{list.user.username}}</h1>
+            	    <p class="datos">
+                        <a href="#">
+                            <span class="ion-bookmark"></span>
+                            {{list.bookCount}} libro{% if list.bookCount > 1 %}s{% endif %} 
+                        </a>
+                        <a href="#">
+                            <span class="ion-arrow-right-c"></span>
+                            {{list.followersCount}} seguidor{% if list.followersCount != 1 %}es{% endif %}
+                        </a>
+                    </p>
+                    {{list.text}}
+                </div>	
+
+            </div>
+
+            <div class="libro_meta clearfix">
+                
+                {%if list.isPublic%}
+                    {% set listurl = url('list_page',{slug: list.slug}) %}
+
+                    <ul class="interacciones_social">
+                        <li>Compartir:</li>
+                        <li><a class="ion-social-facebook" onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]={{listurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                        <li><a class="ion-social-twitter" onclick="window.open('http://twitter.com/share?text={{list.name}}&amp;url={{listurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                        <li><a class="ion-social-googleplus" onclick="window.open('https://plus.google.com/share?url={{listurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                        <li><a class="ion-social-linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url={{listurl|url_encode}};title={{list.name}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript:%20void(0)"></a></li>
+                    </ul> 
+                {%endif%}
+
+            </div>
+            
+            <div class="libro_tabs clearfix">
+
+            	<ul class="tabs_list">
+            		<li><a href="#list-info" id="goto-list-info" class="book-tab goto-list-info activo">Resumen lista</a></li>
+            		<li><a href="#list-books" id="goto-list-books" class="book-tab goto-list-books">Libros de la lista</a></li>
+                    {%if list.isPublic%}
+                    <li>
+                        <a href="#list-followers" class="book-tab goto-list-followers" id="goto-list-followers" >
+                            Seguidores
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#list-conversation" class="book-tab goto-list-conversation" id="goto-list-conversation" data-type="list" data-id="{{list.id}}">
+                            Conversación
+                        </a>
+                    </li>
+                    {%endif%}
+            	</ul>
+	
+            </div>
+
+            <div id="list-general-content" class="js-general-content js-general-info listado_libros clearfix contenido_general listado_libros_resumen bordered-trans"> 
+                
+                {% for book in list.books | slice(0,3) %}
+             
+                <div class="libro_header clearfix cajas_libro_resumen">
+            
+                	<div class="portada">
+                        <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">
+                            <img src="{{web_image('/wp-content/'~book.imageDir).resize(105,154).jpeg()}}" alt="portada de {{book.title}}" />
+                        </a>
+                	</div>
+            
+                	<div class="copy meta">
+                		<h2> 
+                    		<a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a> 
+                        </h2>
+                        
+                        <div class="stats">
+                            <div class="rate {{app.user ? '' : 'disabled'}}">
+                                {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class: null, global:false})}}
+                            </div>
+                        </div>
+                    
+                    </div>
+                	<div class="seguir meta">
+
+                        {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:book.id})}}
+
+                    </div>    
+
+                    <div class="libro_meta clearfix">
+                    	<ul class="interacciones_ee">
+                    		<li><span class="ion-edit"></span>{{book.reviews.count}} reseña{% if book.reviews.count != 1 %}s{% endif %}</li>
+                    		<li><span class="ion-star"></span>{{book.ratings.count}} voto{% if book.ratings.count != 1 %}s{% endif %}</li>
+                            <li><span class="ion-arrow-right-c"></span>{{book.followers.count}} seguidores</li>
+                    	</ul>
+                	</div>
+                </div>
+                
+                {% endfor %}
+                <div class="cajas_libro_resumen ver-todos-box">
+                <a class="ver_todos goto-list-books" href="#list-books" >ver todos los libros de "{{list.name}}"</a>
+                </div>
+
+                {%if list.isPublic%}
+                    {{render_esi(url('list_last_comments',{id:list.id}))}}
+                {%endif%}
+
+            </div>
+            
+            <div data-list-id="{{list.id}}" class="js-general-content all-books listado_libros clearfix contenido_general listado_libros_resumen bordered-trans" id="all-list-books" style="display:none">
+                <div class="js-entries-container">
+                </div>
+                <div class="load-more-on-bordered">
+                    <a href="#" id="load-more-books-{{list.id}}" class="load-comments boton boton_inline boton_med boton_celeste js-load-more" style="display:none;">Más
+                    </a>
+                </div>
+            </div>
+            {%if list.isPublic%}
+                <div class="js-general-content conversacion conversation-section bordered" style="display:none;">
+                    {{include('AppBundle:public:comment_section.html.twig',{'element':list,'type':'list'})}}
+                </div>
+                <div class="js-general-content js-followers followers lista-usuarios bordered" style="display:none;">
+                    {{render_esi(url('list_followers_tab',{id:list.id}))}}
+                </div>
+            {%endif%}
+        
+        </div>
+        
+        <div class="col_sidebar">
+            {{include('AppBundle:list:list_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+
+{%endblock%}

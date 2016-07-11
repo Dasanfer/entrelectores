@@ -1,0 +1,66 @@
+{% extends 'AppBundle:public:base.html.twig' %}
+{%block body%}
+
+<div class="row_100 menu_sup no_logged">
+    <div class="row clearfix">
+        <a class="logo" href="{{url('homepage')}}"></a> 
+        <ul class="menu menu_buscador">
+            <li>
+            <form method="get" id="searchform" action="{{url('search_books')}}">
+                <input type="text" name="term" id="term" placeholder="titulo / autor / etiqueta"/>
+                <input type="submit" value="Buscar" id="searchsubmit" class="boton boton_inline boton_verde boton_med"/>
+            </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row_100 encuentra clearfix error-page">
+    <div class="buscador clearfix">
+        <div class="row copy copy-404 clearfix">
+            <h2>Woops No hemos encontrado esta página<br/> Puede que te interesen estos libros.</h2>
+        </div>
+        <div class="row sugerencias clearfix">
+    </div>
+</div>
+<div class="row_100 clearfix blog_polls">
+    <div class="row clearfix">
+        <div class="col_content">
+                <!-- ABRIR LIBROS SUGERIDOS --> 
+                {{render_esi(url('popular_books_timeline'))}} 
+                <!-- CERRAR LIBROS SUGERIDOS -->
+            
+                <!-- ABRIR LISTAS SUGERIDAS (EL ICONO DEBE SER CUADRADO DE 40*40PX )-->
+                {{render_esi(url('popular_lists_timeline'))}}           
+                <!-- CERRAR LISTAS SUGERIDAS -->
+
+
+                <!-- ABRIR AUTORES SUGERIDOS -->
+                {{render_esi(url('popular_authors_timeline')) }}
+                <!-- CERRAR AUTORES SUGERIDOS -->
+
+                <!-- ABRIR USUARIOS SUGERIDOS (EL ICONO DEBE SER CUADRADO DE 40*40PX )--> 
+                {{render_esi(url('popular_users_timeline')) }}
+                <!-- CERRAR USUARIOS SUGERIDOS -->
+        </div>
+
+        <div class="col_sidebar">
+            <div class="mis_listas listas_populares">
+                {{render_esi(url('most_voted_sidebar',{count:3}))}} 
+            </div>
+        </div>		
+    </div>
+</div>
+{%endblock%}
+
+{%block analytics_push%}
+    _gaq.push(['_trackEvent','error','404']);
+{%endblock%}
+
+{%block end_javascript%}
+    <script type="text/javascript">
+        var user_id = 'anon';
+    </script>
+
+    {{parent()}} 
+{%endblock%}

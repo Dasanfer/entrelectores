@@ -1,0 +1,13 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+    {%- if value is empty -%}
+        Sin tipo
+    {%- elseif value==0 %}
+        Privado
+    {%- elseif value==1 %}
+        Público (Lectura)
+    {%- elseif value==2 %}
+        Público (Edicion)
+    {%- endif -%}
+{% endblock %}

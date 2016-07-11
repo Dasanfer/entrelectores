@@ -1,0 +1,45 @@
+<li class="entry clearfix nuevo-libro con-icono">
+        
+	<div class="holder_1 lista-foto">
+        
+        {%for book in entry.list.books | slice(0,3)%} 
+            <div class="portada_libro_lista p{{loop.index}}">
+                <img src="{{web_image('/wp-content/'~entry.book.imageDir).scaleResize(400,600).jpeg()}}" alt="portada de {{book.title}}">
+            </div>
+        {%endfor%}
+
+	</div>
+    
+    <div class="cont">
+    
+        <p class="meta-info clearfix">
+            <span class="cont-nombre-accion">
+                <span class="nombre"><a href="{{url('list_page',{slug:entry.list.slug})}}">{{entry.list.name}}</a></span>
+                <span class="accion"> ha agregado la novela <a href="{{url('bookpage',{slug:entry.book.slug,authorslug:entry.book.author.slug})}}">{{entry.book.title}}</a></span>
+            </span>
+             <span class="fecha">{{entry.created|date("j/n/y \\a \\l\\a\\s G:i")}}</span>
+        </p>
+        
+        <div class="contenido agrupado clearfix">
+            
+            <div class="img-holder">
+                <img src="{{web_image('/wp-content/'~entry.book.imageDir).resize(85,120).jpeg()}}" alt="portada de {{entry.book.title}}">
+            </div>
+            
+            <div class="copy">
+                        
+                <p>
+                    {{entry.book.sinopsis | truncate(160)}} 
+                </p>
+                
+                <p>
+                    {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:entry.book.id, css: 'boton_min'})}}
+                </p>
+            
+            </div>
+            
+        </div>
+        
+    </div> 
+         
+</li>

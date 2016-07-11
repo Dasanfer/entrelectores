@@ -1,0 +1,43 @@
+<div class="top_3_mes">
+    <h3>Los más votados del mes</h3>
+    <ul>
+        {% for book in booksmonth%}
+        <li>
+
+        <div class="icono sombra" style="background-image: url('{{web_image('/wp-content/'~book.imageDir).zoomCrop(40,40).jpeg()}}');"> </div>
+        <div class="copy">
+            <a href="{{url('bookpage',{slug:book.slug,authorslug:book.author.slug})}}">{{book.title}}</a>
+            <span>
+                <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">{{book.author.name}}</a>
+            </span>
+        </div>
+
+        </li>
+        {%endfor%}
+    </ul>
+
+    <a class="boton boton_verde boton_min boton_inline" href="{{url('most_voted_month',{year:year,month:month})}}">Ver top 20</a>
+</div>
+
+<div class="top_3_semana">
+    <h3>Los más votados de la semana</h3>
+    <ul>
+        {% for book in booksweek%}
+        <li>
+
+        <div class="icono sombra" style="background-image: url('{{web_image('/wp-content/'~book.imageDir).zoomCrop(40,40).jpeg()}}');"> </div>
+        <div class="copy">
+            <a href="{{url('bookpage',{slug:book.slug,authorslug:book.author.slug})}}">{{book.title}}</a>
+            <span>
+                <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">{{book.author.name}}</a>
+            </span>
+        </div>
+
+        </li>
+        {%endfor%}
+    </ul>
+
+    <a class="boton boton_verde boton_min boton_inline" href="{{url('most_voted_week',{year:year,week:week})}}">Ver top 20</a>
+</div>
+
+

@@ -1,0 +1,22 @@
+{%if users%}
+<div class="cajas_libro_resumen listas_libro clearfix"> 
+    <h3>Usuarios mas populares</h3>
+    <div class="cajas_libro_cont">
+        <ul class="listado_lib clearfix">
+            {%for user in users%}
+            <li class="clearfix">
+            <div class="icono"> 
+                <img class="sombra" src="{{userImage(user,40,40)}}" width="40" height="40"/>
+            </div>
+            <div class="copy">
+                <a href="{{url('user_profile',{slug:user.slug})}}">{{user.username}}</a>
+                {%if user.followers%}
+                <span class="cuenta">{{user.followersCount}} seguidores</span>
+                {%endif%}
+            </div>
+            </li>
+            {%endfor%}
+        </ul> 
+    </div> 
+</div>
+{%endif%}

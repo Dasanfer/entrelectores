@@ -1,0 +1,43 @@
+<h3>{{user.username}} Sigue las listas</h3>
+<ul>
+    {%for list in user.listsFollowed%}
+    <li class="clearfix usuario">
+        <div class="img-user-holder">
+            <div class="holder_1 lista-foto"> 
+                {%for book in list.books | slice(0,3)%} 
+                <div class="portada_libro_lista p{{loop.index}}">
+                    <img src="{{web_image('/wp-content/'~book.imageDir).resize(85,120).jpeg()}}" alt="portada de {{book.title}}">
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+
+        <div class="data-user-holder clearfix">
+            <p class="datos">
+                
+                <span class="nombre">
+                    <a class="nospan" href="{{url('list_page',{slug:list.slug})}}">{{list.name}}</a>
+                </span>
+                
+                <a class="libros" href="{{url('list_page',{slug:list.slug})}}#list-books">
+                    <span class="ion-bookmark"></span> 
+                    {{list.books.count}} libro{% if list.books.count != 1 %}es{%endif%} 
+                </a>
+                
+                <a class="seguidores" href="{{url('list_page',{slug:list.slug})}}#list-followers">
+                    <span class="ion-arrow-right-c"></span> 
+                    {{list.followers.count}} seguidor{% if list.followers.count != 1 %}es{%endif%} 
+                </a>
+               
+                {%if app.user != user%}
+                    {{include('AppBundle:public:follow_buttons.html.twig',{type:'list',itemId:list.id})}}
+                {%endif%}
+
+            </p>
+        </div> 
+    </li>
+    {%else%}
+       <li><p>No sigue ninguna lista por el momento</p></li>
+    {%endfor%}
+</ul>
+

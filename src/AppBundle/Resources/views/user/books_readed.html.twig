@@ -1,0 +1,37 @@
+{% for book in books%}
+    <li class="clearfix listado-leidos-item usuario js-book-entry">
+        <div class="img-user-holder">
+            <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">
+                <img data-url="{{book.imageDir}}" src="{{web_image('/wp-content/'~book.imageDir).zoomCrop(50,50).jpeg()}}" alt="portada de {{book.title}}" width="50" height="50">
+            </a>
+            {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:book.id})}}
+            {%if owner%}
+            <span class="book-delete">
+            <a href="#" data-id="{{book.id}}" class="js-delete-relation boton boton_med boton_rojo boton_inline">Borrar</a>
+            </span>
+            {%endif%}
+        </div>
+
+        <div>
+            <p class="datos">
+            <span class="nombre">
+                <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title | truncate(45)}}</a>
+            </span>
+                
+            </p>
+
+            <div class="data-user-holder clearfix">
+                <p class="datos">
+                    Por: <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag" class="nospan">{{book.author.name}}</a>
+
+                    <a class="seguidores" href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}#followers">
+                        <span class="ion-arrow-right-c"></span> 
+                        {{book.followersCount}} seguidor{% if book.followersCount != 1 %}es{%endif%} 
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </li>
+{%endfor%}
+

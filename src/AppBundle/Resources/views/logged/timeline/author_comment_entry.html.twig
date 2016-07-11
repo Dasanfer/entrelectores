@@ -1,0 +1,35 @@
+<li class="entry clearfix libro con-icono">
+    <div class="meta"> 
+        <img src="{{web_image('/wp-content/'~entry.author.imageDir).resize(105,132).jpeg()}}" alt="foto de {{entry.author.name}}">
+    </div>
+
+    <div class="cont">
+        <p class="meta-info clearfix">
+        <span class="cont-nombre-accion">
+            <span class="nombre"> 
+                <a href="{{url('authorpage',{slug:entry.author.slug})}}">{{entry.author.name}}</a>
+            </span>
+            <span class="accion"> ha recibido nuevos comentarios</span>
+        </span>
+        </p>
+
+        <div class="contenido clearfix">
+            <div class="img-holder">
+                <img src="{{userImage(entry.createdBy)}}" alt="Profile photo of {{entry.createdBY.name}}">
+            </div>
+
+            <div class="copy">
+                <p class="clearfix">
+                <span class="cont-nombre-accion">
+                    <span class="accion"> <a href="{{url('user_profile',{slug:entry.createdBy.slug})}}">{{entry.createdBy.username}}</a></span>
+                </span>
+                <span class="fecha">{{entry.created|date("j/n/y \\a \\l\\a\\s G:i")}}</span>
+                </p>
+
+                <p>    
+                    {{entry.comment.content}}
+                </p>
+            </div>
+        </div>        
+    </div>
+</li>

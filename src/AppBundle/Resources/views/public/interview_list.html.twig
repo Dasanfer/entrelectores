@@ -1,0 +1,89 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+
+{%block title%}
+    Entrevistas de Entrelectores
+{%endblock%}
+
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content loop_entrevistas">
+            <div class="clearfix entrevistas_intro">
+                <h3>Entrevistas</h3>
+                <h4>Las mayúsculas de EntreLectores</h4>
+                <p>
+                Descubre con Entrelectores las lecturas favoritas, los recuerdos, deseos y vivencias 
+                relacionados con la lectura de distintas personalidades del panorama literario, cultural y social. 
+                Un cuestionario de 13 preguntas cuyas respuestas te ayudarán a conocer mejor a personajes relevantes y populares
+                </p>
+            </div>
+
+            {% for interview in pagination %}
+            <div class="loop entrevista clearfix">
+                <div class="imagen_entrevista">
+                    <img src="{{web_image(interview.imageDir).resize(120,120).jpeg()}}" alt="entrevista de {{interview.name}}"/>
+                </div>
+
+
+                <div class="copy">
+
+                    <p class="personaje">{{interview.name}}</p>
+                    <p class="extracto">{{interview.quote}}</p>
+                    <div class="intro">
+                        <p>
+                        {{interview.biography}}
+                        </p>
+                    </div>
+
+                    <div class="link_box clearfix">
+                        <a class="boton boton_verde boton_med boton_inline" href="{{url('public_interview',{slug:interview.slug})}}">Leer entrevista</a>
+                    </div>
+
+                </div>
+
+            </div>
+            {%endfor%}
+            <div class="pagination clearfix">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+
+            <div class="promocionado_sidebar">
+                {{render_esi(url('books_sidebar_promoted'))}} 
+            </div>
+
+            <div class="mis_listas listas_populares">
+                {{render_esi(url('most_voted_sidebar',{count:3}))}} 
+            </div>
+
+            <div class="descubre_libros_nuevos" style="background-color: #84B94F; color: #fff; margin-bottom:20px; ">
+
+                <h3 style=" color: #4d4d4d;">Gracias a todos por vuestros comentarios acerca de la nueva web.</h3> 
+
+                <p style="margin-bottom:10px;">Estamos muy ilusionados y seguimos trabajando duro para 
+                perfeccionar algunos detalles que aún están pendientes.</p>
+
+                <p style="margin-bottom:10px;">De momento, funciones como incorporar nuevos libros o eliminar libros duplicados, seguirán 
+                inhabilitadas hasta nuevo aviso.</p>
+
+                <p>Muchas gracias por vuestra confianza y paciencia. ¡Estamos cada vez más cerca!</p>
+
+            </div>
+
+            <div class="polls">	
+            </div>	
+
+            <div class="single_poll frase_del_dia">
+                <h3>Frase del día</h3>
+                <p class="cita"> Vieja madera para arder, viejo vino para beber, viejos amigos en quien confiar, y viejos autores para leer </p>
+                <p class="autor"> Sir Francis Bacon </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{%endblock%}

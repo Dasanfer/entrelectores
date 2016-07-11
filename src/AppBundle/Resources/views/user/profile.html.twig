@@ -1,0 +1,166 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+
+{%block title%}
+Perfil de {{user.username}} - Entrelectores
+{%endblock%}
+
+{%block seoTags%}
+    <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+    {%if not user.globalfollow%}
+        <meta name="robots" content="noindex">
+    {%endif%}
+{%endblock%}
+
+{%block body%}
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content contenido_general">
+            <div class="libro_header autor_header clearfix">
+                <div class="portada">
+                    <img src="{{userImage(user,300,300)}}" alt="foto de {{user.username}}">
+                    <!-- Si no lo sigues -->
+                    {% if app.user and app.user != user%}
+                        {{include('AppBundle:public:follow_buttons.html.twig',{type:'user',itemId:user.id})}}
+                        {%if messageRights(user,app.user)%}
+                            <a class="boton boton_verde boton_med boton_block" href="{{url('conversation_with_user',{user_id: user.id})}}">Mensaje</a>
+                        {%endif%}
+                    {%endif%}	
+                </div>
+                <div class="copy meta"> 
+                    <h1>{{user.username}}</h1> 
+                    <p class="datos">
+                        <a class="seguidores" href="#followers">
+                            <span class="ion-arrow-right-c"></span> 
+                            {{user.followers.count}} seguidor{% if user.followers.count != 1 %}es{%endif%} 
+                        </a>
+                        <a class="seguidos" href="#follows">
+                            <span class="ion-arrow-left-c"></span> 
+                            sigue a {{user.usersFollowed.count}} 
+                        </a>
+                        <a class="listas" href="#lists">
+                            <span class="ion-navicon"></span> 
+                            {{publicLists(user) | length}} lista{% if publicLists(user) | length != 1 %}s{%endif%} pública{% if publicLists(user) | length != 1 %}s{%endif%}
+                        </a>
+                    </p>
+
+                    <p> 
+                    {{user.cita}}
+                    </p>	
+                </div>
+            </div>
+            <div class="libro_meta clearfix">
+
+                <ul class="interacciones_social">
+
+                    <li> Compartir: </li>
+                    {%set userurl = url('user_profile',{slug:user.slug})%}
+                    <li> <a class="ion-social-facebook" onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[url]={{userurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript: void(0)"> </a> </li>
+
+                    <li> <a class="ion-social-twitter" onclick="window.open('http://twitter.com/share?text=BROOKLYN FOLLIES&amp;url={{userurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript: void(0)"> </a> </li>
+
+                    <li> <a class="ion-social-googleplus" onclick="window.open('https://plus.google.com/share?url={{userurl|url_encode}}', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript: void(0)"> </a> </li>
+
+                    <li> <a class="ion-social-linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url={{userurl|url_encode}}&amp;title=BROOKLYN FOLLIES', 'sharer', 'toolbar=0,status=0,width=620,height=280,top=200,left=200');" href="javascript: void(0)"> </a> </li>	
+
+                </ul>
+
+            </div>
+
+
+            <div class="libro_tabs clearfix">
+                <ul class="tabs_list">
+                    <li><a href="#actividad" class="user-tab activo" id="activity-tab" class="activo">Actividad</a></li>
+                    <li><a href="#followers" class="user-tab" id="followers-tab" >Seguidores</a></li>
+                    <li><a href="#follows" class="user-tab" id="follows-tab" >Seguidos</a></li>
+                    <li><a href="#booksRead" class="user-tab" id="read-tab">Libros</a></li>
+                    <li><a href="#lists" class="user-tab" id="lists-tab" >Listas públicas</a></li>
+                </ul>
+            </div>
+
+            <div class="timeline js-user-actions tab-content bordered">            
+                <ul>
+                    {{render(controller('AppBundle:PrivateSite/User:userActions',{slug:user.slug}))}}
+                </ul>
+                <div class="load-more-on-bordered">
+                    <span>
+                        <a href="#" data-slug="{{user.slug}}" id="load-more-eventes-{{user.id}}" class="load-user-activity boton boton_inline boton_med boton_celeste load-more">Más</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="seguidores followers lista-usuarios tab-content bordered" style="display:none;">
+                <div class="cajas_libro_resumen">
+                    {{render_esi(url('user_followers',{id:user.id}))}}
+                </div>
+            </div>
+            
+            <div class="libros-leidos tab-content bordered" style="display:none">
+                <div class="cajas_libro_resumen">
+                    <h3 onclick="$(this).siblings('div').slideToggle(100);">{{user.username}} ha leido los libros</h3>
+                    <div style="display:block;">
+                        <ul class="js-book-container js-readed-container clearfix">
+                            {{render(url('my_readed_books',{userId:user.id,offset:0,count:6}))}}
+                        </ul>
+                        <div class="load-more-on-bordered">
+                            <a href="#"  data-user-id="{{user.id}}" id="load-readed-books" class="load-comments boton boton_inline boton_med boton_celeste js-load-more" style="display:none;">Más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cajas_libro_resumen">
+                    <h3 onclick="$(this).siblings('div').slideToggle(100);">{{user.username}} está leyendo los libros</h3>
+                    <div style="display:none;">
+                        <ul class="js-book-container js-reading-container clearfix">
+                            {{render(url('my_reading_books',{userId:user.id,offset:0,count:6}))}}
+                        </ul>
+                        <div class="load-more-on-bordered">
+                            <a href="#"  data-user-id="{{user.id}}" id="load-reading-books" class="load-comments boton boton_inline boton_med boton_celeste js-load-more" style="display:none;">Más
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="cajas_libro_resumen">
+                    <h3 onclick="$(this).siblings('div').slideToggle(100);">{{user.username}} quiere leer los libros</h3>
+                    <div style="display:none;">
+                        <ul class="js-book-container js-wanted-container clearfix">
+                            {{render(url('my_readed_books',{userId:user.id,offset:0,count:6}))}}
+                        </ul>
+                        <div class="load-more-on-bordered">
+                            <a href="#"  data-user-id="{{user.id}}" id="load-wanted-books" class="load-comments boton boton_inline boton_med boton_celeste js-load-more" style="display:none;">Más
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="follows seguidores lista-usuarios tab-content bordered-trans" style="display:none;">
+                <div class="cajas_libro_resumen">
+                    {{include('AppBundle:user:users_followed.html.twig')}}
+                </div>
+                <div class="cajas_libro_resumen">
+                    {{include('AppBundle:user:books_followed.html.twig')}}
+                </div>
+                <div class="cajas_libro_resumen">
+                    {{include('AppBundle:user:lists_followed.html.twig')}}
+                </div>
+                <div class="cajas_libro_resumen">
+                    {{include('AppBundle:user:authors_followed.html.twig')}}
+                </div>
+            </div>
+            
+            <div class="seguidores lista-listas-publicas tab-content bordered-trans" style="display:none;">
+                {{render_esi(url('user_public_lists',{id:user.id}))}} 
+            </div>
+
+        </div>
+        <div class="col_sidebar">
+            {{include('AppBundle:user:user_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%}

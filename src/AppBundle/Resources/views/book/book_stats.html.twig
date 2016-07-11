@@ -1,0 +1,38 @@
+{%set rate_stats = bookStats(book)%}
+
+<span>
+
+<div class="clearfix rate_media">
+    
+    <div class="rate disabled">
+        <p>Puntuación media <span class="med_votos"><span itemprop="votes">{{book.ratingCount}}</span> votos</span></p>
+        {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: book.cachedRate, class:(hasRated(book,app.user) ? 'voted' : '')})}}
+    </div>
+    <p class="media">
+        <span itemprop="rating" itemscope="" itemtype="http://data-vocabulary.org/Rating">
+        <span itemprop="average">
+            {{book.cachedRate|round}}
+        </span>
+        <span class="best-vot-pos"> de <span property="v:best" content="10" itemprop="best">10</span>
+  </span>
+        <span property="v:worst" content="1" itemprop="worst"></span>
+    </span>
+    </p>
+    
+</div>
+
+<div class="bars clearfix">
+    {%for stat in rate_stats%}
+    <div class="bar clearfix">
+        <div class="bar_holder">
+            <div class="bar_fill" style="width: {{stat.percent}}%"></div>
+        </div>
+        <div class="stars rate">
+            {{include('AppBundle:public:rating_stars.html.twig',{star_count: stat.value})}}
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+</span>
+

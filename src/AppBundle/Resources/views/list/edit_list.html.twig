@@ -1,0 +1,71 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+{%block body%}
+<div id="overlay_privacidad" class="overlay privacidad" style="display:none;">
+    <div class="overlay_cont mensaje contenido_general">
+        <div class="overlay_cont_inner">
+            <h3>Atención</h3>
+            <p>Vas a cambiar tu configuración de privacidad.</p> 
+            <p> Haciendo esto la lista pasará a ser privada, no podrá ser vista, comentada ni seguida por otros usuarios.</p>
+            <p> ¿Estás seguro de que no quieres cambiar la configuración de privacidad? </p> 
+            <div class="botones clearfix"> 
+                <span class="boton boton_rojo boton_med boton_inline" onclick="$('#overlay_privacidad').hide();"> 
+                    No, gracias 
+                </span> 
+                <span class="boton boton_verde boton_med boton_inline" onclick="lists.changeToPrivate()"> 
+                    Estoy seguro 
+                </span> 
+            </div> 
+        </div> 
+    </div> 
+</div>
+
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content contenido_general">
+
+            <div class="form-editar contendedor_perfil">
+
+                <h1>Editar tu lista "Literatura fantástica"</h1>
+
+                <form class="standard-form" action="{{url('edit_list',{id:list.id})}}" method="POST">
+
+                    <label for="nombre-lista">Nombre de la lista</label>
+                    {{form_widget(form.name)}}
+                    {{form_errors(form.name)}}
+
+                    <label for="lista-descripcion">Descripción de la lista</label>
+                    {{form_widget(form.text)}}
+                    {{form_errors(form.text)}}
+
+                    <label for="privacidad">Privacidad</label>
+
+
+                    <p class="privacidad" id="public-list" style="{{list.isPublic() ? '' : 'display:none;'}}">
+                    <span class="campo ion-unlocked"></span>
+                    <span class="valor">Lista pública</span>
+                    <a id="convertir_lista_privada" class="boton boton_verde boton_med boton_inline convertir_lista_privada">Cambiar privacidad</a>
+                    </p>
+
+                    <p class="privacidad" id="private-list" style="{{list.isPublic() ? 'display:none;' : ''}}">
+                    <span class="campo ion-locked"></span>
+                    <span class="valor">Lista privada</span> 
+                    <a id="convertir_lista_publica" href="#" class="boton boton_verde boton_med boton_inline convertir_lista_publica">Cambiar privacidad</a>
+                    </p>
+
+                    <div class="botones clearfix">
+                        <a href="{{url('list_page',{slug:list.slug})}}" class="boton boton_rojo boton_grande boton_inline">Cancelar2</a>
+                        <input type="submit" value="guardar cambios">
+                    </div>
+                    {{form_widget(form.publicFlag)}}
+                    {{form_widget(form._token)}}
+                    {{form_errors(form)}}
+                </form>
+
+            </div>
+        </div>
+        <div class="col_sidebar">
+            {{include('AppBundle:list:list_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%}

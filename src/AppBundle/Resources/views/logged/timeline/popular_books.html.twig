@@ -1,0 +1,19 @@
+{%if books%}
+<div class="cajas_libro_resumen lista_autor">
+    <h3>Libros mas populares...</h3>
+    <div class="cajas_libro_cont">
+        <ul class="listado_lib clearfix">
+            {%for book in books%}
+            <li class="clearfix">
+            <div class="portada">
+                <img src="{{web_image('/wp-content/'~book.imageDir).cropResize(40,40).jpeg()}}" class="sombra" alt="portada">
+            </div>
+            <div class="copy">
+                <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a>
+            </div>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+</div>
+{%endif%}

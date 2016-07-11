@@ -1,0 +1,26 @@
+{% form_theme form 'AppBundle:forms:el_theme.html.twig' %}
+
+ <div class="form">                
+    <h2>Registrate en 30 segundos!</h2>
+    <form action="{{ path('homepage') }}" {{form_enctype(form)}} method="POST" class="fos_user_registration_register">
+        {{ form_errors(form.username)}}
+        {{ form_widget(form.username,{attr:{placeholder:'Nombre de usuario'}}) }}
+        {{ form_errors(form.email)}}
+        {{ form_widget(form.email,{attr:{placeholder:'Email'}}) }}
+        {{ form_errors(form.plainPassword)}}
+        {{ form_widget(form.plainPassword) }}
+        {{ form_widget(form._token) }}
+        
+        {{ form_widget(form.dataConsent,{attr:{id:'acepto_condiciones'}})}}
+        <label for="small_user_registration_dataConsent"> Acepto los <a href="{{url('terminos')}}" class="home" rel="nofollow" target="_blank">términos y condiciones</a> </label>
+        
+        {{ form_errors(form.dataConsent)}}
+
+        <input type="submit" class="boton boton_block boton_verde boton_grande boton_registro" value="Registrarme" name="boton_registro"/>
+
+        <span class="fbLoginButton">
+            {{include('AppBundle:public:fb_login.html.twig')}}
+        </span> 
+    </form>
+</div>
+

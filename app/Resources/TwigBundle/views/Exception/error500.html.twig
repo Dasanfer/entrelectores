@@ -1,0 +1,42 @@
+{% extends 'AppBundle:public:base.html.twig' %}
+{%block body%}
+
+<div class="row_100 menu_sup">
+    <div class="row clearfix">
+        <a class="logo" href="{{url('homepage')}}"></a> 
+        <ul class="menu menu_buscador">
+            <li>
+            <form method="get" id="searchform" action="{{url('search_books')}}">
+                <input type="text" name="term" id="term" placeholder="titulo / autor / etiqueta">
+                <input type="submit" value="Buscar" id="searchsubmit" class="boton boton_inline boton_verde boton_med">
+            </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row_100 encuentra clearfix error-page">
+    <div class="buscador clearfix">
+        <div class="row copy clearfix">
+            <h2>
+                El sistema ha detectado un error y no puede realizar la acción solicitada. Vamos a tratar de solucionarlo con la mayor rapidez posible. Gracias.
+            </h2>
+        </div>
+        <div class="row sugerencias clearfix">
+        <ul>
+            {%for genre in genres%}
+            <li>
+                <a href="{{url('bookgenre',{slug: genre.slug})}}" title="Ver todos los libros de {{genre.name}}">{{genre.name}}</a>
+            </li>
+            {%endfor%}
+        </ul>
+        </div>
+            <div class="row iconos clearfix">
+            <div class="division"><p class="puntua">Puntualos</p></div>
+            <div class="division"><p class="resenas">Escribe reseñas</p></div>
+            <div class="division"><p class="comentarios">Habla sobre ellos</p></div>
+            <div class="division"><p class="usuarios">Conoce a gente con tus gustos</p></div>
+        </div>
+    </div>
+</div>
+{%endblock%}

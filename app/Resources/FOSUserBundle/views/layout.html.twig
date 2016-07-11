@@ -1,0 +1,26 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+
+{%block seoTags%}
+    <meta name="robots" content="noindex">
+{%endblock%}
+
+{%block body%}
+{% for type, messages in app.session.flashBag.all %}
+{% for message in messages %}
+<div class="{{ type }}">
+    {{ message|trans({}, 'FOSUserBundle') }}
+</div>
+{% endfor %}
+{% endfor %}
+
+<div>
+    <div class="row_100 clearfix">
+        <div class="row">
+            <div class="col_content contenido_general contenido_single">
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

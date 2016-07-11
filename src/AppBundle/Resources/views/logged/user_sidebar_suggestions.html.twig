@@ -1,0 +1,26 @@
+{%if books%}
+    <h3>En función de tu actividad te recomendamos </h3>
+    <ul>
+        {%for book in books%}
+        <li class="clearfix">
+        <a href="{{url('bookpage',{slug:book.slug,authorslug:book.author.slug})}}">
+
+            <div class="portada">
+                <img src="{{web_image('/wp-content/'~book.imageDir).resize(60,90).jpeg()}}" alt="portada de {{book.title}}" class="sombra">
+            </div>
+
+            <p class="copy">
+            <span class="titulo">{{book.title}}</span>
+            </p>
+                <div class="rate {{app.user ? '' : 'disabled'}} clearfix">
+                    {{include('AppBundle:public:rating_stars.html.twig',{id: book.id, type: 'book',rating: showRate(book,app.user), class: null, global:false})}}
+                </div>
+            <p></p>
+        </a>
+        <a class="mas_info" href="{{url('bookpage',{slug:book.slug,authorslug:book.author.slug})}}">mas info</a>
+        </li> 
+        {%endfor%}
+    </ul>
+{%else%}
+    <p>Ops, no tenemos suficientes votos de tu parte como para recomendarte. Te invitamos a que empiezes a votar los libros que hayas leido.</p>           
+{%endif%}

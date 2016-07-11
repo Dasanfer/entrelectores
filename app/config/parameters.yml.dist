@@ -1,0 +1,23 @@
+# This file is a "template" of what your parameters.yml file should look like
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_migration_test: sym-test
+    database_user:     root
+    database_password: ~
+    test_database: symfony
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+    mailer_sender: ~
+
+    locale:            es
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+    facebook_app_id: null
+    facebook_app_secret: null
+    app_domain: elsymfony.local.com

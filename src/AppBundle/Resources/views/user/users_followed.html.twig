@@ -1,0 +1,39 @@
+<h3>{{user.username}} Sigue a</h3>
+<ul>
+    {%for follower in user.usersFollowed%}
+    <li class="clearfix usuario" id="usuario_{{follower.id}}">
+    <div class="img-user-holder">
+        <img src="{{userImage(follower,50,50)}}" alt="profile photo of {{follower.username}}"/>
+    </div>
+    <div>
+        <p class="datos">
+        <span class="nombre">
+            <a href="{{url('user_profile',{slug:follower.slug})}}">{{follower.username}}</a>
+        </span>
+        </p>
+        <div class="data-user-holder clearfix">
+        
+            <p class="datos">
+                <a class="seguidores" href="#followers">
+                    <span class="ion-arrow-right-c"></span> 
+                    {{follower.followers.count}} seguidor{% if follower.followers.count != 1 %}es{%endif%} 
+                </a>
+                <a class="seguidos" href="#folows">
+                    <span class="ion-arrow-left-c"></span> 
+                    sigue a {{follower.usersFollowed.count}} 
+                </a>
+                <a class="listas" href="#lists">
+                    <span class="ion-navicon"></span> 
+                    {{publicLists(follower) | length}} lista{% if publicLists(follower) | length != 1 %}s{%endif%} pública{% if publicLists(follower) | length != 1 %}s{%endif%}
+                </a>
+            </p>
+
+            {%if follower != app.user and user != app.user%}
+                {{include('AppBundle:public:follow_buttons.html.twig',{type:'user',itemId:user.id})}}
+            {%endif%}
+        </div>
+    </div>
+    </li>
+    {%endfor%}
+</ul>
+

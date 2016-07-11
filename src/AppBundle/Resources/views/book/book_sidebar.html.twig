@@ -1,0 +1,18 @@
+{{render_esi(url('sidebar_banner'))}}
+
+{%if app.user%}
+    {{ render(controller(
+'AppBundle:PublicSite\\Book:bookUserSuggestSidebarContent',
+{ 'id': book.id,'userid':app.user.id}
+)) }}
+{%else%}
+    {{render_esi(url('book_suggest_sidebar',{id: book.id}))}}
+{%endif%}
+
+<div class="promocionado_sidebar">
+    {{render_esi(url('books_sidebar_promoted'))}} 
+</div>
+
+<div class="promocionado_sidebar">
+    {{render_esi(url('books_sidebar_novelty'))}} 
+</div>

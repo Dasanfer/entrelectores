@@ -1,0 +1,36 @@
+<h3>{{user.username}} Sigue los libros</h3>
+<ul>
+    {%for book in user.booksFollowed%}
+    <li class="clearfix usuario">
+        <div class="img-user-holder">
+            <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">
+                <img data-url="{{book.imageDir}}" src="{{web_image('/wp-content/'~book.imageDir).zoomCrop(50,50).jpeg()}}" alt="portada de {{book.title}}">
+            </a>
+        </div>
+
+        <div>
+            <p class="datos">
+            <span class="nombre">
+                <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a>
+            </span>
+            </p>
+
+            <div class="data-user-holder clearfix">
+                <p class="datos">
+                    Por: <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag" class="nospan">{{book.author.name}}</a>
+                    <a class="seguidores" href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}#followers">
+                        <span class="ion-arrow-right-c"></span> 
+                        {{book.followers.count}} seguidor{% if book.followers.count != 1 %}es{%endif%} 
+                    </a>
+                </p>
+
+                    
+            {%if app.user != user%}
+                {{include('AppBundle:public:follow_buttons.html.twig',{type:'book',itemId:book.id})}}
+            {%endif%}
+            </div>
+        </div>
+    </li>
+    {%endfor%}
+</ul>
+

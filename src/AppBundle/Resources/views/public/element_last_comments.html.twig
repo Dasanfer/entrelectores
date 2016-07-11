@@ -1,0 +1,38 @@
+<!-- element_last_comments -->
+<div class="cajas_libro_resumen conversacion">
+        
+    <h3  class="section_header">Últimos comentarios en la conversación - <a href="#{{type}}-conversation" class="goto-{{type}}-conversation" data-type="{{type}}" data-id="{{element.id}}">ver toda la conversación</a></h3>
+    
+    <div class="cajas_libro_cont">
+    
+        <ul>
+            {%for comment in comments%} 
+            <!-- ABRIR comentario -->
+            
+            <li class="clearfix" id="action_{{comment.id}}">
+                <div class="meta">
+                    <img src="{{userImage(comment.createdBy)}}" alt="Profile photo of {{comment.createdBy.username}}">
+                </div>
+                <div class="cont"> 
+                    <p class="meta-info clearfix">
+                    <span class="nombre">{{comment.createdBy.username}}</span>
+                        <span class="fecha">{{comment.created| date('d/m/Y \\a \\l\\a\\s g:ia')}}</span>
+                    </p>
+                     <p class="contenido">
+                        {{comment.content}}
+                     </p>
+                </div>      
+            </li>
+            {%else%}
+            <li class="clearfix">
+            <p>Nadie ha comentado nada aún sobre este libro. Si quieres, sé el primero en dejar un comentario. Seguro que algún usuario se anima después de leerlo.</p>
+            </li>
+            {%endfor%}
+            <!-- CERRAR comentario-->        
+        </ul>
+    
+    </div>
+    
+    <a href="#{{type}}-conversation" class="goto-{{type}}-conversation boton boton_verde boton_inline boton_med boton_tu_resena" data-id="{{element.id}}" data-type="{{type}}">Escribe tu comentario</a>
+    
+</div>

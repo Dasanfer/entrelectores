@@ -1,0 +1,38 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+
+{%block title%}
+ Entrevista con {{interview.name}} - Entrelectores
+{%endblock%}
+
+{%block metas%}
+<meta name="description" content="Entrelectores entrevista a {{interview.name}}. {{interview.quote}}"/>
+{%endblock%}
+
+{%block body%}
+<div class="row_100 clearfix">
+    <div class="row row_general">
+        <div class="col_content contenido_general">
+            <div class="entrevista loop clearfix">
+                <div class="imagen_entrevista">
+                    <img src="{{web_image(interview.imageDir).resize(120,120).jpeg()}}" alt="imagen de entrevista {{interview.name}}"/>
+                </div>
+                <div class="copy">
+                    <p class="personaje">{{interview.name}}</p>
+                    <p class="extracto">{{interview.quote}}</p>
+                    <div class="intro">
+                        <p>
+                        {{interview.biography}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="entrevista entrevista-main loop contenido_general contenido_single clearfix">
+                {{interview.richInfo|raw}}
+            </div>
+        </div>
+        <div class="col_sidebar">
+            {{include('AppBundle:public:public_sidebar.html.twig')}}
+        </div>
+    </div>
+</div>
+{%endblock%}

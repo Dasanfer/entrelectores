@@ -1,0 +1,83 @@
+{% extends 'AppBundle:public:common_base.html.twig' %} 
+
+{%block title%}
+{{title}} - Entrelectores
+{%endblock%}
+
+{%block body%}
+<div class="row_100 clearfix">
+    <div class="row">
+        <div class="col_content">
+            <div class="listado_libros clearfix contenido_general">
+                <div class="breadcrumbs-holder genero" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <ul class="breadcrumbs">
+                        <li typeof="v:Breadcrumb"> <a href="{{url('allbooks')}}" rel="v:url" property="v:title">Libros</a> / </li>
+                    </ul>
+                </div>			
+                <h1>{{title}}</h1>
+                {% for book in books %}
+                <div class="libro_header clearfix  ">
+                    <div class="portada">
+                        <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">
+                            <img src="{{web_image('/wp-content/'~book.imageDir).resize(105,154).jpeg()}}" alt="portada de {{book.title}}">
+                        </a>
+                    </div>
+
+                    <div class="copy meta">
+                        <h2>
+                            <a href="{{url('bookpage',{slug:book.slug, authorslug:book.author.slug})}}">{{book.title}}</a>
+                        </h2>
+
+                        <p class="autores">Por: <a href="{{url('authorpage',{slug:book.author.slug})}}" rel="tag">{{book.author.name}}</a></p>
+
+                        <div class="rate">
+                            <ul data-rating="{{book.cachedRate}}" class="rating">
+                                <li class="empty">
+                                    <span class="l"></span>
+                                    <span class="r"></span>
+                                </li>
+                                <li class="empty">
+                                    <span class="l"></span>
+                                    <span class="r"></span>
+                                </li>
+                                <li class="empty">
+                                    <span class="l"></span>
+                                    <span class="r"></span>
+                                </li>
+                                <li class="empty">
+                                    <span class="l"></span>
+                                    <span class="r"></span>
+                                </li>
+                                <li class="empty">
+                                    <span class="l"></span>
+                                    <span class="r"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        {#<p class="generos"><a href="http://entrelectores.deploy-cd.com/generos/ciencia-ficcion-literatura/" rel="tag">Ciencia-ficción</a> </p>#}
+
+                    </div>
+                </div>
+
+                <div class="libro_meta clearfix">
+                    <ul class="interacciones_ee">
+                        <li><span class="ion-edit"></span>{{book.reviews.count}} reseña{% if book.reviews.count != 1 %}s{%endif%}</li>
+                        <li><span class="ion-star"></span>{{book.ratings.count}} voto{% if book.ratings.count != 1 %}s{%endif%}</li>
+                        {%if numReading(book) > 0%}<li><span class="ion-android-bookmark"></span>{{numReading(book)}} lo está{%if numReading(book) != 1 %}n{%endif%} leyendo</li>{%endif%}
+                    </ul>
+                </div>
+                			
+                {%endfor%}
+            
+            </div>
+        </div>
+
+        <div class="col_sidebar">
+            <div class="promocionado_sidebar">
+                {{render_esi(url('books_sidebar_promoted'))}} 
+            </div>
+        </div>
+    </div>
+
+</div>
+{%endblock%}

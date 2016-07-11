@@ -1,0 +1,119 @@
+{% extends 'AppBundle:public:common_base.html.twig' %}
+{%block body%}
+
+<div class="row_100 clearfix">
+
+    <div class="row">
+
+        <div class="col_content contenido_general">
+
+            <!-- ABRIR NUEVO mensajes LISTADO -->
+            <div class="mensajes listado conversacion">
+                <h1>Mensajes</h1>
+                <ul>
+                    {% for message in unreadedMessages %}
+                    <li class="clearfix pendientes conversacion-entry" id="conversacion_{{message.id}}">
+                    <div class="meta">
+
+                        {% if app.user == message.from %}
+                        <img src="{{userImage(message.to,30,30)}}" alt="avatar" width="30" height="30" alt="Profile photo of {{ message.to.username }}">
+                        {% else %}
+                        <img src="{{userImage(message.from,30,30)}}" alt="avatar" width="30" height="30" alt="Profile photo of {{ message.from.username }}">
+                        {% endif %}
+
+                    </div>
+                    <div class="cont"> 
+                        <p class="meta-info clearfix">
+
+                        {% if app.user == message.from %}
+                        <span class="nombre"> Mensaje a {{ message.to.username }}</span>
+                        {% else %}
+                        <span class="nombre"> Mensaje de {{ message.from.username }}</span>
+                        {% endif %}
+
+                        <span class="fecha"> {{ message.created | date("d/m/y") }} a las {{ message.created | date("H:i") }} 
+                            {%if message.to == app.user %}<span class="pendientes_cuenta">1</span> {%endif%}
+                        </span>
+                        </p>
+                        <p class="contenido">
+                        {{ message.text }}
+                        </p>
+                        <span class="ver-holder">
+                            {% if app.user == message.from %}
+                            <a href="{{url('conversation_with_user', {'user_id': message.to.id }) }}" class="boton boton_inline no_activo boton_med boton_celeste" id="1">ver</a>
+                            {% else %}
+                            <a href="{{url('conversation_with_user', {'user_id': message.from.id }) }}" class="boton boton_inline no_activo boton_med boton_celeste" id="1">ver</a>
+                            {% endif %}
+                        </span>
+                    </div>      
+                    </li>
+
+                    {% endfor %}        
+
+                    {% for message in readedMessages %}
+
+                    <li class="clearfix conversacion-entry" id="conversacion_{{message.id}}">
+                    <div class="meta">
+
+                        {% if app.user == message.from %}
+                        <img src="{{userImage(message.to,30,30)}}" alt="avatar" width="30" height="30" alt="Profile photo of {{ message.to.username }}">
+                        {% else %}
+                        <img src="{{userImage(message.from,30,30)}}" alt="avatar" width="30" height="30" alt="Profile photo of {{ message.from.username }}">
+                        {% endif %}
+
+                    </div>
+                    <div class="cont"> 
+                        <p class="meta-info clearfix">
+
+                        {% if app.user == message.from %}
+                        <span class="nombre"> Mensaje a {{ message.to.username }}</span>
+                        {% else %}
+                        <span class="nombre"> Mensaje de {{ message.from.username }}</span>
+                        {% endif %}
+
+                        <span class="fecha"> {{ message.created | date("d/m/y") }} a las {{ message.created | date("H:i") }}</span>
+                        </p>
+                        <p class="contenido">
+                        {{ message.text }}
+                        </p>
+                        <span class="ver-holder">
+                            {% if app.user == message.from %}
+                            <a href="{{url('conversation_with_user', {'user_id': message.to.id }) }}" class="boton boton_inline no_activo boton_med boton_celeste" id="1">ver</a>
+                            {% else %}
+                            <a href="{{url('conversation_with_user', {'user_id': message.from.id }) }}" class="boton boton_inline no_activo boton_med boton_celeste" id="1">ver</a>
+                            {% endif %}
+                        </span>
+                    </div>      
+                    </li>
+
+                    {%else%}
+                        <li class="clearfix">
+                        <p>
+                        Esta es tu bandeja de correo dentro de Entrelectores. Solo puedes recibir y enviar mensajes privados a aquellos usuarios que estás siguiendo y que, a su vez, te siguen a ti.</p>
+                        <p>Puedes ir al perfil del usuario a quien quieras escribir y consulta si tenéis acceso a mensajería privada.
+                        </p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>		    <!-- CERRAR NUEVO mensajes LISTADO -->
+            <!-- listado de seguidores mutuos -->
+            <div>
+                {{render(controller('AppBundle:PrivateSite/Message:myMutualFollowers'))}}
+            </div>
+            <!-- fin de seguidores mutuos -->
+        </div>
+
+        <!-- ABRIR Sidebar, ignorar -->
+
+        <div class="col_sidebar">
+
+            {{include('AppBundle:user:user_sidebar.html.twig')}}
+
+        </div>        
+        <!-- CERRAR Sidebar, ignorar -->
+
+    </div>
+
+</div>
+
+{%endblock%}

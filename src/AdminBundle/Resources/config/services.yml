@@ -1,0 +1,108 @@
+services:
+
+    admin.admin.book:
+        class: AdminBundle\Admin\BookAdmin
+        arguments: [~, AppBundle\Entity\Book, AdminBundle:BookAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Libros}
+        calls:
+          - [ setBaseRouteName, ['book']]
+
+    admin.admin.author:
+        class: AdminBundle\Admin\AuthorAdmin
+        arguments: [~, AppBundle\Entity\Author, AdminBundle:AuthorAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Autores}
+        calls:
+          - [ setBaseRouteName, ['author']]
+
+    admin.admin.genre:
+        class: AdminBundle\Admin\GenreAdmin
+        arguments: [~, AppBundle\Entity\Genre, AdminBundle:GenreAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Géneros}
+        calls:
+          - [ setBaseRouteName, ['genre']]
+
+    admin.admin.user:
+        class: AdminBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, AdminBundle:UserAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Usuarios}
+        calls:
+            - [ setBaseRouteName, ['user']]
+            - [setUserManager, [@fos_user.user_manager]]
+            
+    admin.admin.review:
+        class: AdminBundle\Admin\ReviewAdmin
+        arguments: [~, AppBundle\Entity\Review, AdminBundle:ReviewAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Reviews}
+        calls:
+            - [ setBaseRouteName, ['review']]
+
+    admin.admin.book_list:
+        class: AdminBundle\Admin\BookListAdmin
+        arguments: [~, AppBundle\Entity\BookList, AdminBundle:BookListAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Listas de Libros}
+        calls:
+            - [ setBaseRouteName, ['book_list']]
+
+    admin.admin.poll:
+        class: AdminBundle\Admin\PollAdmin
+        arguments: [~, AppBundle\Entity\Poll, AdminBundle:PollAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Encuestas}
+        calls:
+            - [ setBaseRouteName, ['poll']]
+
+    admin.admin.poll_option:
+        class: AdminBundle\Admin\PollOptionAdmin
+        arguments: [~, AppBundle\Entity\PollOption, AdminBundle:PollOptionAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Opciones Encuesta}
+        calls:
+            - [ setBaseRouteName, ['poll_option']]
+
+    admin.admin.post:
+        class: AdminBundle\Admin\PostAdmin
+        arguments: [~, AppBundle\Entity\Post, AdminBundle:PostAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Posts}
+        calls:
+            - [ setBaseRouteName, ['post']]
+
+    admin.admin.post_category:
+        class: AdminBundle\Admin\PostCategoryAdmin
+        arguments: [~, AppBundle\Entity\PostCategory, AdminBundle:PostCategoryAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Categorias del Post}
+
+    admin.admin.interview:
+        class: AdminBundle\Admin\InterviewAdmin
+        arguments: [~, AppBundle\Entity\Interview, AdminBundle:InterviewAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Entrevistas}
+        calls:
+            - [ setBaseRouteName, ['interview']]
+
+    admin.admin.banner:
+        class: AdminBundle\Admin\BannerAdmin
+        arguments: [~, AppBundle\Entity\Banner, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Banner}
+
+    admin.admin.page_banner:
+        class: AdminBundle\Admin\PageBannerAdmin
+        arguments: [~, AppBundle\Entity\PageBanner, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: PageBanner}
+            
+    sonata.admin.user_stats:
+        class:  AdminBundle\Services\UserStats
+        arguments: ['sonata.admin.user_stats',@templating]
+        calls:
+            - [setDoctrine,[@doctrine]]
+        tags:
+            - {name: sonata.block}

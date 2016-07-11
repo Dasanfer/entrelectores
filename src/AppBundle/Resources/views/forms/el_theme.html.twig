@@ -1,0 +1,20 @@
+{% block date_widget %}
+    {%if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        <div class="datebox clearfix" {{ block('widget_container_attributes') }}>
+            {{ date_pattern|replace({
+            '{{ year }}':  form_widget(form.year,{attr:{class:'select_box ano'}}),
+                '{{ month }}': form_widget(form.month,{attr:{class:'select_box mes'}}),
+                '{{ day }}':   form_widget(form.day,{attr:{class:'select_box dia'}}),
+            })|raw }}
+        </div>
+    {% endif %}
+{% endblock date_widget %}
+
+{%- block form_errors -%}
+   {%- if errors|length > 0 -%}
+       {%- for error in errors -%}
+           <span class="form-error">{{ error.message }}</span>
+       {%- endfor -%}
+{%- endif -%} {%- endblock form_errors -%}
